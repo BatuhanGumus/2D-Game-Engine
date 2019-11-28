@@ -11,7 +11,7 @@ void ArtemisEngine::Awake()
 	Sprite* playerShipSprite = new Sprite("Game/Assets/PNG/playerShip1_blue.png", 75, 99);
 	Sprite* enemyShipSprite = new Sprite("Game/Assets/PNG/Enemies/enemyBlack3.png", 84, 103);
 
-	
+	/*
 	for (int i = 0; i <= 8; i++)
 	{
 		for (int j = 0; j <= 6; j++)
@@ -19,8 +19,12 @@ void ArtemisEngine::Awake()
 			new GameObject("dot_" + i, dotSprite, new Transform(new Vector2(-4 + i, -3 + j), new Vector2(0.2, 0.2)), Static);
 		}
 	}
+	*/
 
 	//new Platform("plt", platformSprite, new Vector2(2, -2), new Vector2(1, 1));
-	GameObject* player = new PlayerShip("PlayerShip", playerShipSprite, new Vector2(0, -2), new Vector2(0.6, 0.6));
+	new PlayerShip("PlayerShip", playerShipSprite, new Vector2(0, -2), new Vector2(0.6, 0.6));
 	new EnemyShip("enemyShip", enemyShipSprite, new Vector2(0, 2), new Vector2(0.5, 0.5));
+
+	GameObject* dot = new GameObject("dot_", dotSprite, new Transform(new Vector2(-0, 0), new Vector2(0.4, 0.4)), Default);
+	delete dot;
 }

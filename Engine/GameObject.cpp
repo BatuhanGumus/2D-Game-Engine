@@ -64,10 +64,6 @@ void GameObject::OnTriggerExit(GameObject* other)
 
 GameObject::~GameObject()
 {
-	///working on delete stuff
-	///hello git
-
-	/*
 	delete transform;
 
 	for (int i = 0; i < ArtemisEngine::spawnedObjects.size(); i++)
@@ -78,5 +74,4 @@ GameObject::~GameObject()
 			break;
 		}
 	}
-	*/
 }
