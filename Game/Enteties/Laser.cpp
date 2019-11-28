@@ -10,9 +10,15 @@ GameObject(name, sprite, new Transform(pos, scale), Default)
 
 laser::~laser()
 {
+	delete rb;
 }
 
 void laser::Update()
 {
 	rb->velocity.y = laserSpeed;
+
+	if (transform->position->y > 1)
+	{
+		delete this;
+	}
 }

@@ -17,7 +17,7 @@ public:
 	double maxSpeed;
 	bool useGravity;
 
-	Vector2& velocity;
+	Vector2 velocity;
 
 	BoxCollider* collider;
 private:
