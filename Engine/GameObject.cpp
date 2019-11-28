@@ -1,8 +1,9 @@
 #include "ArtemisEngine.h"
 
-GameObject::GameObject(const char* name, Sprite* sprite, Transform* _transform, GameObjectType type) :
-transform(*_transform)
+GameObject::GameObject(const char* name, Sprite* sprite, Transform* _transform, GameObjectType type)
 {
+	this->transform = _transform;
+
 	this->sprite = sprite;
 	this->name = name;
 	this->type = type;
@@ -12,8 +13,8 @@ transform(*_transform)
 	srcRect.x = 0;
 	srcRect.y = 0;
 
-	destRect.w = sprite->pixelW * transform.scale->x * ArtemisEngine::pixW / 800.0;
-	destRect.h = sprite->pixelH * transform.scale->y * ArtemisEngine::pixH / 600.0;
+	destRect.w = sprite->pixelW * transform->scale->x * ArtemisEngine::pixW / 800.0;
+	destRect.h = sprite->pixelH * transform->scale->y * ArtemisEngine::pixH / 600.0;
 
 	ArtemisEngine::spawnedObjects.push_back(this);
 
@@ -30,8 +31,8 @@ void GameObject::Update()
 
 void GameObject::setDestRec()
 {
-	destRect.x = Vector2::cordToPixelX(transform.position->x) - srcRect.w * transform.scale->x * (ArtemisEngine::pixW / 800.0) / 2;
-	destRect.y = Vector2::cordToPixelY(transform.position->y) - srcRect.h * transform.scale->y * (ArtemisEngine::pixH / 600.0) / 2;
+	destRect.x = Vector2::cordToPixelX(transform->position->x) - srcRect.w * transform->scale->x * (ArtemisEngine::pixW / 800.0) / 2;
+	destRect.y = Vector2::cordToPixelY(transform->position->y) - srcRect.h * transform->scale->y * (ArtemisEngine::pixH / 600.0) / 2;
 }
 
 

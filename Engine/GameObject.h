@@ -25,7 +25,7 @@ public:
 	void virtual OnTriggerEnter(GameObject* other);
 	void virtual OnTriggerExit(GameObject* other);
 
-	Transform& transform;
+	Transform* transform;
 private:
 	Sprite* sprite;
 	

@@ -29,7 +29,7 @@ void PlayerShip::Update()
 
 	if (Input::GetKeyDown(SDLK_SPACE))
 	{
-		new laser("playerLaser", laserSprite, 10, new Vector2(transform.position->x, transform.position->y), new Vector2(1, 1));
+		new laser("playerLaser", laserSprite, 10, new Vector2(*transform->position), new Vector2(1, 1));
 	}
 
 	rb->velocity += acc;

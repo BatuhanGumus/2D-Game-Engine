@@ -27,7 +27,7 @@ void Physics::ApplyPhysics(RigidBody* body)
 	ApplyRules(body);
 	CheckCollision(body);
 
-	*body->gameObject.transform.position += body->velocity;
+	*body->gameObject.transform->position += body->velocity;
 }
 
 void Physics::ApplyRules(RigidBody* body)
@@ -77,20 +77,20 @@ void Physics::ApplyRules(RigidBody* body)
 
 void Physics::CheckCollision(RigidBody* body)
 {	
-	double mainXpos = body->gameObject.transform.position->x;
-	double mainYpos = body->gameObject.transform.position->y;
-	double mainToRight = body->collider->width * body->gameObject.transform.scale->x / 2;
-	double mainToUp = body->collider->height * body->gameObject.transform.scale->y / 2;
+	double mainXpos = body->gameObject.transform->position->x;
+	double mainYpos = body->gameObject.transform->position->y;
+	double mainToRight = body->collider->width * body->gameObject.transform->scale->x / 2;
+	double mainToUp = body->collider->height * body->gameObject.transform->scale->y / 2;
 
 	for (int i = 0; i < bodies.size(); i++)
 	{
 		if (&bodies[i]->gameObject != &body->gameObject)
 		{
 			bool collided = false;
-			double Xpos = bodies[i]->gameObject.transform.position->x;
-			double Ypos = bodies[i]->gameObject.transform.position->y;
-			double ToRight = bodies[i]->collider->width * bodies[i]->gameObject.transform.scale->x / 2;
-			double ToUp = bodies[i]->collider->height * bodies[i]->gameObject.transform.scale->y / 2;
+			double Xpos = bodies[i]->gameObject.transform->position->x;
+			double Ypos = bodies[i]->gameObject.transform->position->y;
+			double ToRight = bodies[i]->collider->width * bodies[i]->gameObject.transform->scale->x / 2;
+			double ToUp = bodies[i]->collider->height * bodies[i]->gameObject.transform->scale->y / 2;
 
 			for (int j = 0; j < 4; j++)
 			{

@@ -7,6 +7,12 @@ Vector2::Vector2(double x, double y)
 	this->y = y;
 }
 
+Vector2::Vector2(const Vector2& copyVec)
+{
+	this->x = copyVec.x;
+	this->y = copyVec.y;
+}
+
 int Vector2::cordToPixelX(double cord)
 {
 	return  cord * ArtemisEngine::pixW / 8 + ArtemisEngine::pixW / 2;
