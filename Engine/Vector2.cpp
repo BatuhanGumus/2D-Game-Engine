@@ -1,10 +1,18 @@
 #include "Vector2.h"
 #include "ArtemisEngine.h"
 
+Vector2::Vector2() : Vector2(0, 0) {}
+
 Vector2::Vector2(double x, double y)
 {
 	this->x = x;
 	this->y = y;
+}
+
+Vector2::Vector2(const Vector2& copyVec)
+{
+	this->x = copyVec.x;
+	this->y = copyVec.y;
 }
 
 int Vector2::cordToPixelX(double cord)

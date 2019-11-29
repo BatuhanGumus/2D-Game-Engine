@@ -7,7 +7,6 @@ class Ship : public GameObject
 public:
 	Ship(const char* name, Sprite* sprite, Vector2* pos, Vector2* scale);
 	~Ship();
-	RigidBody* rb;
 	double speed;
 private:
 	

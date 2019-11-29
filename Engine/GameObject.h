@@ -4,6 +4,8 @@
 #include <../../CENG241Platformer/CENG241Platformer/Engine/Transform.h>
 #include "Sprite.h"
 
+class RigidBody;
+
 enum GameObjectType
 {
 	Default,
@@ -25,7 +27,8 @@ public:
 	void virtual OnTriggerEnter(GameObject* other);
 	void virtual OnTriggerExit(GameObject* other);
 
-	Transform& transform;
+	Transform* transform;
+	RigidBody* rigidBody;
 private:
 	Sprite* sprite;
 	

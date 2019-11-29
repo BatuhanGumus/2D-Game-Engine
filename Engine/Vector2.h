@@ -2,7 +2,9 @@
 class Vector2
 {
 public:
+	Vector2();
 	Vector2(double x, double y);
+	Vector2(const Vector2& copyVec);
 
 	double x, y;
 

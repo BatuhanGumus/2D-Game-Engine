@@ -19,8 +19,10 @@ void ArtemisEngine::Awake()
 			new GameObject("dot_" + i, dotSprite, new Transform(new Vector2(-4 + i, -3 + j), new Vector2(0.2, 0.2)), Static);
 		}
 	}
+	
 
 	//new Platform("plt", platformSprite, new Vector2(2, -2), new Vector2(1, 1));
-	GameObject* player = new PlayerShip("PlayerShip", playerShipSprite, new Vector2(0, -2), new Vector2(0.6, 0.6));
+	new PlayerShip("PlayerShip", playerShipSprite, new Vector2(0, -2), new Vector2(0.6, 0.6));
 	new EnemyShip("enemyShip", enemyShipSprite, new Vector2(0, 2), new Vector2(0.5, 0.5));
+
 }
