@@ -12,4 +12,5 @@ public:
 
 private:
 	Sprite* laserSprite;
+	Vector2 acc;
 };

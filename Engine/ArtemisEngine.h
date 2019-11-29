@@ -20,7 +20,7 @@ public:
 	void Awake();
 
 	static SDL_Renderer* renderer;
-	static SDL_Event event;
+	SDL_Event event;
 
 	static std::vector<GameObject*> spawnedObjects;
 

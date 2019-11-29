@@ -4,7 +4,6 @@
 #include "Input.h"
 
 SDL_Renderer* ArtemisEngine::renderer = nullptr;
-SDL_Event ArtemisEngine::event;
 std::vector<GameObject*> ArtemisEngine::spawnedObjects;
 int ArtemisEngine::pixW;
 int ArtemisEngine::pixH;
@@ -57,17 +56,26 @@ ArtemisEngine::~ArtemisEngine()
 
 void ArtemisEngine::HandleEvents()
 {
-	
-	SDL_PollEvent(&event);
+	Input::ClearInputBuffer();
 
-	switch (event.type)
+	while (SDL_PollEvent(&event))
 	{
-	case SDL_QUIT:
-		isRunning = false;
-		break;
-	default:
-		break;
+		switch (event.type)
+		{
+		case SDL_QUIT:
+			isRunning = false;
+			break;
+		case SDL_KEYDOWN:
+			Input::PassInFrameInput(event.key);
+			break;
+		case SDL_KEYUP:
+			Input::PassInFrameInput(event.key);
+			break;
+		default:
+			break;
+		}
 	}
+
 }
 
 void ArtemisEngine::Update()

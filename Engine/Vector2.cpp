@@ -75,3 +75,10 @@ Vector2& Vector2::operator = (const Vector2& v2)
 	this->y = v2.y;
 	return *this;
 }
+
+Vector2& Vector2::operator=(double value)
+{
+	this->x = value;
+	this->y = value;
+	return *this;
+}

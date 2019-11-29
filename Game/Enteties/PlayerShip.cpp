@@ -11,20 +11,15 @@ Ship(name, sprite, pos, scale)
 	laserSprite = new Sprite("Game/Assets/PNG/Lasers/laserBlue06.png", 37, 13);
 }
 
-Vector2 acc(0, 0);
 void PlayerShip::Update()
 {
-	if (Input::GetKeyDown(SDLK_d))
+	if (Input::GetKey(SDLK_d))
 	{
-		acc.x = speed;
+		acc.x += speed;
 	}
-	if (Input::GetKeyDown(SDLK_a))
+	if (Input::GetKey(SDLK_a))
 	{
-		acc.x = -speed;
-	}
-	if (Input::GetKeyUp(SDLK_d) || Input::GetKeyUp(SDLK_a))
-	{
-		acc.x = 0;
+		acc.x -= speed;
 	}
 
 	if (Input::GetKeyDown(SDLK_SPACE))
@@ -33,6 +28,7 @@ void PlayerShip::Update()
 	}
 
 	rigidBody->velocity += acc;
+	acc.x = 0;
 }
 
 void PlayerShip::OnTriggerEnter(GameObject* hit)
