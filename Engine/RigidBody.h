@@ -7,7 +7,7 @@
 class RigidBody
 {
 public:
-	RigidBody(GameObject* gameObject, double drag, double maxSpeed, bool useGravity, BoxCollider* collider);
+	RigidBody(GameObject* _gameObject, double drag, double maxSpeed, bool useGravity, BoxCollider* collider);
 	~RigidBody();
 
 	void CallCollision(GameObject* other);

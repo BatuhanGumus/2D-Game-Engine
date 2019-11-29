@@ -1,9 +1,11 @@
 #include "RigidBody.h"
 #include "Physics.h"
 
-RigidBody::RigidBody(GameObject* gameObject, double drag, double maxSpeed, bool useGravity, BoxCollider* collider) :
-gameObject(*gameObject)
+RigidBody::RigidBody(GameObject* _gameObject, double drag, double maxSpeed, bool useGravity, BoxCollider* collider) :
+gameObject(*_gameObject)
 {
+	gameObject.rigidBody = this;
+
 	this->drag = drag;
 	this->maxSpeed = maxSpeed;
 	this->useGravity = useGravity;

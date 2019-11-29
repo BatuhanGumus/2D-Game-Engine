@@ -1,7 +1,4 @@
 #pragma once
-#include "../../Engine/GameObject.h"
-#include "../../Engine/Vector2.h"
-#include "../../Engine/Sprite.h"
 #include "Ship.h"
 
 class PlayerShip : public Ship

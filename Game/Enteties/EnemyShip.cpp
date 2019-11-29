@@ -8,4 +8,5 @@ Ship(name, sprite, pos, scale)
 
 EnemyShip::~EnemyShip()
 {
+
 }

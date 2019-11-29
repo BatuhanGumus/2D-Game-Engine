@@ -65,6 +65,7 @@ void GameObject::OnTriggerExit(GameObject* other)
 GameObject::~GameObject()
 {
 	delete transform;
+	delete rigidBody;
 
 	for (int i = 0; i < ArtemisEngine::spawnedObjects.size(); i++)
 	{
