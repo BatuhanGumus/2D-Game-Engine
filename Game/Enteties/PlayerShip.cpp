@@ -1,6 +1,5 @@
 #include "PlayerShip.h"
 #include "../../Engine/Input.h"
-#include <iostream>
 #include "../../Engine/Time.h"
 #include "Laser.h"
 
@@ -11,8 +10,19 @@ Ship(name, sprite, pos, scale)
 	laserSprite = new Sprite("Game/Assets/PNG/Lasers/laserBlue06.png", 37, 13);
 }
 
+double timeSince = 1;
+bool canShot = true;
 void PlayerShip::Update()
 {
+	if (timeSince < 0.2)
+	{
+		timeSince += Time::fixedDeltaTime;
+	}
+	else
+	{
+		canShot = true;
+	}
+
 	if (Input::GetKey(SDLK_d))
 	{
 		acc.x += speed;
@@ -22,9 +32,15 @@ void PlayerShip::Update()
 		acc.x -= speed;
 	}
 
-	if (Input::GetKeyDown(SDLK_SPACE))
+	if (Input::GetKey(SDLK_SPACE))
 	{
-		new laser("playerLaser", laserSprite, 10, new Vector2(*transform->position), new Vector2(1, 1));
+		if (canShot == true)
+		{
+			new laser("playerLaser", laserSprite, 15, new Vector2(*transform->position), new Vector2(1, 1));
+			timeSince = 0;
+			canShot = false;
+		}
+		
 	}
 
 	rigidBody->velocity += acc;
@@ -33,11 +49,11 @@ void PlayerShip::Update()
 
 void PlayerShip::OnTriggerEnter(GameObject* hit)
 {
-	std::cout << "Entered " << hit->name << std::endl;
+	
 }
 
 void PlayerShip::OnTriggerExit(GameObject* hit)
 {
-	std::cout << "Exited " << hit->name << std::endl;
+	
 }
 

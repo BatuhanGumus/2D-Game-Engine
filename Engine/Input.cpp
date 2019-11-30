@@ -1,5 +1,4 @@
 #include "Input.h"
-#include <iostream>
 
 std::vector<SDL_KeyboardEvent> Input::frameInput;
 std::vector<SDL_Keycode> Input::heldButtons;

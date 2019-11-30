@@ -80,7 +80,6 @@ void ArtemisEngine::HandleEvents()
 
 void ArtemisEngine::Update()
 {
-	
 	for (int i = 0; i < spawnedObjects.size(); i++)
 	{
 		spawnedObjects[i]->Update();

@@ -29,9 +29,8 @@ public:
 
 	Transform* transform;
 	RigidBody* rigidBody;
-private:
 	Sprite* sprite;
-	
+private:
 	SDL_Rect srcRect, destRect;
 
 	void setDestRec();
