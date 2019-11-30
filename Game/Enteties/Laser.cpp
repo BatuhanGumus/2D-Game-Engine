@@ -29,8 +29,8 @@ void laser::OnTriggerEnter(GameObject* other)
 {
 	if (other->name == "enemyShip")
 	{
-		EnemyShip* enShip = dynamic_cast<EnemyShip*>(other);
-		enShip->Damage(1);
+		other->getDerived<EnemyShip>()->Damage(1);
+
 		delete this;
 	}
 }

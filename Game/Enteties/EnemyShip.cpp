@@ -6,7 +6,7 @@ Ship(name, sprite, pos, scale)
 	maxhp = 3;
 	hp = maxhp;
 	distToText = * new Vector2(0, 0.4);
-	hpText = new Text("3/3", { 255,255,255,255 }, "Cut_Deep", 30, *pos + distToText);
+	hpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 255,255,255,255 }, "Cut_Deep", 30, *pos + distToText);
 }
 
 EnemyShip::~EnemyShip()

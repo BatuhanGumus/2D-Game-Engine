@@ -35,7 +35,6 @@ void GameObject::setDestRec()
 	destRect.y = Vector2::cordToPixelY(transform->position->y) - srcRect.h * transform->scale->y * (ArtemisEngine::pixH / 600.0) / 2;
 }
 
-
 void GameObject::Render()
 {
 	if (this->type == Default)

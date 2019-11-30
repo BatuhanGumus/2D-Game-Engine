@@ -21,6 +21,12 @@ public:
 	GameObject(const char* name, Sprite* sprite, Transform* _transform, GameObjectType type);
 	~GameObject();
 
+	template <typename DerivedType> 
+	DerivedType* getDerived()
+	{
+		return dynamic_cast<DerivedType*>(this);
+	}
+
 	void virtual Update();
 	void Render();
 	void virtual OnTrigger(GameObject* other);
