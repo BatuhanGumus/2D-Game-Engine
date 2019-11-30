@@ -1,8 +1,10 @@
 #include "../Engine/ArtemisEngine.h"
+#include "../Engine/FontManager.h"
 
 #include "Enteties/Platform.h"
 #include "Enteties/PlayerShip.h"
 #include "Enteties/EnemyShip.h"
+
 
 void ArtemisEngine::Awake()
 {
@@ -10,6 +12,9 @@ void ArtemisEngine::Awake()
 	Sprite* platformSprite = new Sprite("Game/Assets/Textures/platform.png", 80, 320);
 	Sprite* playerShipSprite = new Sprite("Game/Assets/PNG/playerShip1_blue.png", 75, 99);
 	Sprite* enemyShipSprite = new Sprite("Game/Assets/PNG/Enemies/enemyBlack3.png", 84, 103);
+
+	FontManager::LoadFont("Cut_Deep" ,"Game/Assets/fonts/Cut_deep.otf", 20);
+
 	/*
 	
 	for (int i = 0; i <= 8; i++)

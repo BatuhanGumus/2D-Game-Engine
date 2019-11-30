@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include <vector>
 #include "Physics.h"
+#include "Text.h"
 
 class ArtemisEngine
 {
@@ -23,6 +24,7 @@ public:
 	SDL_Event event;
 
 	static std::vector<GameObject*> spawnedObjects;
+	static std::vector<Text*> textsToRender;
 
 	static int pixW;
 	static int pixH;

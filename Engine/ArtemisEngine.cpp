@@ -4,7 +4,10 @@
 #include "Input.h"
 
 SDL_Renderer* ArtemisEngine::renderer = nullptr;
+
 std::vector<GameObject*> ArtemisEngine::spawnedObjects;
+std::vector<Text*> ArtemisEngine::textsToRender;
+
 int ArtemisEngine::pixW;
 int ArtemisEngine::pixH;
 double ArtemisEngine::pixPerWorld;
@@ -34,6 +37,11 @@ ArtemisEngine::ArtemisEngine(const char* title, int xPos, int yPos, int widthPX,
 		{
 			SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 			std::cout << "Renderer created!" << std::endl;
+		}
+
+		if (TTF_Init() == -1)
+		{
+			std::cout << "Text Renderer Init Error" << std::endl;
 		}
 
 		isRunning = true;
@@ -95,6 +103,11 @@ void ArtemisEngine::Render()
 		spawnedObjects[i]->Render();
 	}
 
+	for (int i = 0; i < textsToRender.size(); i++)
+	{
+		textsToRender[i]->Render();
+	}
+
 	SDL_RenderPresent(renderer);
 }
 
@@ -102,6 +115,7 @@ void ArtemisEngine::Clean()
 {
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
+	TTF_Quit();
 	SDL_Quit();
 	std::cout << "Game cleaned!" << std::endl;
 }

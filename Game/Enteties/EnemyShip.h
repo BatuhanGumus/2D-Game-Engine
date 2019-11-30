@@ -3,6 +3,7 @@
 #include "../../Engine/Sprite.h"
 #include "../../Engine/GameObject.h"
 #include "Ship.h"
+#include "../../Engine/Text.h"
 
 class EnemyShip : public Ship
 {
@@ -13,6 +14,7 @@ public:
 	int maxhp, hp;
 	void Damage(int dmg);
 private:
-
+	Text* hpText;
+	Vector2 distToText;
 };
 

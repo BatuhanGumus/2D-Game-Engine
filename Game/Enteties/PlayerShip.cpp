@@ -8,6 +8,7 @@ Ship(name, sprite, pos, scale)
 {
 	speed = 1.3 * Time::fixedDeltaTime;
 	laserSprite = new Sprite("Game/Assets/PNG/Lasers/laserBlue06.png", 37, 13);
+
 }
 
 double timeSince = 1;
