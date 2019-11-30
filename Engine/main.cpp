@@ -3,6 +3,8 @@
 #include "Input.h"
 #include <iostream>
 #include "Time.h"
+#include <ctime>
+#include <cstdlib>
 
 void ConsoleInput()
 {
@@ -24,6 +26,8 @@ void ConsoleInput()
 
 int main(int args, char* argv[])
 {
+	std::srand(std::time(NULL));
+
 	const int pixelW = 1200, pixelH = 900;
 	const double pixelPerWorldDist = 100.0;
 

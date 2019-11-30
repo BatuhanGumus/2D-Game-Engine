@@ -10,4 +10,5 @@ Sprite::Sprite(const char* textureSheet, int pixelH, int pixelW)
 
 Sprite::~Sprite()
 {
+	SDL_DestroyTexture(Texture);
 }

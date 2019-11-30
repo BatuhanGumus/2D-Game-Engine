@@ -27,10 +27,12 @@ void ArtemisEngine::Awake()
 	*/
 
 	//new Platform("plt", platformSprite, new Vector2(2, -2), new Vector2(1, 1));
-	new PlayerShip("PlayerShip", playerShipSprite, new Vector2(0, -2.5), new Vector2(0.6, 0.6));
+	new PlayerShip("PlayerShip", playerShipSprite, new Vector2(0, -2.3), new Vector2(0.6, 0.6));
 
-	new EnemyShip("enemyShip", enemyShipSprite, new Vector2(0, 1.6), new Vector2(0.5, 0.5));
-	new EnemyShip("enemyShip", enemyShipSprite, new Vector2(1, 2), new Vector2(0.5, 0.5));
-	new EnemyShip("enemyShip", enemyShipSprite, new Vector2(-1, 2), new Vector2(0.5, 0.5));
+	new EnemyShip("enemyShip", enemyShipSprite, new Vector2(0, 1.3), new Vector2(0.5, 0.5));
+	new EnemyShip("enemyShip", enemyShipSprite, new Vector2(1, 2.2), new Vector2(0.5, 0.5));
+	new EnemyShip("enemyShip", enemyShipSprite, new Vector2(-1, 2.2), new Vector2(0.5, 0.5));
+	new EnemyShip("enemyShip", enemyShipSprite, new Vector2(2, 1.6), new Vector2(0.5, 0.5));
+	new EnemyShip("enemyShip", enemyShipSprite, new Vector2(-2, 1.6), new Vector2(0.5, 0.5));
 
 }

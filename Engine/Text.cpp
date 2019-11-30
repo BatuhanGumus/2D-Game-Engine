@@ -1,6 +1,6 @@
 #include "Text.h"
-#include "FontManager.h"
 #include "ArtemisEngine.h"
+#include "FontManager.h"
 
 Text::Text(std::string _text, SDL_Color _color, std::string _fontName, int _fontSize, Vector2 _position)
 {
@@ -42,7 +42,7 @@ void Text::Render()
 	int textW = 0, textH = 0;
 
 	SDL_QueryTexture(tex, NULL, NULL, &textW, &textH);
-	SDL_Rect dstrect = {Vector2::cordToPixelX(position.x) - textW / 2, Vector2::cordToPixelY(position.y) - textH / 2, textW, textH };
+	SDL_Rect dstrect = {Vector2::cordToPixelX(position.x) - textW * fontSize / 2, Vector2::cordToPixelY(position.y) - textH * fontSize / 2, textW * fontSize, textH * fontSize };
 
 	SDL_RenderCopy(ArtemisEngine::renderer, tex, NULL, &dstrect);
 
