@@ -19,6 +19,7 @@ public:
 	bool IsGameRunning();
 
 	void Awake();
+	void LoadAssets();
 
 	static SDL_Renderer* renderer;
 	SDL_Event event;

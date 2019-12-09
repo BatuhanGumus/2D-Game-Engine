@@ -6,24 +6,6 @@
 #include <ctime>
 #include <cstdlib>
 
-void ConsoleInput()
-{
-	std::cout 
-	<< std::endl 
-	<< "============" << std::endl 
-	<< "Game Paused!" << std::endl
-	<< "============" << std::endl 
-	<< std::endl;
-
-
-
-	std::cout << ">";
-
-	std::string Input;
-	std::cin >> Input;
-	std::cout << Input << std::endl;
-}
-
 int main(int args, char* argv[])
 {
 	std::srand(std::time(NULL));
@@ -41,15 +23,12 @@ int main(int args, char* argv[])
 
 	ArtemisEngine* engine = new ArtemisEngine("Platformer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, pixelW, pixelH, false);
 	ArtemisEngine::pixPerWorld = pixelPerWorldDist;
+	
+	engine->LoadAssets();
 	engine->Awake();
 
 	while (engine->IsGameRunning() == true)
 	{
-		if (Input::GetKeyDown(SDLK_BACKQUOTE))
-		{
-			ConsoleInput();
-		}
-
 		frameStart = SDL_GetTicks();
 
 		engine->HandleEvents();

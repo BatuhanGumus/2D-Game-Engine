@@ -1,6 +1,6 @@
 #pragma once
 #include "../../Engine/Vector2.h"
-#include "../../Engine/Sprite.h"
+#include "../../Engine/SpriteManager.h"
 #include "Ship.h"
 
 class EnemyShip : public Ship
@@ -16,7 +16,7 @@ public:
 private:
 	
 	Vector2 distToText;
-	static  Sprite* laserSprite;
+	Sprite* laserSprite;
 	double timeSinceShot;
 	double randTime;
 	void RandTimeForShot();

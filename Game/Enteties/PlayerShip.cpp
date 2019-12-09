@@ -2,6 +2,7 @@
 #include "../../Engine/Input.h"
 #include "../../Engine/Time.h"
 #include "Laser.h"
+#include "../../Engine/SpriteManager.h"
 
 Sprite* PlayerShip::laserSprite = nullptr;
 
@@ -10,7 +11,7 @@ Ship(name, sprite, pos, scale)
 {
 	speed = 1.3 * Time::fixedDeltaTime;
 	delete laserSprite;
-	laserSprite = new Sprite("Game/Assets/PNG/Lasers/laserBlue06.png", 37, 13);
+	laserSprite = SpriteManager::GetSprite("PlayerLaser");
 	maxhp = 6;
 	hp = maxhp;
 

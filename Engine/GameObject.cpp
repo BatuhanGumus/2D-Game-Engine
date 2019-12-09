@@ -1,4 +1,5 @@
 #include "ArtemisEngine.h"
+#include "SpriteManager.h"
 
 GameObject::GameObject(const char* name, Sprite* sprite, Transform* _transform, GameObjectType type)
 {

@@ -4,7 +4,6 @@
 #include "Laser.h"
 
 int EnemyShip::EnemyShipCount = 0;
-Sprite* EnemyShip::laserSprite = nullptr;
 
 EnemyShip::EnemyShip(const char* name, Sprite* sprite, Vector2* pos, Vector2* scale) :
 Ship(name, sprite, pos, scale)
@@ -14,8 +13,7 @@ Ship(name, sprite, pos, scale)
 	distToText = * new Vector2(0, 0.4);
 	hpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 255,255,255,255 }, "Cut_Deep", 1, *pos + distToText);
 	EnemyShipCount++;
-	delete laserSprite;
-	laserSprite = new Sprite("Game/Assets/PNG/Lasers/laserRed05.png", 37, 9);
+	laserSprite = SpriteManager::GetSprite("lol");
 	RandTimeForShot();
 }
 
