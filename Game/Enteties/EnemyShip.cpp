@@ -2,6 +2,7 @@
 #include "cstdlib"
 #include "../../Engine/Time.h"
 #include "Laser.h"
+#include <iostream>
 
 int EnemyShip::EnemyShipCount = 0;
 
@@ -10,11 +11,15 @@ Ship(name, sprite, pos, scale)
 {
 	maxhp = 3;
 	hp = maxhp;
-	distToText = * new Vector2(0, 0.4);
-	hpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 255,255,255,255 }, "Cut_Deep", 1, *pos + distToText);
+	
 	EnemyShipCount++;
 	laserSprite = SpriteManager::GetSprite("EnemyLaser");
 	RandTimeForShot();
+	spawnedPos = *transform->position;
+	transform->position->y = pos->y + 1;
+
+	distToText = *new Vector2(0, 0.4);
+	hpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 255,255,255,255 }, "Cut_Deep", 1, *pos + distToText);
 }
 
 EnemyShip::~EnemyShip()
@@ -35,6 +40,19 @@ void EnemyShip::Update()
 
 		new laser("EnemyLaser", laserSprite, -7, new Vector2(*transform->position), new Vector2(1, 1));
 	}
+
+	double dist = Vector2::Distance(spawnedPos, *transform->position);
+	if (dist > 0.05)
+	{
+		Vector2 dir = Vector2::Normalize(*transform->position - spawnedPos) * -dist * Time::fixedDeltaTime;
+		rigidBody->velocity.y = dir.y;
+	}
+	else
+	{
+		rigidBody->velocity.y = 0;
+	}
+
+	hpText->position = *transform->position + distToText;
 }
 
 void EnemyShip::Damage(int dmg)

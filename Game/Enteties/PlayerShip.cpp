@@ -15,7 +15,7 @@ Ship(name, sprite, pos, scale)
 	maxhp = 20;
 	hp = maxhp;
 
-	hpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 40,40,100,255 }, "Cut_Deep", 2, Vector2(-3.5, -2.7));
+	hpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 100,100,150,255 }, "Cut_Deep", 2.5, Vector2(-3.2, -2.5));
 }
 
 PlayerShip::~PlayerShip()

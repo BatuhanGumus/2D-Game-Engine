@@ -22,5 +22,6 @@ private:
 	double timeSinceShot;
 	double randTime;
 	void RandTimeForShot();
+	Vector2 spawnedPos;
 };
 

@@ -1,5 +1,6 @@
 #include "Vector2.h"
 #include "ArtemisEngine.h"
+#include <iostream>
 
 Vector2::Vector2() : Vector2(0, 0) {}
 
@@ -23,6 +24,19 @@ int Vector2::cordToPixelX(double cord)
 int Vector2::cordToPixelY(double cord)
 {
 	return  ArtemisEngine::pixH / 2 - cord * ArtemisEngine::pixH / 6;
+}
+
+double Vector2::Distance(const Vector2& p1, const Vector2& p2)
+{
+	double xLen = p1.x - p2.x;
+	double yLen = p1.y - p2.y;
+	return sqrt(xLen * xLen + yLen * yLen);
+}
+
+Vector2& Vector2::Normalize(Vector2& vec)
+{
+	double len = sqrt(vec.x * vec.x + vec.y * vec.y);
+	return vec / len;
 }
 
 Vector2& Vector2::Add(const Vector2& vec)
