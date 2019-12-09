@@ -13,7 +13,7 @@ Ship(name, sprite, pos, scale)
 	distToText = * new Vector2(0, 0.4);
 	hpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 255,255,255,255 }, "Cut_Deep", 1, *pos + distToText);
 	EnemyShipCount++;
-	laserSprite = SpriteManager::GetSprite("lol");
+	laserSprite = SpriteManager::GetSprite("EnemyLaser");
 	RandTimeForShot();
 }
 
@@ -49,7 +49,7 @@ void EnemyShip::Damage(int dmg)
 
 		if (EnemyShipCount <= 0)
 		{
-			new Text("WON!", { 0,0,200,255 }, "Cut_Deep", 10, Vector2(0, 0));
+			GM->SpawnEnemyWave();
 		}
 
 		delete this;

@@ -8,8 +8,6 @@ void SpriteManager::LoadSprite(const char* textureSheet, int pixelH, int pixelW,
 	Sprite* spriteAdd = new Sprite(textureSheet, pixelH, pixelW, _name);
 
 	sprites.push_back(spriteAdd);
-
-	std::cout << "added (" << spriteAdd->name << ")" << std::endl;
 }
 
 Sprite* SpriteManager::GetSprite(std::string _name)

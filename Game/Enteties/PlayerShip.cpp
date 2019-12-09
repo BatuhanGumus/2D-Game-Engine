@@ -12,7 +12,7 @@ Ship(name, sprite, pos, scale)
 	speed = 1.3 * Time::fixedDeltaTime;
 	delete laserSprite;
 	laserSprite = SpriteManager::GetSprite("PlayerLaser");
-	maxhp = 6;
+	maxhp = 20;
 	hp = maxhp;
 
 	hpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 40,40,100,255 }, "Cut_Deep", 2, Vector2(-3.5, -2.7));
@@ -68,7 +68,6 @@ void PlayerShip::Damage(int dmg)
 
 	if (hp <= 0)
 	{
-		new Text("Lost!", { 200,0,0,255 }, "Cut_Deep", 9, Vector2(0, 0));
 		delete this;
 	}
 }

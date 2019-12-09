@@ -2,6 +2,7 @@
 #include "../../Engine/Vector2.h"
 #include "../../Engine/SpriteManager.h"
 #include "Ship.h"
+#include "../GameManager.h"
 
 class EnemyShip : public Ship
 {
@@ -13,6 +14,7 @@ public:
 	void Damage(int dmg);
 
 	static int EnemyShipCount;
+	GameManager* GM;
 private:
 	
 	Vector2 distToText;
