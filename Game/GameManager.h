@@ -18,6 +18,7 @@ public:
 	void CheckGameState();
 	void PlayerDiedCall();
 	bool getGameState();
+	void removeEnemyShip(EnemyShip* ship);
 
 	static GameManager* instance;
 

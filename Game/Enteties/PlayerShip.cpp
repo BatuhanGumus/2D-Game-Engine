@@ -12,7 +12,7 @@ Ship(name, sprite, pos, scale)
 	speed = 1.3 * Time::fixedDeltaTime;
 	delete laserSprite;
 	laserSprite = SpriteManager::GetSprite("PlayerLaser");
-	maxhp = 3;
+	maxhp = 5;
 	hp = maxhp;
 
 	playerHpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 100,100,150,255 }, "Cut_Deep", 2.5, Vector2(-3.2, -2.5));

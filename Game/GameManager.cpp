@@ -45,11 +45,6 @@ GameManager::GameManager()
 
 void GameManager::RestartGame()
 {
-	if (playerShip != nullptr)
-	{
-		delete playerShip;
-	}
-
 	SpawnPlayer();
 	DeleteAllEnemies();
 	SpawnEnemyWave();
@@ -67,7 +62,8 @@ void GameManager::SpawnEnemyWave()
 {
 	for (int i = 0; i < 5; i++)
 	{
-		enemyShips[i] = new EnemyShip("enemyShip", enemySprite, new Vector2(-2 + i, 1.8 - pow(-1, i) * 0.4), new Vector2(0.5, 0.5));
+		enemyShips[i] = new EnemyShip("enemyShip", enemySprite,
+			new Vector2(-2 + i, 1.8 - pow(-1, i) * 0.4), new Vector2(0.5, 0.5));
 	}
 
 	waveCount++;
@@ -82,8 +78,11 @@ void GameManager::DeleteAllEnemies()
 		if (enemyShips[i] != nullptr)
 		{
 			delete enemyShips[i];
+			enemyShips[i] = nullptr;
 		}
 	}
+
+	EnemyShip::EnemyShipCount = 0;
 }
 
 void GameManager::SpawnPlayer()
@@ -109,4 +108,15 @@ void GameManager::PlayerDiedCall()
 bool GameManager::getGameState()
 {
 	return gameEnded;
+}
+
+void GameManager::removeEnemyShip(EnemyShip* ship)
+{
+	for (int i = 0; i < 5; i++)
+	{
+		if (enemyShips[i] == ship)
+		{
+			enemyShips[i] = nullptr;
+		}
+	}
 }

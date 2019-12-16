@@ -66,10 +66,7 @@ void EnemyShip::Update()
 		sideSpeed = 2;
 	}
 
-	if (GameManager::instance->getGameState() == false)
-	{
-		rigidBody->velocity.x = sideSpeed * Time::fixedDeltaTime;
-	}
+	rigidBody->velocity.x = sideSpeed * Time::fixedDeltaTime;
 
 	hpText->position = *transform->position + distToText;
 }
@@ -84,8 +81,9 @@ void EnemyShip::Damage(int dmg)
 	{
 		EnemyShipCount--;
 
+		GameManager::instance->removeEnemyShip(this);
 		GameManager::instance->CheckGameState();
-
+		
 		delete this;
 	}
 }
