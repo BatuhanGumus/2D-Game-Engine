@@ -1,7 +1,5 @@
 #include "SDL.h"
 #include "ArtemisEngine.h"
-#include "Input.h"
-#include <iostream>
 #include "Time.h"
 #include <ctime>
 #include <cstdlib>
@@ -35,6 +33,7 @@ int main(int args, char* argv[])
 		engine->Update();
 		engine->physicsEngine->Update();
 		engine->Render();
+
 
 		frameTime = SDL_GetTicks() - frameStart;
 

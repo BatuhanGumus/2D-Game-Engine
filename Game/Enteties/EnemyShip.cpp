@@ -2,7 +2,7 @@
 #include "cstdlib"
 #include "../../Engine/Time.h"
 #include "Laser.h"
-#include <iostream>
+#include "../../Engine/SpriteManager.h"
 
 int EnemyShip::EnemyShipCount = 0;
 
@@ -38,23 +38,13 @@ void EnemyShip::Update()
 	{
 		timeSinceShot += Time::fixedDeltaTime;
 	}
-	else
+	else if (GameManager::instance->getGameState() == false)
 	{
 		timeSinceShot = 0;
 		RandTimeForShot();
 
 		new laser("EnemyLaser", laserSprite, -7, new Vector2(*transform->position), new Vector2(1, 1));
 	}
-
-	if (transform->position->x - spawnedPos.x > 0.7)
-	{
-		sideSpeed = -2;
-	}
-	else if (transform->position->x - spawnedPos.x < -0.7)
-	{
-		sideSpeed = 2;
-	}
-	
 	
 	double dist = Vector2::Distance(spawnedPos, *transform->position);
 	if (dist > 0.05)
@@ -67,7 +57,20 @@ void EnemyShip::Update()
 		rigidBody->velocity.y = 0;
 	}
 
-	rigidBody->velocity.x = sideSpeed * Time::fixedDeltaTime;
+	if (transform->position->x - spawnedPos.x > 0.7)
+	{
+		sideSpeed = -2;
+	}
+	else if (transform->position->x - spawnedPos.x < -0.7)
+	{
+		sideSpeed = 2;
+	}
+
+	if (GameManager::instance->getGameState() == false)
+	{
+		rigidBody->velocity.x = sideSpeed * Time::fixedDeltaTime;
+	}
+
 	hpText->position = *transform->position + distToText;
 }
 
@@ -81,10 +84,7 @@ void EnemyShip::Damage(int dmg)
 	{
 		EnemyShipCount--;
 
-		if (EnemyShipCount <= 0)
-		{
-			GM->SpawnEnemyWave();
-		}
+		GameManager::instance->CheckGameState();
 
 		delete this;
 	}
@@ -92,5 +92,5 @@ void EnemyShip::Damage(int dmg)
 
 void EnemyShip::RandTimeForShot()
 {
-	randTime = rand() * 1.0 / RAND_MAX * 1.5 + 0.5;
+	randTime = (rand() * 1.0 / RAND_MAX) * 1.5 + 1;
 }

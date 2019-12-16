@@ -1,16 +1,15 @@
 #pragma once
 #include "../../Engine/GameObject.h"
 #include "../../Engine/RigidBody.h"
-#include "../../Engine/Text.h"
+#include "../GameManager.h"
 
 class Ship : public GameObject
 {
 public:
 	Ship(const char* name, Sprite* sprite, Vector2* pos, Vector2* scale);
 	~Ship();
-	double speed;
+	virtual void Damage(int dmg) = 0;
+protected:
 	int maxhp, hp;
-	Text* hpText;
-private:
-	
+	Sprite* laserSprite;
 };

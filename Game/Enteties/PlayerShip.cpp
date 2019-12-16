@@ -4,8 +4,6 @@
 #include "Laser.h"
 #include "../../Engine/SpriteManager.h"
 
-Sprite* PlayerShip::laserSprite = nullptr;
-
 PlayerShip::PlayerShip(const char* name, Sprite* sprite, Vector2* pos, Vector2* scale) : 
 Ship(name, sprite, pos, scale)
 {
@@ -14,10 +12,11 @@ Ship(name, sprite, pos, scale)
 	speed = 1.3 * Time::fixedDeltaTime;
 	delete laserSprite;
 	laserSprite = SpriteManager::GetSprite("PlayerLaser");
-	maxhp = 20;
+	maxhp = 3;
 	hp = maxhp;
 
-	hpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 100,100,150,255 }, "Cut_Deep", 2.5, Vector2(-3.2, -2.5));
+	playerHpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 100,100,150,255 }, "Cut_Deep", 2.5, Vector2(-3.2, -2.5));
+
 }
 
 PlayerShip::~PlayerShip()
@@ -66,10 +65,13 @@ void PlayerShip::Damage(int dmg)
 {
 	hp -= dmg;
 
-	hpText->text = std::to_string(hp) + "/" + std::to_string(maxhp);
-
+	playerHpText->text = std::to_string(hp) + "/" + std::to_string(maxhp);
+	
 	if (hp <= 0)
 	{
+		GameManager::instance->PlayerDiedCall();
+		delete playerHpText;
 		delete this;
 	}
+	
 }

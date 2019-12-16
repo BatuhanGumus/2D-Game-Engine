@@ -36,7 +36,7 @@ Text::~Text()
 
 void Text::Render()
 {
-	SDL_Surface* surf = TTF_RenderText_Solid(font, text.c_str(), color);
+	SDL_Surface* surf = TTF_RenderText_Blended (font, text.c_str(), color);
 	SDL_Texture* tex = SDL_CreateTextureFromSurface(ArtemisEngine::renderer, surf);
 	SDL_FreeSurface(surf);
 	int textW = 0, textH = 0;

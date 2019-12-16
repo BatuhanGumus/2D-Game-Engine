@@ -23,8 +23,8 @@ public:
 	Vector2& operator - (const Vector2 &v2);
 	Vector2& operator -= (const Vector2 &v2);
 
-	Vector2& operator / (const double divider);
-	Vector2& operator * (const double multiplier);
+	Vector2& operator / (double divider);
+	Vector2& operator * (double multiplier);
 
 	Vector2& operator = (const Vector2 &v2);
 	Vector2& operator = (double value);

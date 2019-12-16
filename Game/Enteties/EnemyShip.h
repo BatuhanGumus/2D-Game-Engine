@@ -1,8 +1,7 @@
 #pragma once
 #include "../../Engine/Vector2.h"
-#include "../../Engine/SpriteManager.h"
+#include "../../Engine/Text.h"
 #include "Ship.h"
-#include "../GameManager.h"
 
 class EnemyShip : public Ship
 {
@@ -11,17 +10,18 @@ public:
 	~EnemyShip();
 
 	void Update() override;
-	void Damage(int dmg);
+	void Damage(int dmg) override;
 
 	static int EnemyShipCount;
-	GameManager* GM;
+	
 private:
 	
 	Vector2 distToText;
-	Sprite* laserSprite;
 	double timeSinceShot;
 	double randTime;
 	void RandTimeForShot();
 	Vector2 spawnedPos;
+
+	Text* hpText;
 };
 
