@@ -7,7 +7,7 @@
 PlayerShip::PlayerShip(const char* name, Sprite* sprite, Vector2* pos, Vector2* scale) : 
 Ship(name, sprite, pos, scale)
 {
-	new RigidBody(this, 1, 0.3, false, new BoxCollider(sprite));
+	new RigidBody(this, 0.9, 0.3, false, new BoxCollider(sprite));
 
 	speed = 1.3 * Time::fixedDeltaTime;
 	delete laserSprite;

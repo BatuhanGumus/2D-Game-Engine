@@ -13,15 +13,18 @@ public:
 
 	static double Distance(const Vector2& p1, const Vector2& p2);
 	static Vector2& Normalize(Vector2& vec);
+	static double Magnitude(Vector2& vec);
 
 	Vector2& Add(const Vector2& vec);
 	Vector2& Subtract(const Vector2& vec);
 
 	Vector2& operator + (const Vector2  &v2);
 	Vector2& operator += (const Vector2  &v2);
+	Vector2& operator += (double val);
 
 	Vector2& operator - (const Vector2 &v2);
 	Vector2& operator -= (const Vector2 &v2);
+	Vector2& operator -= (double val);
 
 	Vector2& operator / (double divider);
 	Vector2& operator * (double multiplier);

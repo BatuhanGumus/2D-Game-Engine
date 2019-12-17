@@ -41,36 +41,18 @@ void Physics::ApplyRules(RigidBody* body)
 		body->velocity.y += gravity * Time::fixedDeltaTime;
 	}
 
-	if (body->velocity.x > 0)
+	if (Vector2::Magnitude(body->velocity) < body->drag  * Time::fixedDeltaTime)
 	{
-		if (body->velocity.x < body->drag * Time::fixedDeltaTime)
-		{
-			body->velocity.x = 0;
-		}
-		else
-		{
-			body->velocity.x -= body->drag  * Time::fixedDeltaTime;
-		}
+		body->velocity = 0;
 	}
-	else if (body->velocity.x < 0)
+	else
 	{
-		if (body->velocity.x > -body->drag * Time::fixedDeltaTime)
-		{
-			body->velocity.x = 0;
-		}
-		else
-		{
-			body->velocity.x += body->drag  * Time::fixedDeltaTime;
-		}
+		body->velocity -= Vector2::Normalize(body->velocity) * body->drag  * Time::fixedDeltaTime;
 	}
 
-	if (body->velocity.x > body->maxSpeed && body->maxSpeed != -1)
+	if (body->maxSpeed != 0 && Vector2::Magnitude(body->velocity) > body->maxSpeed)
 	{
-		body->velocity.x = body->maxSpeed;
-	}
-	else if (body->velocity.x < -body->maxSpeed && body->maxSpeed != -1)
-	{
-		body->velocity.x = -body->maxSpeed;
+		body->velocity = Vector2::Normalize(body->velocity) * body->maxSpeed;
 	}
 }
 
