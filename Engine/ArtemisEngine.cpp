@@ -5,7 +5,7 @@
 
 SDL_Renderer* ArtemisEngine::renderer = nullptr;
 
-std::vector<GameObject*> ArtemisEngine::spawnedObjects;
+std::vector<MonoBehaviour*> ArtemisEngine::Monos;
 std::vector<Text*> ArtemisEngine::textsToRender;
 
 int ArtemisEngine::pixW;
@@ -88,9 +88,9 @@ void ArtemisEngine::HandleEvents()
 
 void ArtemisEngine::Update()
 {
-	for (int i = 0; i < spawnedObjects.size(); i++)
+	for (int i = 0; i < Monos.size(); i++)
 	{
-		spawnedObjects[i]->Update();
+		Monos[i]->Update();
 	}
 }
 
@@ -98,9 +98,9 @@ void ArtemisEngine::Render()
 {
 	SDL_RenderClear(renderer);
 
-	for (int i = 0; i < spawnedObjects.size(); i++)
+	for (int i = 0; i < Monos.size(); i++)
 	{
-		spawnedObjects[i]->Render();
+		Monos[i]->Render();
 	}
 
 	for (int i = 0; i < textsToRender.size(); i++)

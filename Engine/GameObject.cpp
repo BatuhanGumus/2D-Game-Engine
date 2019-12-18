@@ -17,7 +17,31 @@ GameObject::GameObject(const char* name, Sprite* sprite, Transform* _transform, 
 	destRect.w = sprite->pixelW * transform->scale->x * ArtemisEngine::pixW / 800.0;
 	destRect.h = sprite->pixelH * transform->scale->y * ArtemisEngine::pixH / 600.0;
 
-	ArtemisEngine::spawnedObjects.push_back(this);
+	
+
+	if (this->type == Static)
+	{
+		setDestRec();
+	}
+}
+
+GameObject::GameObject(const char* name, Transform* _transform, GameObjectType type)
+{
+	this->transform = _transform;
+
+	this->sprite = nullptr;
+	this->name = name;
+	this->type = type;
+
+	srcRect.w = sprite->pixelW;
+	srcRect.h = sprite->pixelH;
+	srcRect.x = 0;
+	srcRect.y = 0;
+
+	destRect.w = sprite->pixelW * transform->scale->x * ArtemisEngine::pixW / 800.0;
+	destRect.h = sprite->pixelH * transform->scale->y * ArtemisEngine::pixH / 600.0;
+
+	ArtemisEngine::Monos.push_back(this);
 
 	if (this->type == Static)
 	{
@@ -42,8 +66,11 @@ void GameObject::Render()
 	{
 		setDestRec();
 	}
-
-	TextureManager::Draw(sprite->Texture, srcRect , destRect);
+	if (sprite != nullptr)
+	{
+		TextureManager::Draw(sprite->Texture, srcRect, destRect);
+	}
+	
 }
 
 void GameObject::OnTrigger(GameObject* other)
@@ -66,13 +93,4 @@ GameObject::~GameObject()
 {
 	delete transform;
 	delete rigidBody;
-
-	for (int i = 0; i < ArtemisEngine::spawnedObjects.size(); i++)
-	{
-		if (this == ArtemisEngine::spawnedObjects[i])
-		{
-			ArtemisEngine::spawnedObjects.erase(ArtemisEngine::spawnedObjects.begin() + i);
-			break;
-		}
-	}
 }

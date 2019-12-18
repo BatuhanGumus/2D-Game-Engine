@@ -6,22 +6,12 @@
 #include "Enteties/PlayerShip.h"
 
 #include <iostream>
+#include "../Engine/Input.h"
 
 GameManager* GameManager::instance = nullptr;
 
 void ArtemisEngine::Awake()
 {
-	/*
-	
-	for (int i = 0; i <= 8; i++)
-	{
-		for (int j = 0; j <= 6; j++)
-		{
-			new GameObject("dot_" + i, dotSprite, new Transform(new Vector2(-4 + i, -3 + j), new Vector2(0.2, 0.2)), Static);
-		}
-	}
-	*/
-
 	GameManager* gm = new GameManager;
 }
 
@@ -49,7 +39,7 @@ void GameManager::RestartGame()
 	DeleteAllEnemies();
 	SpawnEnemyWave();
 
-	waveCount = 0;
+	waveCount = 1;
 	waveText->text = "Wave: " + std::to_string(waveCount);
 
 	delete gameOverText;
@@ -118,5 +108,13 @@ void GameManager::removeEnemyShip(EnemyShip* ship)
 		{
 			enemyShips[i] = nullptr;
 		}
+	}
+}
+
+void GameManager::Update()
+{
+	if (gameEnded == true && Input::GetKeyDown(SDLK_r))
+	{
+		RestartGame();
 	}
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include "SDL.h"
-#include "GameObject.h"
+#include "MonoBehaviour.h"
 #include <vector>
 #include "Physics.h"
 #include "Text.h"
@@ -24,7 +24,7 @@ public:
 	static SDL_Renderer* renderer;
 	SDL_Event event;
 
-	static std::vector<GameObject*> spawnedObjects;
+	static std::vector<MonoBehaviour*> Monos;
 	static std::vector<Text*> textsToRender;
 
 	static int pixW;

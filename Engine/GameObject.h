@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "MonoBehaviour.h"
 #include <../../CENG241Platformer/CENG241Platformer/Engine/Transform.h>
 #include "Sprite.h"
 
@@ -12,26 +13,23 @@ enum GameObjectType
 	Static
 };
 
-class GameObject
+class GameObject : public MonoBehaviour
 {
 public:
 	std::string name;
 	GameObjectType type;
 
 	GameObject(const char* name, Sprite* sprite, Transform* _transform, GameObjectType type);
+	GameObject(const char* name, Transform* _transform, GameObjectType type);
 	~GameObject();
 
-	template <typename DerivedType> 
-	DerivedType* getDerived()
-	{
-		return dynamic_cast<DerivedType*>(this);
-	}
-
-	void virtual Update();
-	void Render();
+	
 	void virtual OnTrigger(GameObject* other);
 	void virtual OnTriggerEnter(GameObject* other);
 	void virtual OnTriggerExit(GameObject* other);
+
+	void Update() override;
+	void Render() override;
 
 	Transform* transform;
 	RigidBody* rigidBody;

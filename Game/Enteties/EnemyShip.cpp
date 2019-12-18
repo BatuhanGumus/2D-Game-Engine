@@ -9,7 +9,7 @@ int EnemyShip::EnemyShipCount = 0;
 EnemyShip::EnemyShip(const char* name, Sprite* sprite, Vector2* pos, Vector2* scale) :
 Ship(name, sprite, pos, scale)
 {
-	new RigidBody(this, 1, 0.3, false, new BoxCollider(sprite));
+	new RigidBody(this, 0.9, 0.3, false, new BoxCollider(sprite));
 
 	maxhp = 3;
 	hp = maxhp;
@@ -49,7 +49,7 @@ void EnemyShip::Update()
 	double dist = Vector2::Distance(spawnedPos, *transform->position);
 	if (dist > 0.05)
 	{
-		Vector2 dir = Vector2::Normalize(*transform->position - spawnedPos) * -dist * Time::fixedDeltaTime;
+		Vector2 dir = Vector2::Normalize(*transform->position - spawnedPos) * -dist * Time::fixedDeltaTime * 1.5;
 		rigidBody->velocity.y = dir.y;
 	}
 	else

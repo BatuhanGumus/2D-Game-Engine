@@ -1,7 +1,6 @@
 #include "SDL.h"
 #include "ArtemisEngine.h"
 #include "Time.h"
-#include "../Game/GameManager.h"
 #include "Input.h"
 #include <ctime>
 #include <cstdlib>
@@ -35,11 +34,6 @@ int main(int args, char* argv[])
 		engine->Update();
 		engine->physicsEngine->Update();
 		engine->Render();
-
-		if (GameManager::instance->getGameState() == true && Input::GetKeyDown(SDLK_r))
-		{
-			GameManager::instance->RestartGame();
-		}
 
 		frameTime = SDL_GetTicks() - frameStart;
 
