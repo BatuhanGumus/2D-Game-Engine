@@ -12,6 +12,7 @@ public:
 	GameManager();
 
 	void RestartGame();
+	void BeginGame();
 	
 	void SpawnEnemyWave();
 	void DeleteAllEnemies();
@@ -27,9 +28,9 @@ public:
 
 private:
 	int waveCount;
-	Text *gameOverText, *waveText, *restartInfo;
+	Text *gameOverText, *waveText, *restartInfo, *beginInfo, *titleText;
 	EnemyShip** enemyShips;
 	PlayerShip* playerShip;
 	Sprite* enemySprite;
-	bool gameEnded;
+	bool gameEnded, gameBegun;
 };

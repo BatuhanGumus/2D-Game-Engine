@@ -21,16 +21,15 @@ GameManager::GameManager()
 	instance = this;
 
 	gameEnded = false;
-
-	SpawnPlayer();
+	gameBegun = false;
 
 	waveCount = 0;
-	waveText = new Text("Wave: " + std::to_string(waveCount),
-		{ 100,100,150,255 }, "Cut_Deep", 2.5, Vector2(3.2, -2.5));
 
 	enemySprite = SpriteManager::GetSprite("Enemy");
 	enemyShips = new EnemyShip*[5];
-	SpawnEnemyWave();
+
+	titleText = new Text("SPACE SHOOTER!", { 200,200,255,255 }, "Cut_Deep", 6, Vector2(0, 0.3));
+	beginInfo = new Text("Press \"Space\" to Begin!", { 255,255,255,255 }, "Cut_Deep", 2, Vector2(0, -0.5));
 }
 
 void GameManager::RestartGame()
@@ -46,6 +45,19 @@ void GameManager::RestartGame()
 	delete restartInfo;
 
 	gameEnded = false;
+}
+
+void GameManager::BeginGame()
+{
+	delete titleText;
+	delete beginInfo;
+
+	waveText = new Text("Wave: " + std::to_string(waveCount),
+		{ 100,100,150,255 }, "Cut_Deep", 2.5, Vector2(3.2, -2.5));
+
+	SpawnPlayer();
+	SpawnEnemyWave();
+	gameBegun = true;
 }
 
 void GameManager::SpawnEnemyWave()
@@ -116,5 +128,9 @@ void GameManager::Update()
 	if (gameEnded == true && Input::GetKeyDown(SDLK_r))
 	{
 		RestartGame();
+	}
+	if (gameBegun == false && Input::GetKeyDown(SDLK_SPACE))
+	{
+		BeginGame();
 	}
 }
