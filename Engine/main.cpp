@@ -1,13 +1,11 @@
-#include "SDL.h"
+#include <SDL.h>
 #include "ArtemisEngine.h"
 #include "Time.h"
 #include "Input.h"
-#include <ctime>
-#include <cstdlib>
 
 int main(int args, char* argv[])
 {
-	std::srand(std::time(NULL));
+	std::srand(834793);
 
 	const int pixelW = 1200, pixelH = 900;
 	const double pixelPerWorldDist = 100.0;

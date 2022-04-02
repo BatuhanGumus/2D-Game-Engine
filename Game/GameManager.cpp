@@ -8,6 +8,8 @@
 #include <iostream>
 #include "../Engine/Input.h"
 
+#include <math.h>
+
 GameManager* GameManager::instance = nullptr;
 
 void ArtemisEngine::Awake()

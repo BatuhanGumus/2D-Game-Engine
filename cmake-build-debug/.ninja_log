@@ -1,0 +1,24 @@
+# ninja log v5
+1349	1561	6706392993996252	CMakeFiles/2D_Game_Engine.dir/Engine/Transform.cpp.obj	c79b7a3c92053cab
+1329	1516	6706392993626169	CMakeFiles/2D_Game_Engine.dir/Engine/Time.cpp.obj	4df5c7b8b3092a74
+54	1358	6706392992095826	CMakeFiles/2D_Game_Engine.dir/Engine/Sprite.cpp.obj	9434170fb5693fc8
+26	1374	6706392992135835	CMakeFiles/2D_Game_Engine.dir/Engine/RigidBody.cpp.obj	52b909841c94910b
+60	1747	6706392996006707	CMakeFiles/2D_Game_Engine.dir/Engine/SpriteManager.cpp.obj	69e0faddf9c621d7
+1424	2346	6706393002078063	CMakeFiles/2D_Game_Engine.dir/Game/Enteties/Ship.cpp.obj	8e680f54f9e584fd
+1478	2412	6706393002738210	CMakeFiles/2D_Game_Engine.dir/Game/AssetLoader.cpp.obj	2fde2f8d84ca8ac1
+17	1759	6706392996166739	CMakeFiles/2D_Game_Engine.dir/Engine/GameObject.cpp.obj	5fcbf2aa499c12e6
+69	1367	6706392992095826	CMakeFiles/2D_Game_Engine.dir/Game/Enteties/EnemyShip.cpp.obj	5dc05cb084c9d33d
+11	1424	6706392992815989	CMakeFiles/2D_Game_Engine.dir/Engine/BoxCollider.cpp.obj	19e011e1d82b97d1
+14	1910	6706392997677076	CMakeFiles/2D_Game_Engine.dir/Engine/FontManager.cpp.obj	a51716e6bf0b0e83
+49	1629	6706392994806434	CMakeFiles/2D_Game_Engine.dir/Engine/TextureManager.cpp.obj	16d21091c4cdf367
+21	1349	6706392991965798	CMakeFiles/2D_Game_Engine.dir/Engine/MonoBehaviour.cpp.obj	6217cc104d1a1f33
+36	1718	6706392995766650	CMakeFiles/2D_Game_Engine.dir/Engine/Physics.cpp.obj	63599cd1b334667b
+44	1823	6706392996806925	CMakeFiles/2D_Game_Engine.dir/Engine/Text.cpp.obj	30978f18ca13de35
+8	1328	6706392991575708	CMakeFiles/2D_Game_Engine.dir/Engine/Input.cpp.obj	b181976516d0f086
+1367	2316	6706393001767990	CMakeFiles/2D_Game_Engine.dir/Game/Enteties/Laser.cpp.obj	935c3264a10dba0c
+1358	2426	6706393002878252	CMakeFiles/2D_Game_Engine.dir/Engine/Vector2.cpp.obj	d5e41f7d60919586
+1374	2370	6706393002308122	CMakeFiles/2D_Game_Engine.dir/Game/Enteties/PlayerShip.cpp.obj	eb41fcc4266c27ca
+3	1478	6706392993076042	CMakeFiles/2D_Game_Engine.dir/Engine/ArtemisEngine.cpp.obj	7f0da66ed475d515
+30	1534	6706392993756195	CMakeFiles/2D_Game_Engine.dir/Engine/main.cpp.obj	78edea4cf1acc732
+1516	2543	6706393004048508	CMakeFiles/2D_Game_Engine.dir/Game/GameManager.cpp.obj	b3af2a0e4c869cd4
+3	205	6706393398047386	2D_Game_Engine.exe	ca0974a649fd13bb

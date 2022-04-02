@@ -2,7 +2,7 @@
 #include "SDL.h"
 #include <vector>
 
-static class Input
+ class Input
 {
 public:
 	static bool GetKeyDown(SDL_Keycode key);

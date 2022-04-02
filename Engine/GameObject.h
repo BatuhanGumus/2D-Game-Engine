@@ -2,7 +2,7 @@
 
 #include <string>
 #include "MonoBehaviour.h"
-#include <../../CENG241Platformer/CENG241Platformer/Engine/Transform.h>
+#include <Transform.h>
 #include "Sprite.h"
 
 class RigidBody;

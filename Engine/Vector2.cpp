@@ -1,6 +1,7 @@
 #include "Vector2.h"
 #include "ArtemisEngine.h"
 #include <iostream>
+#include <math.h>
 
 Vector2::Vector2() : Vector2(0, 0) {}
 
