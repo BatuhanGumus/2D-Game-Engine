@@ -41,8 +41,6 @@ add_executable(2D_Game_Engine
         Engine/Base/Physics.h
         Engine/Base/Sprite.cpp
         Engine/Base/Sprite.h
-        Engine/Base/SpriteManager.cpp
-        Engine/Base/SpriteManager.h
         Engine/Base/Text.cpp
         Engine/Base/Text.h
         Engine/Base/TextureManager.cpp

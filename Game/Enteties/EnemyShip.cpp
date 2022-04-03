@@ -2,7 +2,6 @@
 #include "cstdlib"
 #include "Time.h"
 #include "Laser.h"
-#include "SpriteManager.h"
 
 int EnemyShip::EnemyShipCount = 0;
 
@@ -14,7 +13,7 @@ EnemyShip::EnemyShip(Vector2* pos) : Ship()
 	hp = maxhp;
 	
 	EnemyShipCount++;
-	laserSprite = SpriteManager::GetSprite("EnemyLaser");
+	laserSprite = Sprite::GetSprite("EnemyLaser");
 	RandTimeForShot();
 
 	spawnedPos = *transform->position;

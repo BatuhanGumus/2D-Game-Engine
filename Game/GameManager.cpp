@@ -1,5 +1,4 @@
 #include "Engine.h"
-#include "SpriteManager.h"
 #include "GameManager.h"
 
 #include "Enteties/EnemyShip.h"
@@ -33,7 +32,7 @@ GameManager::GameManager() : MonoBehaviour()
 
 	waveCount = 0;
 
-	enemySprite = SpriteManager::GetSprite("Enemy");
+	enemySprite = Sprite::GetSprite("Enemy");
 	enemyShips = new EnemyShip*[5];
 
 	titleText = new Text("SPACE SHOOTER!", { 200,200,255,255 }, "Cut_Deep", 6, Vector2(0, 0.3));
@@ -110,10 +109,10 @@ void GameManager::DeleteAllEnemies()
 
 void GameManager::SpawnPlayer()
 {
-    GameObject* temp = new GameObject("PlayerShip", SpriteManager::GetSprite("Player"),
+    GameObject* temp = new GameObject("PlayerShip", Sprite::GetSprite("Player"),
                                       new Transform(new Vector2(0, -2.3), new Vector2(0.6, 0.6)), GameObjectType::Default);
 
-    temp->AddComponent(new SpriteRenderer(SpriteManager::GetSprite("Player")));
+    temp->AddComponent(new SpriteRenderer(Sprite::GetSprite("Player")));
     temp->AddComponent(new PlayerShip());
 }
 
