@@ -23,7 +23,8 @@ void SpriteRenderer::Render()
     }
     if (sprite != nullptr)
     {
-        TextureManager::Draw(sprite->Texture, srcRect, destRect);
+        //TextureManager::Draw(sprite->Texture, srcRect, destRect);
+        SDL_RenderCopy(Engine::renderer, sprite->Texture, &srcRect, &destRect);
     }
 }
 

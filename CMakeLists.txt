@@ -43,8 +43,6 @@ add_executable(2D_Game_Engine
         Engine/Base/Sprite.h
         Engine/Base/Text.cpp
         Engine/Base/Text.h
-        Engine/Base/TextureManager.cpp
-        Engine/Base/TextureManager.h
         Engine/Base/Time.cpp
         Engine/Base/Time.h
         Engine/Base/Transform.cpp
