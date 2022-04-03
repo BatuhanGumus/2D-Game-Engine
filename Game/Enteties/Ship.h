@@ -1,7 +1,9 @@
 #pragma once
-#include "../../Engine/GameObject.h"
-#include "../../Engine/RigidBody.h"
+#include "GameObject.h"
+#include "RigidBody.h"
 #include "../GameManager.h"
+
+using namespace ArtemisEngine;
 
 class Ship : public GameObject
 {

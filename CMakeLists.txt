@@ -4,6 +4,8 @@ project(2D_Game_Engine)
 set(CMAKE_CXX_STANDARD 14)
 
 include_directories(Engine)
+include_directories(Engine/Base)
+include_directories(Engine/Components)
 include_directories(Game)
 include_directories(Game/Enteties)
 
@@ -24,37 +26,37 @@ link_directories(${SDL2_TTF_LIB_DIR})
 
 
 add_executable(2D_Game_Engine
-        Engine/ArtemisEngine.cpp
-        Engine/ArtemisEngine.h
-        Engine/BoxCollider.cpp
-        Engine/BoxCollider.h
-        Engine/FontManager.cpp
-        Engine/FontManager.h
-        Engine/GameObject.cpp
-        Engine/GameObject.h
-        Engine/Input.cpp
-        Engine/Input.h
         Engine/main.cpp
-        Engine/MonoBehaviour.cpp
-        Engine/MonoBehaviour.h
-        Engine/Physics.cpp
-        Engine/Physics.h
-        Engine/RigidBody.cpp
-        Engine/RigidBody.h
-        Engine/Sprite.cpp
-        Engine/Sprite.h
-        Engine/SpriteManager.cpp
-        Engine/SpriteManager.h
-        Engine/Text.cpp
-        Engine/Text.h
-        Engine/TextureManager.cpp
-        Engine/TextureManager.h
-        Engine/Time.cpp
-        Engine/Time.h
-        Engine/Transform.cpp
-        Engine/Transform.h
-        Engine/Vector2.cpp
-        Engine/Vector2.h
+        Engine/Base/ArtemisEngine.cpp
+        Engine/Base/ArtemisEngine.h
+        Engine/Base/FontManager.cpp
+        Engine/Base/FontManager.h
+        Engine/Base/GameObject.cpp
+        Engine/Base/GameObject.h
+        Engine/Base/Input.cpp
+        Engine/Base/Input.h
+        Engine/Base/MonoBehaviour.cpp
+        Engine/Base/MonoBehaviour.h
+        Engine/Base/Physics.cpp
+        Engine/Base/Physics.h
+        Engine/Base/SpriteManager.cpp
+        Engine/Base/SpriteManager.h
+        Engine/Base/Text.cpp
+        Engine/Base/Text.h
+        Engine/Base/TextureManager.cpp
+        Engine/Base/TextureManager.h
+        Engine/Base/Time.cpp
+        Engine/Base/Time.h
+        Engine/Base/Transform.cpp
+        Engine/Base/Transform.h
+        Engine/Base/Vector2.cpp
+        Engine/Base/Vector2.h
+        Engine/Components/BoxCollider.cpp
+        Engine/Components/BoxCollider.h
+        Engine/Components/RigidBody.cpp
+        Engine/Components/RigidBody.h
+        Engine/Components/Sprite.cpp
+        Engine/Components/Sprite.h
         Game/Enteties/EnemyShip.cpp
         Game/Enteties/EnemyShip.h
         Game/Enteties/Laser.cpp

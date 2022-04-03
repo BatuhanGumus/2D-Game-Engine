@@ -1,8 +1,8 @@
 #include "PlayerShip.h"
-#include "../../Engine/Input.h"
-#include "../../Engine/Time.h"
+#include "Input.h"
+#include "Time.h"
 #include "Laser.h"
-#include "../../Engine/SpriteManager.h"
+#include "SpriteManager.h"
 
 PlayerShip::PlayerShip(const char* name, Sprite* sprite, Vector2* pos, Vector2* scale) : 
 Ship(name, sprite, pos, scale)

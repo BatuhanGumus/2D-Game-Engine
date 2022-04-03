@@ -1,6 +1,6 @@
 #include "Laser.h"
-#include "../../Engine/Time.h"
-#include "../../Engine/RigidBody.h"
+#include "Time.h"
+#include "RigidBody.h"
 #include "EnemyShip.h"
 #include "PlayerShip.h"
 

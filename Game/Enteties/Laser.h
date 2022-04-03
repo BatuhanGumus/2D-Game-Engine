@@ -1,5 +1,7 @@
 #pragma once
-#include "../../Engine/GameObject.h"
+#include "GameObject.h"
+
+using namespace ArtemisEngine;
 
 class laser : public GameObject
 {

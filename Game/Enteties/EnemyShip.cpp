@@ -1,8 +1,8 @@
 #include "EnemyShip.h"
 #include "cstdlib"
-#include "../../Engine/Time.h"
+#include "Time.h"
 #include "Laser.h"
-#include "../../Engine/SpriteManager.h"
+#include "SpriteManager.h"
 
 int EnemyShip::EnemyShipCount = 0;
 

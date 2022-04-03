@@ -1,7 +1,9 @@
 #pragma once
-#include "../../Engine/Vector2.h"
-#include "../../Engine/Text.h"
+#include "Vector2.h"
+#include "Text.h"
 #include "Ship.h"
+
+using namespace ArtemisEngine;
 
 class EnemyShip : public Ship
 {

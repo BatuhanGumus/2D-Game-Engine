@@ -61,157 +61,157 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 build cmake_object_order_depends_target_2D_Game_Engine: phony || CMakeFiles/2D_Game_Engine.dir
 
-build CMakeFiles/2D_Game_Engine.dir/Engine/ArtemisEngine.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/ArtemisEngine.cpp || cmake_object_order_depends_target_2D_Game_Engine
-  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\ArtemisEngine.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
-  OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
-  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine
-
-build CMakeFiles/2D_Game_Engine.dir/Engine/BoxCollider.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/BoxCollider.cpp || cmake_object_order_depends_target_2D_Game_Engine
-  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\BoxCollider.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
-  OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
-  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine
-
-build CMakeFiles/2D_Game_Engine.dir/Engine/FontManager.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/FontManager.cpp || cmake_object_order_depends_target_2D_Game_Engine
-  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\FontManager.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
-  OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
-  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine
-
-build CMakeFiles/2D_Game_Engine.dir/Engine/GameObject.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/GameObject.cpp || cmake_object_order_depends_target_2D_Game_Engine
-  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\GameObject.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
-  OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
-  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine
-
-build CMakeFiles/2D_Game_Engine.dir/Engine/Input.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Input.cpp || cmake_object_order_depends_target_2D_Game_Engine
-  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Input.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
-  OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
-  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine
-
 build CMakeFiles/2D_Game_Engine.dir/Engine/main.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/main.cpp || cmake_object_order_depends_target_2D_Game_Engine
   DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\main.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
   OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine
 
-build CMakeFiles/2D_Game_Engine.dir/Engine/MonoBehaviour.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/MonoBehaviour.cpp || cmake_object_order_depends_target_2D_Game_Engine
-  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\MonoBehaviour.cpp.obj.d
+build CMakeFiles/2D_Game_Engine.dir/Engine/Base/ArtemisEngine.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Base/ArtemisEngine.cpp || cmake_object_order_depends_target_2D_Game_Engine
+  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Base\ArtemisEngine.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
-  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine
+  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine\Base
 
-build CMakeFiles/2D_Game_Engine.dir/Engine/Physics.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Physics.cpp || cmake_object_order_depends_target_2D_Game_Engine
-  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Physics.cpp.obj.d
+build CMakeFiles/2D_Game_Engine.dir/Engine/Base/FontManager.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Base/FontManager.cpp || cmake_object_order_depends_target_2D_Game_Engine
+  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Base\FontManager.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
-  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine
+  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine\Base
 
-build CMakeFiles/2D_Game_Engine.dir/Engine/RigidBody.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/RigidBody.cpp || cmake_object_order_depends_target_2D_Game_Engine
-  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\RigidBody.cpp.obj.d
+build CMakeFiles/2D_Game_Engine.dir/Engine/Base/GameObject.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Base/GameObject.cpp || cmake_object_order_depends_target_2D_Game_Engine
+  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Base\GameObject.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
-  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine
+  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine\Base
 
-build CMakeFiles/2D_Game_Engine.dir/Engine/Sprite.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Sprite.cpp || cmake_object_order_depends_target_2D_Game_Engine
-  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Sprite.cpp.obj.d
+build CMakeFiles/2D_Game_Engine.dir/Engine/Base/Input.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Base/Input.cpp || cmake_object_order_depends_target_2D_Game_Engine
+  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Base\Input.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
-  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine
+  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine\Base
 
-build CMakeFiles/2D_Game_Engine.dir/Engine/SpriteManager.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/SpriteManager.cpp || cmake_object_order_depends_target_2D_Game_Engine
-  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\SpriteManager.cpp.obj.d
+build CMakeFiles/2D_Game_Engine.dir/Engine/Base/MonoBehaviour.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Base/MonoBehaviour.cpp || cmake_object_order_depends_target_2D_Game_Engine
+  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Base\MonoBehaviour.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
-  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine
+  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine\Base
 
-build CMakeFiles/2D_Game_Engine.dir/Engine/Text.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Text.cpp || cmake_object_order_depends_target_2D_Game_Engine
-  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Text.cpp.obj.d
+build CMakeFiles/2D_Game_Engine.dir/Engine/Base/Physics.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Base/Physics.cpp || cmake_object_order_depends_target_2D_Game_Engine
+  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Base\Physics.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
-  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine
+  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine\Base
 
-build CMakeFiles/2D_Game_Engine.dir/Engine/TextureManager.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/TextureManager.cpp || cmake_object_order_depends_target_2D_Game_Engine
-  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\TextureManager.cpp.obj.d
+build CMakeFiles/2D_Game_Engine.dir/Engine/Base/SpriteManager.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Base/SpriteManager.cpp || cmake_object_order_depends_target_2D_Game_Engine
+  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Base\SpriteManager.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
-  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine
+  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine\Base
 
-build CMakeFiles/2D_Game_Engine.dir/Engine/Time.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Time.cpp || cmake_object_order_depends_target_2D_Game_Engine
-  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Time.cpp.obj.d
+build CMakeFiles/2D_Game_Engine.dir/Engine/Base/Text.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Base/Text.cpp || cmake_object_order_depends_target_2D_Game_Engine
+  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Base\Text.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
-  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine
+  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine\Base
 
-build CMakeFiles/2D_Game_Engine.dir/Engine/Transform.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Transform.cpp || cmake_object_order_depends_target_2D_Game_Engine
-  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Transform.cpp.obj.d
+build CMakeFiles/2D_Game_Engine.dir/Engine/Base/TextureManager.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Base/TextureManager.cpp || cmake_object_order_depends_target_2D_Game_Engine
+  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Base\TextureManager.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
-  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine
+  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine\Base
 
-build CMakeFiles/2D_Game_Engine.dir/Engine/Vector2.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Vector2.cpp || cmake_object_order_depends_target_2D_Game_Engine
-  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Vector2.cpp.obj.d
+build CMakeFiles/2D_Game_Engine.dir/Engine/Base/Time.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Base/Time.cpp || cmake_object_order_depends_target_2D_Game_Engine
+  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Base\Time.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
-  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine
+  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine\Base
+
+build CMakeFiles/2D_Game_Engine.dir/Engine/Base/Transform.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Base/Transform.cpp || cmake_object_order_depends_target_2D_Game_Engine
+  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Base\Transform.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine\Base
+
+build CMakeFiles/2D_Game_Engine.dir/Engine/Base/Vector2.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Base/Vector2.cpp || cmake_object_order_depends_target_2D_Game_Engine
+  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Base\Vector2.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine\Base
+
+build CMakeFiles/2D_Game_Engine.dir/Engine/Components/BoxCollider.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Components/BoxCollider.cpp || cmake_object_order_depends_target_2D_Game_Engine
+  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Components\BoxCollider.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine\Components
+
+build CMakeFiles/2D_Game_Engine.dir/Engine/Components/RigidBody.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Components/RigidBody.cpp || cmake_object_order_depends_target_2D_Game_Engine
+  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Components\RigidBody.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine\Components
+
+build CMakeFiles/2D_Game_Engine.dir/Engine/Components/Sprite.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Engine/Components/Sprite.cpp || cmake_object_order_depends_target_2D_Game_Engine
+  DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Engine\Components\Sprite.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
+  OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Engine\Components
 
 build CMakeFiles/2D_Game_Engine.dir/Game/Enteties/EnemyShip.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Game/Enteties/EnemyShip.cpp || cmake_object_order_depends_target_2D_Game_Engine
   DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Game\Enteties\EnemyShip.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
   OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Game\Enteties
 
 build CMakeFiles/2D_Game_Engine.dir/Game/Enteties/Laser.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Game/Enteties/Laser.cpp || cmake_object_order_depends_target_2D_Game_Engine
   DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Game\Enteties\Laser.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
   OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Game\Enteties
 
 build CMakeFiles/2D_Game_Engine.dir/Game/Enteties/PlayerShip.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Game/Enteties/PlayerShip.cpp || cmake_object_order_depends_target_2D_Game_Engine
   DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Game\Enteties\PlayerShip.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
   OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Game\Enteties
 
 build CMakeFiles/2D_Game_Engine.dir/Game/Enteties/Ship.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Game/Enteties/Ship.cpp || cmake_object_order_depends_target_2D_Game_Engine
   DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Game\Enteties\Ship.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
   OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Game\Enteties
 
 build CMakeFiles/2D_Game_Engine.dir/Game/AssetLoader.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Game/AssetLoader.cpp || cmake_object_order_depends_target_2D_Game_Engine
   DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Game\AssetLoader.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
   OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Game
 
 build CMakeFiles/2D_Game_Engine.dir/Game/GameManager.cpp.obj: CXX_COMPILER__2D_Game_Engine_Debug D$:/Projects/2D-Game-Engine/Game/GameManager.cpp || cmake_object_order_depends_target_2D_Game_Engine
   DEP_FILE = CMakeFiles\2D_Game_Engine.dir\Game\GameManager.cpp.obj.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
+  INCLUDES = -ID:/Projects/2D-Game-Engine/Engine -ID:/Projects/2D-Game-Engine/Engine/Base -ID:/Projects/2D-Game-Engine/Engine/Components -ID:/Projects/2D-Game-Engine/Game -ID:/Projects/2D-Game-Engine/Game/Enteties -ID:/Projects/2D-Game-Engine/Libraries/SDL2/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_image/include -ID:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/include
   OBJECT_DIR = CMakeFiles\2D_Game_Engine.dir
   OBJECT_FILE_DIR = CMakeFiles\2D_Game_Engine.dir\Game
 
@@ -223,7 +223,7 @@ build CMakeFiles/2D_Game_Engine.dir/Game/GameManager.cpp.obj: CXX_COMPILER__2D_G
 #############################################
 # Link the executable 2D_Game_Engine.exe
 
-build 2D_Game_Engine.exe: CXX_EXECUTABLE_LINKER__2D_Game_Engine_Debug CMakeFiles/2D_Game_Engine.dir/Engine/ArtemisEngine.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/BoxCollider.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/FontManager.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/GameObject.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Input.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/main.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/MonoBehaviour.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Physics.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/RigidBody.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Sprite.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/SpriteManager.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Text.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/TextureManager.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Time.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Transform.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Vector2.cpp.obj CMakeFiles/2D_Game_Engine.dir/Game/Enteties/EnemyShip.cpp.obj CMakeFiles/2D_Game_Engine.dir/Game/Enteties/Laser.cpp.obj CMakeFiles/2D_Game_Engine.dir/Game/Enteties/PlayerShip.cpp.obj CMakeFiles/2D_Game_Engine.dir/Game/Enteties/Ship.cpp.obj CMakeFiles/2D_Game_Engine.dir/Game/AssetLoader.cpp.obj CMakeFiles/2D_Game_Engine.dir/Game/GameManager.cpp.obj
+build 2D_Game_Engine.exe: CXX_EXECUTABLE_LINKER__2D_Game_Engine_Debug CMakeFiles/2D_Game_Engine.dir/Engine/main.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Base/ArtemisEngine.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Base/FontManager.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Base/GameObject.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Base/Input.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Base/MonoBehaviour.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Base/Physics.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Base/SpriteManager.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Base/Text.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Base/TextureManager.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Base/Time.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Base/Transform.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Base/Vector2.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Components/BoxCollider.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Components/RigidBody.cpp.obj CMakeFiles/2D_Game_Engine.dir/Engine/Components/Sprite.cpp.obj CMakeFiles/2D_Game_Engine.dir/Game/Enteties/EnemyShip.cpp.obj CMakeFiles/2D_Game_Engine.dir/Game/Enteties/Laser.cpp.obj CMakeFiles/2D_Game_Engine.dir/Game/Enteties/PlayerShip.cpp.obj CMakeFiles/2D_Game_Engine.dir/Game/Enteties/Ship.cpp.obj CMakeFiles/2D_Game_Engine.dir/Game/AssetLoader.cpp.obj CMakeFiles/2D_Game_Engine.dir/Game/GameManager.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lSDL2main  -lSDL2  -lSDL2_image  -lSDL2_ttf  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   LINK_PATH = -LD:/Projects/2D-Game-Engine/Libraries/SDL2/lib/x64   -LD:/Projects/2D-Game-Engine/Libraries/SDL2_image/lib/x64   -LD:/Projects/2D-Game-Engine/Libraries/SDL2_ttf/lib/x64

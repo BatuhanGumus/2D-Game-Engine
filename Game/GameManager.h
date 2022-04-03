@@ -1,7 +1,9 @@
 #pragma once
 #include "GameManager.h"
-#include "../Engine/Text.h"
-#include "../Engine/MonoBehaviour.h"
+#include "Text.h"
+#include "MonoBehaviour.h"
+
+using namespace ArtemisEngine;
 
 class EnemyShip;
 class PlayerShip;

@@ -1,6 +1,8 @@
 #pragma once
 #include "Ship.h"
 
+using namespace ArtemisEngine;
+
 class PlayerShip : public Ship
 {
 public:

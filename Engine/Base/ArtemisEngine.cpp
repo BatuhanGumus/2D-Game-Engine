@@ -3,6 +3,8 @@
 #include "SDL_image.h"
 #include "Input.h"
 
+using namespace ArtemisEngine;
+
 SDL_Renderer* ArtemisEngine::renderer = nullptr;
 
 std::vector<MonoBehaviour*> ArtemisEngine::Monos;
