@@ -17,5 +17,5 @@ Transform::~Transform()
 Transform::Transform()
 {
     this->position = new Vector2();
-    this->scale =  new Vector2();
+    this->scale =  new Vector2(1, 1);
 }

@@ -109,8 +109,7 @@ void GameManager::DeleteAllEnemies()
 
 void GameManager::SpawnPlayer()
 {
-    GameObject* temp = new GameObject("PlayerShip", Sprite::GetSprite("Player"),
-                                      new Transform(new Vector2(0, -2.3), new Vector2(0.6, 0.6)), GameObjectType::Default);
+    GameObject* temp = new GameObject("PlayerShip", new Transform(new Vector2(0, -2.3), new Vector2(0.6, 0.6)));
 
     temp->AddComponent(new SpriteRenderer(Sprite::GetSprite("Player")));
     temp->AddComponent(new PlayerShip());

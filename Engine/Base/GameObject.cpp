@@ -4,20 +4,14 @@
 
 using namespace ArtemisEngine;
 
-GameObject::GameObject(const char* name, Sprite* sprite, Transform* _transform, GameObjectType type)
+GameObject::GameObject(std::string name, Transform* _transform, GameObjectType type)
 {
-	this->transform = _transform;
+    this->transform = _transform;
 
-	this->sprite = sprite;
-	this->name = name;
-	this->type = type;
+    this->name = name;
+    this->type = type;
 
     Engine::gameObjects.push_back(this);
-}
-
-GameObject::GameObject(const char* name, Transform* _transform, GameObjectType type) : GameObject(name, nullptr, _transform, type)
-{
-
 }
 
 void GameObject::OnTrigger(GameObject* other)

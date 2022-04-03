@@ -22,8 +22,7 @@ namespace ArtemisEngine
 
         std::vector<Component*> components;
 
-        GameObject(const char* name, Sprite* sprite, Transform* _transform, GameObjectType type);
-        GameObject(const char* name, Transform* _transform, GameObjectType type);
+        GameObject(std::string name = "GameObject", Transform* _transform = new Transform(), GameObjectType type = GameObjectType::Default);
         ~GameObject();
 
 
@@ -37,7 +36,6 @@ namespace ArtemisEngine
         Component* AddComponent(Component* component);
 
         Transform* transform;
-        Sprite* sprite;
     private:
 
 
