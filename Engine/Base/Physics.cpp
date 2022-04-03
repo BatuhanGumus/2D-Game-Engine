@@ -1,8 +1,10 @@
 #include "Physics.h"
-#include "ArtemisEngine.h"
+#include "Engine.h"
 #include <iostream>
 #include <cmath>
 #include "Time.h"
+
+using namespace ArtemisEngine;
 
 std::vector<RigidBody*> Physics::bodies;
 

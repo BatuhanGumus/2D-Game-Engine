@@ -7,11 +7,11 @@
 
 namespace ArtemisEngine
 {
-    class ArtemisEngine
+    class Engine
     {
     public:
-        ArtemisEngine(const char* title, int xPos, int yPos, int widthPX, int heightPX, bool fullScreen);
-        ~ArtemisEngine();
+        Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX, bool fullScreen);
+        ~Engine();
 
         void HandleEvents();
         void Update();

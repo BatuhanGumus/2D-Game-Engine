@@ -5,10 +5,10 @@
 #include <Transform.h>
 #include "Sprite.h"
 
-class RigidBody;
-
 namespace ArtemisEngine
 {
+    class RigidBody;
+
     enum GameObjectType
     {
         Default,

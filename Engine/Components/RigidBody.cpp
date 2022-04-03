@@ -1,6 +1,8 @@
 #include "RigidBody.h"
 #include "Physics.h"
 
+using namespace ArtemisEngine;
+
 RigidBody::RigidBody(GameObject* _gameObject, double drag, double maxSpeed, bool useGravity, BoxCollider* collider) :
 gameObject(*_gameObject)
 {

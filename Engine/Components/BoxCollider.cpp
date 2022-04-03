@@ -1,5 +1,7 @@
 #include "BoxCollider.h"
-#include "ArtemisEngine.h"
+#include "Engine.h"
+
+using namespace ArtemisEngine;
 
 BoxCollider::BoxCollider(double width, double height)
 {
@@ -9,8 +11,8 @@ BoxCollider::BoxCollider(double width, double height)
 
 BoxCollider::BoxCollider(const Sprite* sprite)
 {
-	this->width = sprite->pixelW / ArtemisEngine::pixPerWorld;
-	this->height = sprite->pixelH / ArtemisEngine::pixPerWorld;
+	this->width = sprite->pixelW / Engine::pixPerWorld;
+	this->height = sprite->pixelH / Engine::pixPerWorld;
 }
 
 BoxCollider::~BoxCollider()

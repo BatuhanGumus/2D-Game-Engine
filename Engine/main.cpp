@@ -1,8 +1,10 @@
 #include <SDL.h>
-#include "ArtemisEngine.h"
+#include "Engine.h"
 #include "Time.h"
 #include "Input.h"
 #include <iostream>
+
+using namespace ArtemisEngine;
 
 int main(int args, char* argv[])
 {
@@ -19,8 +21,8 @@ int main(int args, char* argv[])
 	Uint32 frameStart;
 	int frameTime;
 
-	ArtemisEngine* engine = new ArtemisEngine("Platformer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, pixelW, pixelH, false);
-	ArtemisEngine::pixPerWorld = pixelPerWorldDist;
+	Engine* engine = new Engine("Platformer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, pixelW, pixelH, false);
+	Engine::pixPerWorld = pixelPerWorldDist;
 	
 	engine->LoadAssets();
 	engine->Awake();

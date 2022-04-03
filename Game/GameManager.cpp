@@ -1,20 +1,22 @@
-#include "../Engine/ArtemisEngine.h"
-#include "../Engine/SpriteManager.h"
+#include "Engine.h"
+#include "SpriteManager.h"
 #include "GameManager.h"
 
 #include "Enteties/EnemyShip.h"
 #include "Enteties/PlayerShip.h"
 
 #include <iostream>
-#include "../Engine/Input.h"
+#include "Input.h"
 
 #include <math.h>
 
 #include "SDL_image.h"
 
+using namespace ArtemisEngine;
+
 GameManager* GameManager::instance = nullptr;
 
-void ArtemisEngine::Awake()
+void Engine::Awake()
 {
 	GameManager* gm = new GameManager;
 }

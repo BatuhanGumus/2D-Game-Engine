@@ -1,8 +1,10 @@
-#include "../Engine/ArtemisEngine.h"
-#include "../Engine/FontManager.h"
-#include "../Engine/SpriteManager.h"
+#include "Engine.h"
+#include "FontManager.h"
+#include "SpriteManager.h"
 
-void ArtemisEngine::LoadAssets()
+using namespace ArtemisEngine;
+
+void Engine::LoadAssets()
 {
 	SpriteManager::LoadSprite("../Game/Assets/PNG/Lasers/laserRed05.png", 37, 9, "EnemyLaser");
 	SpriteManager::LoadSprite("../Game/Assets/PNG/playerShip1_blue.png", 75, 99, "Player");

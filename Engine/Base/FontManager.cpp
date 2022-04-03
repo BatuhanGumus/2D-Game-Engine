@@ -1,6 +1,8 @@
 #include "FontManager.h"
-#include "ArtemisEngine.h"
+#include "Engine.h"
 #include <iostream>
+
+using namespace ArtemisEngine;
 
 std::vector<Font> FontManager::fonts;
 

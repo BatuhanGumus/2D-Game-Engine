@@ -27,8 +27,8 @@ link_directories(${SDL2_TTF_LIB_DIR})
 
 add_executable(2D_Game_Engine
         Engine/main.cpp
-        Engine/Base/ArtemisEngine.cpp
-        Engine/Base/ArtemisEngine.h
+        Engine/Base/Engine.cpp
+        Engine/Base/Engine.h
         Engine/Base/FontManager.cpp
         Engine/Base/FontManager.h
         Engine/Base/GameObject.cpp

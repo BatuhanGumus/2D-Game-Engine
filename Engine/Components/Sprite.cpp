@@ -1,5 +1,6 @@
 #include "Sprite.h"
 
+using namespace ArtemisEngine;
 
 Sprite::Sprite(const char* textureSheet, int pixelH, int pixelW, std::string _name)
 {

@@ -1,7 +1,9 @@
 #include "Vector2.h"
-#include "ArtemisEngine.h"
+#include "Engine.h"
 #include <iostream>
 #include <math.h>
+
+using namespace ArtemisEngine;
 
 Vector2::Vector2() : Vector2(0, 0) {}
 
@@ -19,12 +21,12 @@ Vector2::Vector2(const Vector2& copyVec)
 
 int Vector2::cordToPixelX(double cord)
 {
-	return  cord * ArtemisEngine::pixW / 8 + ArtemisEngine::pixW / 2;
+	return  cord * Engine::pixW / 8 + Engine::pixW / 2;
 }
 
 int Vector2::cordToPixelY(double cord)
 {
-	return  ArtemisEngine::pixH / 2 - cord * ArtemisEngine::pixH / 6;
+	return  Engine::pixH / 2 - cord * Engine::pixH / 6;
 }
 
 double Vector2::Distance(const Vector2& p1, const Vector2& p2)

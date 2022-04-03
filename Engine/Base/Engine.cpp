@@ -1,20 +1,20 @@
-#include "ArtemisEngine.h"
+#include "Engine.h"
 #include <iostream>
 #include "SDL_image.h"
 #include "Input.h"
 
 using namespace ArtemisEngine;
 
-SDL_Renderer* ArtemisEngine::renderer = nullptr;
+SDL_Renderer* Engine::renderer = nullptr;
 
-std::vector<MonoBehaviour*> ArtemisEngine::Monos;
-std::vector<Text*> ArtemisEngine::textsToRender;
+std::vector<MonoBehaviour*> Engine::Monos;
+std::vector<Text*> Engine::textsToRender;
 
-int ArtemisEngine::pixW;
-int ArtemisEngine::pixH;
-double ArtemisEngine::pixPerWorld;
+int Engine::pixW;
+int Engine::pixH;
+double Engine::pixPerWorld;
 
-ArtemisEngine::ArtemisEngine(const char* title, int xPos, int yPos, int widthPX, int heightPX, bool fullScreen)
+Engine::Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX, bool fullScreen)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
@@ -60,11 +60,11 @@ ArtemisEngine::ArtemisEngine(const char* title, int xPos, int yPos, int widthPX,
 }
 
 
-ArtemisEngine::~ArtemisEngine()
+Engine::~Engine()
 {
 }
 
-void ArtemisEngine::HandleEvents()
+void Engine::HandleEvents()
 {
 	Input::ClearInputBuffer();
 
@@ -88,7 +88,7 @@ void ArtemisEngine::HandleEvents()
 
 }
 
-void ArtemisEngine::Update()
+void Engine::Update()
 {
 	for (int i = 0; i < Monos.size(); i++)
 	{
@@ -96,7 +96,7 @@ void ArtemisEngine::Update()
 	}
 }
 
-void ArtemisEngine::Render()
+void Engine::Render()
 {
 	SDL_RenderClear(renderer);
 
@@ -113,7 +113,7 @@ void ArtemisEngine::Render()
 	SDL_RenderPresent(renderer);
 }
 
-void ArtemisEngine::Clean()
+void Engine::Clean()
 {
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
@@ -122,7 +122,7 @@ void ArtemisEngine::Clean()
 	std::cout << "Game cleaned!" << std::endl;
 }
 
-bool ArtemisEngine::IsGameRunning()
+bool Engine::IsGameRunning()
 {
 	return isRunning;
 }

@@ -1,18 +1,20 @@
 #include "MonoBehaviour.h"
-#include "ArtemisEngine.h"
+#include "Engine.h"
+
+using namespace ArtemisEngine;
 
 MonoBehaviour::MonoBehaviour()
 {
-	ArtemisEngine::Monos.push_back(this);
+	Engine::Monos.push_back(this);
 }
 
 MonoBehaviour::~MonoBehaviour()
 {
-	for (int i = 0; i < ArtemisEngine::Monos.size(); i++)
+	for (int i = 0; i < Engine::Monos.size(); i++)
 	{
-		if (this == ArtemisEngine::Monos[i])
+		if (this == Engine::Monos[i])
 		{
-			ArtemisEngine::Monos.erase(ArtemisEngine::Monos.begin() + i);
+			Engine::Monos.erase(Engine::Monos.begin() + i);
 			break;
 		}
 	}

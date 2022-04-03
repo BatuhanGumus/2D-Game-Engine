@@ -1,5 +1,7 @@
 #include "Input.h"
 
+using namespace ArtemisEngine;
+
 std::vector<SDL_KeyboardEvent> Input::frameInput;
 std::vector<SDL_Keycode> Input::heldButtons;
 std::vector<SDL_Keycode> Input::lastFrame;

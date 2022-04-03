@@ -1,6 +1,8 @@
 #include "SpriteManager.h"
 #include <iostream>
 
+using namespace ArtemisEngine;
+
 std::vector<Sprite*> SpriteManager::sprites;
 
 void SpriteManager::LoadSprite(const char* textureSheet, int pixelH, int pixelW, std::string _name)
