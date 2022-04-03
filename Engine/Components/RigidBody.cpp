@@ -6,7 +6,8 @@ using namespace ArtemisEngine;
 RigidBody::RigidBody(GameObject* _gameObject, double drag, double maxSpeed, bool useGravity, BoxCollider* collider) :
 gameObject(*_gameObject)
 {
-	gameObject.rigidBody = this;
+    //TODO: FIX HERE
+	//gameObject.rigidBody = this;
 
 	this->drag = drag;
 	this->maxSpeed = maxSpeed;

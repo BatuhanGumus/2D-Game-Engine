@@ -7,6 +7,7 @@ namespace ArtemisEngine
     {
     public:
         Transform(Vector2* position, Vector2* scale);
+        Transform();
         ~Transform();
 
         Vector2 *position, *scale;

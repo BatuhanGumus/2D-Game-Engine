@@ -4,11 +4,11 @@
 #include "EnemyShip.h"
 #include "PlayerShip.h"
 
-laser::laser(const char* name, Sprite* sprite, int speed, Vector2* pos, Vector2* scale) :
-GameObject(name, sprite, new Transform(pos, scale), Default)
+laser::laser(GameObject* holderObject, int speed, Vector2* pos, Vector2* scale) :
+Component(holderObject)
 {
 	laserSpeed = speed * Time::fixedDeltaTime;
-	new RigidBody(this, 0, 1, false, new BoxCollider(sprite));
+	//new RigidBody(this, 0, 1, false, new BoxCollider(sprite));
 }
 
 laser::~laser()
@@ -18,13 +18,13 @@ laser::~laser()
 
 void laser::Update()
 {
-	rigidBody->velocity.y = laserSpeed;
+	//rigidBody->velocity.y = laserSpeed;
 
-	if (transform->position->y > 4)
+	if (holderObject->transform->position->y > 4)
 	{
 		delete this;
 	}
-	else if (transform->position->y < -4)
+	else if (holderObject->transform->position->y < -4)
 	{
 		delete this;
 	}
@@ -32,6 +32,7 @@ void laser::Update()
 
 void laser::OnTriggerEnter(GameObject* other)
 {
+    /*
 	if (this->name == "PlayerLaser" && other->name == "enemyShip")
 	{
 		other->getDerived<EnemyShip>()->Damage(1);
@@ -44,5 +45,6 @@ void laser::OnTriggerEnter(GameObject* other)
 
 		delete this;
 	}
+     */
 }
 

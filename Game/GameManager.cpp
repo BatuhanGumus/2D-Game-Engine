@@ -11,6 +11,8 @@
 #include <math.h>
 
 #include "SDL_image.h"
+#include "GameObject.h"
+#include "SpriteRenderer.h"
 
 using namespace ArtemisEngine;
 
@@ -18,11 +20,12 @@ GameManager* GameManager::instance = nullptr;
 
 void Engine::Awake()
 {
-	GameManager* gm = new GameManager;
+    GameObject* temp = new GameObject("GameManager", new Transform(), GameObjectType::Static);
+    temp->AddComponent(new GameManager(temp));
 }
 
 
-GameManager::GameManager()
+GameManager::GameManager(GameObject* holderObject) : MonoBehaviour(holderObject)
 {
 	instance = this;
 
@@ -80,6 +83,7 @@ void GameManager::BeginGame()
 
 void GameManager::SpawnEnemyWave()
 {
+    /*
 	for (int i = 0; i < 5; i++)
 	{
 		enemyShips[i] = new EnemyShip("enemyShip", enemySprite,
@@ -88,7 +92,7 @@ void GameManager::SpawnEnemyWave()
 
 	waveCount++;
 	waveText->text = "Wave: " + std::to_string(waveCount);
-	
+	*/
 }
 
 void GameManager::DeleteAllEnemies()
@@ -107,7 +111,12 @@ void GameManager::DeleteAllEnemies()
 
 void GameManager::SpawnPlayer()
 {
-	playerShip = new PlayerShip("PlayerShip", SpriteManager::GetSprite("Player"), new Vector2(0, -2.3), new Vector2(0.6, 0.6));
+    //playerShip = new PlayerShip("PlayerShip", SpriteManager::GetSprite("Player"), new Vector2(0, -2.3), new Vector2(0.6, 0.6));
+    GameObject* temp = new GameObject("PlayerShip", SpriteManager::GetSprite("Player"),
+                                      new Transform(new Vector2(0, -2.3), new Vector2(0.6, 0.6)), GameObjectType::Default);
+
+    temp->AddComponent(new SpriteRenderer(temp, SpriteManager::GetSprite("Player")));
+    temp ->AddComponent(new PlayerShip(temp));
 }
 
 void GameManager::CheckGameState()

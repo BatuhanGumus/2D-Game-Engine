@@ -67,6 +67,6 @@ add_executable(2D_Game_Engine
         Game/Enteties/Ship.h
         Game/AssetLoader.cpp
         Game/GameManager.cpp
-        Game/GameManager.h)
+        Game/GameManager.h Engine/Base/Component.cpp Engine/Base/Component.h Engine/Components/SpriteRenderer.cpp Engine/Components/SpriteRenderer.h)
 
 target_link_libraries(${PROJECT_NAME} SDL2main SDL2 SDL2_image SDL2_ttf)

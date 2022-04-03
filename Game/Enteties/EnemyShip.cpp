@@ -6,10 +6,10 @@
 
 int EnemyShip::EnemyShipCount = 0;
 
-EnemyShip::EnemyShip(const char* name, Sprite* sprite, Vector2* pos, Vector2* scale) :
-Ship(name, sprite, pos, scale)
+EnemyShip::EnemyShip(GameObject* holderObject, Vector2* pos) :
+Ship(holderObject)
 {
-	new RigidBody(this, 0.9, 0.3, false, new BoxCollider(sprite));
+	//new RigidBody(this, 0.9, 0.3, false, new BoxCollider(sprite));
 
 	maxhp = 3;
 	hp = maxhp;
@@ -18,9 +18,9 @@ Ship(name, sprite, pos, scale)
 	laserSprite = SpriteManager::GetSprite("EnemyLaser");
 	RandTimeForShot();
 
-	spawnedPos = *transform->position;
-	transform->position->y = pos->y + 2;
-	transform->position->x = pos->x + 0.8;
+	spawnedPos = *holderObject->transform->position;
+    holderObject->transform->position->y = pos->y + 2;
+    holderObject->transform->position->x = pos->x + 0.8;
 
 	distToText = *new Vector2(0, 0.4);
 	hpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 255,255,255,255 }, "Cut_Deep", 1, *pos + distToText);
@@ -43,32 +43,33 @@ void EnemyShip::Update()
 		timeSinceShot = 0;
 		RandTimeForShot();
 
-		new laser("EnemyLaser", laserSprite, -7, new Vector2(*transform->position), new Vector2(1, 1));
+        //TODO: fix here
+		//new laser("EnemyLaser", laserSprite, -7, new Vector2(*holderObject->transform->position), new Vector2(1, 1));
 	}
 	
-	double dist = Vector2::Distance(spawnedPos, *transform->position);
+	double dist = Vector2::Distance(spawnedPos, *holderObject->transform->position);
 	if (dist > 0.05)
 	{
-		Vector2 dir = Vector2::Normalize(*transform->position - spawnedPos) * -dist * Time::fixedDeltaTime * 1.5;
-		rigidBody->velocity.y = dir.y;
+		Vector2 dir = Vector2::Normalize(*holderObject->transform->position - spawnedPos) * -dist * Time::fixedDeltaTime * 1.5;
+		//rigidBody->velocity.y = dir.y;
 	}
 	else
 	{
-		rigidBody->velocity.y = 0;
+		//rigidBody->velocity.y = 0;
 	}
 
-	if (transform->position->x - spawnedPos.x > 0.7)
+	if (holderObject->transform->position->x - spawnedPos.x > 0.7)
 	{
 		sideSpeed = -2;
 	}
-	else if (transform->position->x - spawnedPos.x < -0.7)
+	else if (holderObject->transform->position->x - spawnedPos.x < -0.7)
 	{
 		sideSpeed = 2;
 	}
 
-	rigidBody->velocity.x = sideSpeed * Time::fixedDeltaTime;
+	//rigidBody->velocity.x = sideSpeed * Time::fixedDeltaTime;
 
-	hpText->position = *transform->position + distToText;
+	hpText->position = *holderObject->transform->position + distToText;
 }
 
 void EnemyShip::Damage(int dmg)

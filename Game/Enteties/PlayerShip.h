@@ -6,7 +6,7 @@ using namespace ArtemisEngine;
 class PlayerShip : public Ship
 {
 public:
-	PlayerShip(const char* name, Sprite* sprite, Vector2* pos, Vector2* scale);
+	PlayerShip(GameObject* holderObject);
 	~PlayerShip();
 
 	void Update() override;

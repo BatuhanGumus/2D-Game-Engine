@@ -13,3 +13,9 @@ Transform::~Transform()
 	delete position;
 	delete scale;
 }
+
+Transform::Transform()
+{
+    this->position = new Vector2();
+    this->scale =  new Vector2();
+}

@@ -1,25 +1,26 @@
 #pragma once
 
 #include <string>
-#include "MonoBehaviour.h"
 #include <Transform.h>
 #include "Sprite.h"
+#include <vector>
+#include "Component.h"
 
 namespace ArtemisEngine
 {
-    class RigidBody;
-
     enum GameObjectType
     {
         Default,
         Static
     };
 
-    class GameObject : public MonoBehaviour
+    class GameObject
     {
     public:
         std::string name;
         GameObjectType type;
+
+        std::vector<Component*> components;
 
         GameObject(const char* name, Sprite* sprite, Transform* _transform, GameObjectType type);
         GameObject(const char* name, Transform* _transform, GameObjectType type);
@@ -30,14 +31,15 @@ namespace ArtemisEngine
         void virtual OnTriggerEnter(GameObject* other);
         void virtual OnTriggerExit(GameObject* other);
 
-        void Update() override;
-        void Render() override;
+        void UpdateComponents();
+        void RenderComponents();
+
+        Component* AddComponent(Component* component);
 
         Transform* transform;
-        RigidBody* rigidBody;
         Sprite* sprite;
     private:
-        SDL_Rect srcRect, destRect;
+
 
         void setDestRec();
     };

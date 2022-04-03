@@ -4,10 +4,10 @@
 #include "Laser.h"
 #include "SpriteManager.h"
 
-PlayerShip::PlayerShip(const char* name, Sprite* sprite, Vector2* pos, Vector2* scale) : 
-Ship(name, sprite, pos, scale)
+PlayerShip::PlayerShip(GameObject* holderObject) :
+Ship(holderObject)
 {
-	new RigidBody(this, 0.9, 0.3, false, new BoxCollider(sprite));
+	//new RigidBody(this, 0.9, 0.3, false, new BoxCollider(sprite));
 
 	speed = 1.3 * Time::fixedDeltaTime;
 	laserSprite = SpriteManager::GetSprite("PlayerLaser");
@@ -49,14 +49,15 @@ void PlayerShip::Update()
 	{
 		if (canShot == true)
 		{
-			new laser("PlayerLaser", laserSprite, 15, new Vector2(*transform->position), new Vector2(1, 1));
+            //todo: fix here
+			//new laser("PlayerLaser", laserSprite, 15, new Vector2(*holderObject->transform->position), new Vector2(1, 1));
 			timeSince = 0;
 			canShot = false;
 		}
 		
 	}
 
-	rigidBody->velocity += acc;
+	//rigidBody->velocity += acc;
 	acc.x = 0;
 }
 

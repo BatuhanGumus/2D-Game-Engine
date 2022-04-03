@@ -1,29 +1,20 @@
 #pragma once
 
+#include "GameObject.h"
+#include "Component.h"
 namespace ArtemisEngine
 {
-    class MonoBehaviour
+    class MonoBehaviour : public Component
     {
     public:
-        MonoBehaviour();
+        explicit MonoBehaviour(GameObject* holderObject);
         ~MonoBehaviour();
 
-        template <typename DerivedType>
-        DerivedType* getDerived();
-
-
-        void virtual Update();
-        void virtual Render();
+        void Update() override;
 
     private:
 
     };
-
-    template <typename DerivedType>
-    DerivedType* MonoBehaviour::getDerived()
-    {
-        return dynamic_cast<DerivedType*>(this);
-    }
 }
 
 

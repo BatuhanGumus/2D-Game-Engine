@@ -26,7 +26,7 @@ namespace ArtemisEngine
         static SDL_Renderer* renderer;
         SDL_Event event;
 
-        static std::vector<MonoBehaviour*> Monos;
+        static std::vector<GameObject*> gameObjects;
         static std::vector<Text*> textsToRender;
 
         static int pixW;

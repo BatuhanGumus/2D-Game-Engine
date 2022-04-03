@@ -3,10 +3,10 @@
 
 using namespace ArtemisEngine;
 
-class laser : public GameObject
+class laser : public Component
 {
 public:
-	laser(const char* name, Sprite* sprite, int speed, Vector2* pos, Vector2* scale);
+	laser(GameObject* holderObject, int speed, Vector2* pos, Vector2* scale);
 	~laser();
 	void Update() override;
 	void OnTriggerEnter(GameObject* other) override;

@@ -3,27 +3,17 @@
 
 using namespace ArtemisEngine;
 
-MonoBehaviour::MonoBehaviour()
+MonoBehaviour::MonoBehaviour(GameObject* holderObject) : Component(holderObject)
 {
-	Engine::Monos.push_back(this);
+
 }
 
 MonoBehaviour::~MonoBehaviour()
 {
-	for (int i = 0; i < Engine::Monos.size(); i++)
-	{
-		if (this == Engine::Monos[i])
-		{
-			Engine::Monos.erase(Engine::Monos.begin() + i);
-			break;
-		}
-	}
+
 }
 
 void MonoBehaviour::Update()
 {
-}
 
-void MonoBehaviour::Render()
-{
 }

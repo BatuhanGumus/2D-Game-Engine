@@ -1,14 +1,14 @@
 #pragma once
-#include "GameObject.h"
+#include "Component.h"
 #include "RigidBody.h"
 #include "../GameManager.h"
 
 using namespace ArtemisEngine;
 
-class Ship : public GameObject
+class Ship : public Component
 {
 public:
-	Ship(const char* name, Sprite* sprite, Vector2* pos, Vector2* scale);
+	Ship(GameObject* holderObject);
 	~Ship();
 	virtual void Damage(int dmg) = 0;
 protected:

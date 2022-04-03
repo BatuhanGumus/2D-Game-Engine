@@ -7,7 +7,7 @@ using namespace ArtemisEngine;
 
 SDL_Renderer* Engine::renderer = nullptr;
 
-std::vector<MonoBehaviour*> Engine::Monos;
+std::vector<GameObject*> Engine::gameObjects;
 std::vector<Text*> Engine::textsToRender;
 
 int Engine::pixW;
@@ -90,9 +90,9 @@ void Engine::HandleEvents()
 
 void Engine::Update()
 {
-	for (int i = 0; i < Monos.size(); i++)
+	for (int i = 0; i < gameObjects.size(); i++)
 	{
-		Monos[i]->Update();
+        gameObjects[i]->UpdateComponents();
 	}
 }
 
@@ -100,15 +100,17 @@ void Engine::Render()
 {
 	SDL_RenderClear(renderer);
 
-	for (int i = 0; i < Monos.size(); i++)
+	for (int i = 0; i < gameObjects.size(); i++)
 	{
-		Monos[i]->Render();
+        gameObjects[i]->RenderComponents();
 	}
 
 	for (int i = 0; i < textsToRender.size(); i++)
 	{
 		textsToRender[i]->Render();
 	}
+
+    //TODO: gizmos drawing
 
 	SDL_RenderPresent(renderer);
 }
