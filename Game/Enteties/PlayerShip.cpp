@@ -10,7 +10,6 @@ Ship(name, sprite, pos, scale)
 	new RigidBody(this, 0.9, 0.3, false, new BoxCollider(sprite));
 
 	speed = 1.3 * Time::fixedDeltaTime;
-	delete laserSprite;
 	laserSprite = SpriteManager::GetSprite("PlayerLaser");
 	maxhp = 5;
 	hp = maxhp;

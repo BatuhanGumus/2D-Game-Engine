@@ -57,7 +57,7 @@ void Physics::ApplyRules(RigidBody* body)
 }
 
 void Physics::CheckCollision(RigidBody* body)
-{	
+{
 	double mainXpos = body->gameObject.transform->position->x;
 	double mainYpos = body->gameObject.transform->position->y;
 	double mainToRight = body->collider->width * body->gameObject.transform->scale->x / 2;

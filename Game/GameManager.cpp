@@ -10,6 +10,8 @@
 
 #include <math.h>
 
+#include "SDL_image.h"
+
 GameManager* GameManager::instance = nullptr;
 
 void ArtemisEngine::Awake()
@@ -32,6 +34,18 @@ GameManager::GameManager()
 
 	titleText = new Text("SPACE SHOOTER!", { 200,200,255,255 }, "Cut_Deep", 6, Vector2(0, 0.3));
 	beginInfo = new Text("Press \"Space\" to Begin!", { 255,255,255,255 }, "Cut_Deep", 2, Vector2(0, -0.5));
+}
+
+void GameManager::Update()
+{
+    if (gameEnded == true && Input::GetKeyDown(SDLK_r))
+    {
+        RestartGame();
+    }
+    if (gameBegun == false && Input::GetKeyDown(SDLK_SPACE))
+    {
+        BeginGame();
+    }
 }
 
 void GameManager::RestartGame()
@@ -122,17 +136,5 @@ void GameManager::removeEnemyShip(EnemyShip* ship)
 		{
 			enemyShips[i] = nullptr;
 		}
-	}
-}
-
-void GameManager::Update()
-{
-	if (gameEnded == true && Input::GetKeyDown(SDLK_r))
-	{
-		RestartGame();
-	}
-	if (gameBegun == false && Input::GetKeyDown(SDLK_SPACE))
-	{
-		BeginGame();
 	}
 }

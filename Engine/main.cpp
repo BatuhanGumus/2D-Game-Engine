@@ -2,6 +2,7 @@
 #include "ArtemisEngine.h"
 #include "Time.h"
 #include "Input.h"
+#include <iostream>
 
 int main(int args, char* argv[])
 {
