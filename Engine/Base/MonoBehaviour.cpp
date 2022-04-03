@@ -3,7 +3,7 @@
 
 using namespace ArtemisEngine;
 
-MonoBehaviour::MonoBehaviour(GameObject* holderObject) : Component(holderObject)
+MonoBehaviour::MonoBehaviour() : Component()
 {
 
 }

@@ -4,8 +4,7 @@
 #include "EnemyShip.h"
 #include "PlayerShip.h"
 
-laser::laser(GameObject* holderObject, int speed, Vector2* pos, Vector2* scale) :
-Component(holderObject)
+laser::laser(int speed, Vector2* pos, Vector2* scale) : Component()
 {
 	laserSpeed = speed * Time::fixedDeltaTime;
 	//new RigidBody(this, 0, 1, false, new BoxCollider(sprite));
@@ -20,11 +19,11 @@ void laser::Update()
 {
 	//rigidBody->velocity.y = laserSpeed;
 
-	if (holderObject->transform->position->y > 4)
+	if (transform->position->y > 4)
 	{
 		delete this;
 	}
-	else if (holderObject->transform->position->y < -4)
+	else if (transform->position->y < -4)
 	{
 		delete this;
 	}

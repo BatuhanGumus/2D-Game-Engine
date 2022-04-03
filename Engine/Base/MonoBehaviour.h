@@ -7,7 +7,7 @@ namespace ArtemisEngine
     class MonoBehaviour : public Component
     {
     public:
-        explicit MonoBehaviour(GameObject* holderObject);
+        explicit MonoBehaviour();
         ~MonoBehaviour();
 
         void Update() override;

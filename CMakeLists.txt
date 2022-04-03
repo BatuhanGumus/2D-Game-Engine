@@ -39,6 +39,8 @@ add_executable(2D_Game_Engine
         Engine/Base/MonoBehaviour.h
         Engine/Base/Physics.cpp
         Engine/Base/Physics.h
+        Engine/Base/Sprite.cpp
+        Engine/Base/Sprite.h
         Engine/Base/SpriteManager.cpp
         Engine/Base/SpriteManager.h
         Engine/Base/Text.cpp
@@ -55,8 +57,6 @@ add_executable(2D_Game_Engine
         Engine/Components/BoxCollider.h
         Engine/Components/RigidBody.cpp
         Engine/Components/RigidBody.h
-        Engine/Components/Sprite.cpp
-        Engine/Components/Sprite.h
         Game/Enteties/EnemyShip.cpp
         Game/Enteties/EnemyShip.h
         Game/Enteties/Laser.cpp

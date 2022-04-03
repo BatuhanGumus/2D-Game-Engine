@@ -45,6 +45,7 @@ void GameObject::OnTriggerExit(GameObject* other)
 
 GameObject::~GameObject()
 {
+    //todo: delete the components as well
 	delete transform;
 }
 
@@ -62,8 +63,12 @@ void GameObject::RenderComponents()
     }
 }
 
-Component* GameObject::AddComponent(Component* component) {
+Component* GameObject::AddComponent(Component* component)
+{
+    component->gameObject = this;
+    component->transform = transform;
     components.push_back(component);
+
     return component;
 }
 

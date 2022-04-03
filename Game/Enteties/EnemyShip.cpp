@@ -6,8 +6,7 @@
 
 int EnemyShip::EnemyShipCount = 0;
 
-EnemyShip::EnemyShip(GameObject* holderObject, Vector2* pos) :
-Ship(holderObject)
+EnemyShip::EnemyShip(Vector2* pos) : Ship()
 {
 	//new RigidBody(this, 0.9, 0.3, false, new BoxCollider(sprite));
 
@@ -18,9 +17,9 @@ Ship(holderObject)
 	laserSprite = SpriteManager::GetSprite("EnemyLaser");
 	RandTimeForShot();
 
-	spawnedPos = *holderObject->transform->position;
-    holderObject->transform->position->y = pos->y + 2;
-    holderObject->transform->position->x = pos->x + 0.8;
+	spawnedPos = *transform->position;
+    transform->position->y = pos->y + 2;
+    transform->position->x = pos->x + 0.8;
 
 	distToText = *new Vector2(0, 0.4);
 	hpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 255,255,255,255 }, "Cut_Deep", 1, *pos + distToText);
@@ -47,10 +46,10 @@ void EnemyShip::Update()
 		//new laser("EnemyLaser", laserSprite, -7, new Vector2(*holderObject->transform->position), new Vector2(1, 1));
 	}
 	
-	double dist = Vector2::Distance(spawnedPos, *holderObject->transform->position);
+	double dist = Vector2::Distance(spawnedPos, *transform->position);
 	if (dist > 0.05)
 	{
-		Vector2 dir = Vector2::Normalize(*holderObject->transform->position - spawnedPos) * -dist * Time::fixedDeltaTime * 1.5;
+		Vector2 dir = Vector2::Normalize(*gameObject->transform->position - spawnedPos) * -dist * Time::fixedDeltaTime * 1.5;
 		//rigidBody->velocity.y = dir.y;
 	}
 	else
@@ -58,18 +57,18 @@ void EnemyShip::Update()
 		//rigidBody->velocity.y = 0;
 	}
 
-	if (holderObject->transform->position->x - spawnedPos.x > 0.7)
+	if (transform->position->x - spawnedPos.x > 0.7)
 	{
 		sideSpeed = -2;
 	}
-	else if (holderObject->transform->position->x - spawnedPos.x < -0.7)
+	else if (transform->position->x - spawnedPos.x < -0.7)
 	{
 		sideSpeed = 2;
 	}
 
 	//rigidBody->velocity.x = sideSpeed * Time::fixedDeltaTime;
 
-	hpText->position = *holderObject->transform->position + distToText;
+	hpText->position = *transform->position + distToText;
 }
 
 void EnemyShip::Damage(int dmg)

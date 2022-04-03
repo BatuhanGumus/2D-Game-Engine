@@ -11,7 +11,7 @@ class PlayerShip;
 class GameManager : public MonoBehaviour
 {
 public:
-	GameManager(GameObject* holderObject);
+	GameManager();
 
 	void RestartGame();
 	void BeginGame();

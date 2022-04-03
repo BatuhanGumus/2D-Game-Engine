@@ -8,7 +8,7 @@ using namespace ArtemisEngine;
 class Ship : public Component
 {
 public:
-	Ship(GameObject* holderObject);
+	Ship();
 	~Ship();
 	virtual void Damage(int dmg) = 0;
 protected:

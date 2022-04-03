@@ -3,13 +3,15 @@
 namespace ArtemisEngine
 {
     class GameObject;
+    class Transform;
 
     class Component
     {
     public:
-        explicit Component(GameObject* holderObject);
+        explicit Component();
 
-        GameObject* holderObject;
+        GameObject* gameObject;
+        Transform* transform;
 
         void virtual Update();
         void virtual Render();

@@ -4,8 +4,7 @@
 #include "Laser.h"
 #include "SpriteManager.h"
 
-PlayerShip::PlayerShip(GameObject* holderObject) :
-Ship(holderObject)
+PlayerShip::PlayerShip() : Ship()
 {
 	//new RigidBody(this, 0.9, 0.3, false, new BoxCollider(sprite));
 

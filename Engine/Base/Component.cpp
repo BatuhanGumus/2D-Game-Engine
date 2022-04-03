@@ -2,9 +2,9 @@
 
 using namespace ArtemisEngine;
 
-Component::Component(GameObject *holderObject)
+Component::Component()
 {
-    this->holderObject = holderObject;
+
 }
 
 template <typename DerivedType>

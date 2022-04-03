@@ -20,12 +20,11 @@ GameManager* GameManager::instance = nullptr;
 
 void Engine::Awake()
 {
-    GameObject* temp = new GameObject("GameManager", new Transform(), GameObjectType::Static);
-    temp->AddComponent(new GameManager(temp));
+    (new GameObject("GameManager", new Transform(), GameObjectType::Static))->AddComponent(new GameManager());
 }
 
 
-GameManager::GameManager(GameObject* holderObject) : MonoBehaviour(holderObject)
+GameManager::GameManager() : MonoBehaviour()
 {
 	instance = this;
 
@@ -111,12 +110,11 @@ void GameManager::DeleteAllEnemies()
 
 void GameManager::SpawnPlayer()
 {
-    //playerShip = new PlayerShip("PlayerShip", SpriteManager::GetSprite("Player"), new Vector2(0, -2.3), new Vector2(0.6, 0.6));
     GameObject* temp = new GameObject("PlayerShip", SpriteManager::GetSprite("Player"),
                                       new Transform(new Vector2(0, -2.3), new Vector2(0.6, 0.6)), GameObjectType::Default);
 
-    temp->AddComponent(new SpriteRenderer(temp, SpriteManager::GetSprite("Player")));
-    temp ->AddComponent(new PlayerShip(temp));
+    temp->AddComponent(new SpriteRenderer(SpriteManager::GetSprite("Player")));
+    temp->AddComponent(new PlayerShip());
 }
 
 void GameManager::CheckGameState()

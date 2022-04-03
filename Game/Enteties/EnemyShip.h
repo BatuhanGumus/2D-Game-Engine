@@ -8,7 +8,7 @@ using namespace ArtemisEngine;
 class EnemyShip : public Ship
 {
 public:
-	EnemyShip(GameObject* holderObject, Vector2* pos);
+	EnemyShip(Vector2* pos);
 	~EnemyShip();
 
 	void Update() override;

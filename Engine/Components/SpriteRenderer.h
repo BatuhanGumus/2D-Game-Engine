@@ -10,7 +10,7 @@ namespace ArtemisEngine
     class SpriteRenderer : public Component
     {
     public:
-        explicit SpriteRenderer(GameObject* holderObject, Sprite* sprite);
+        explicit SpriteRenderer(Sprite* sprite);
         void Render() override;
 
     private:
