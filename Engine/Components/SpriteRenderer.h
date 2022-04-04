@@ -14,8 +14,9 @@ namespace ArtemisEngine
         explicit SpriteRenderer(Sprite* sprite);
         void Render() override;
 
-    private:
         Sprite* sprite;
+
+    private:
         SDL_Rect srcRect, destRect;
         void setDestRec();
     };

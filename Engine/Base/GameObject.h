@@ -38,8 +38,6 @@ namespace ArtemisEngine
         Transform* transform;
     private:
 
-
-        void setDestRec();
     };
 
 

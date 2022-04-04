@@ -3,12 +3,8 @@
 
 using namespace ArtemisEngine;
 
-RigidBody::RigidBody(GameObject* _gameObject, double drag, double maxSpeed, bool useGravity, BoxCollider* collider) :
-gameObject(*_gameObject)
+RigidBody::RigidBody(double drag, double maxSpeed, bool useGravity, BoxCollider* collider)
 {
-    //TODO: FIX HERE
-	//gameObject.rigidBody = this;
-
 	this->drag = drag;
 	this->maxSpeed = maxSpeed;
 	this->useGravity = useGravity;
@@ -20,15 +16,15 @@ void RigidBody::CallCollision(GameObject* other)
 {
 	if (other == lastHit)
 	{
-		gameObject.OnTrigger(other);
+		gameObject->OnTrigger(other);
 	}
 	else if (other == nullptr && lastHit != nullptr)
 	{
-		gameObject.OnTriggerExit(lastHit);
+		gameObject->OnTriggerExit(lastHit);
 	}
 	else if (other != nullptr && lastHit == nullptr)
 	{
-		gameObject.OnTriggerEnter(other);
+		gameObject->OnTriggerEnter(other);
 	}
 
 	lastHit = other;

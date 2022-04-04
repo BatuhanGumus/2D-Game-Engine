@@ -3,7 +3,7 @@
 
 using namespace ArtemisEngine;
 
-BoxCollider::BoxCollider(double width, double height)
+BoxCollider::BoxCollider(double width, double height) : Component()
 {
 	this->width = width;
 	this->height = height;

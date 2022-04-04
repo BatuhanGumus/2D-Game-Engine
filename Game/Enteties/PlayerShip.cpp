@@ -2,11 +2,10 @@
 #include "Input.h"
 #include "Time.h"
 #include "Laser.h"
+#include "RigidBody.h"
 
 PlayerShip::PlayerShip() : Ship()
 {
-	//new RigidBody(this, 0.9, 0.3, false, new BoxCollider(sprite));
-
 	speed = 1.3 * Time::fixedDeltaTime;
 	laserSprite = Sprite::GetSprite("PlayerLaser");
 	maxhp = 5;
@@ -55,7 +54,7 @@ void PlayerShip::Update()
 		
 	}
 
-	//rigidBody->velocity += acc;
+	rigidBody->velocity += acc;
 	acc.x = 0;
 }
 

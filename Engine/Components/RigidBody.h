@@ -3,19 +3,19 @@
 #include "Transform.h"
 #include "BoxCollider.h"
 #include "GameObject.h"
+#include "Component.h"
 
 namespace ArtemisEngine
 {
 
-    class RigidBody
+    class RigidBody : public Component
     {
     public:
-        RigidBody(GameObject* _gameObject, double drag, double maxSpeed, bool useGravity, BoxCollider* collider);
+        RigidBody(double drag, double maxSpeed, bool useGravity, BoxCollider* collider);
         ~RigidBody();
 
         void CallCollision(GameObject* other);
 
-        GameObject& gameObject;
         double drag;
         double maxSpeed;
         bool useGravity;

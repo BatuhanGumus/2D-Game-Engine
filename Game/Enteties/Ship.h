@@ -11,6 +11,7 @@ public:
 	Ship();
 	~Ship();
 	virtual void Damage(int dmg) = 0;
+    RigidBody* rigidBody;
 protected:
 	int maxhp, hp;
 	Sprite* laserSprite;

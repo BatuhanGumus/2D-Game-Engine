@@ -111,8 +111,13 @@ void GameManager::SpawnPlayer()
 {
     GameObject* temp = new GameObject("PlayerShip", new Transform(new Vector2(0, -2.3), new Vector2(0.6, 0.6)));
 
-    temp->AddComponent(new SpriteRenderer(Sprite::GetSprite("Player")));
-    temp->AddComponent(new PlayerShip());
+    SpriteRenderer* spriteRenderer = new SpriteRenderer(Sprite::GetSprite("Player"));
+    temp->AddComponent(spriteRenderer);
+    PlayerShip* playerShip = new PlayerShip();
+    temp->AddComponent(playerShip);
+    playerShip->rigidBody = new RigidBody(0.9, 0.3, false, new BoxCollider(spriteRenderer->sprite));
+    temp->AddComponent( playerShip->rigidBody);
+
 }
 
 void GameManager::CheckGameState()

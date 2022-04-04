@@ -1,10 +1,11 @@
 #pragma once
 #include "Transform.h"
 #include "Sprite.h"
+#include "Component.h"
 
 namespace ArtemisEngine
 {
-    class BoxCollider
+    class BoxCollider : public Component
     {
     public:
         BoxCollider(double width, double height);
