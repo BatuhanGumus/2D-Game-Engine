@@ -1,11 +1,2 @@
 
-*.obj
-*.vcxproj
-*.filters
-*.idb
-*.pdb
 *.log
-*.dll
-*.tlog
-*.user
-Debug/gamemanager.obj.enc
