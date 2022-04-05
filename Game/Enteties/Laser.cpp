@@ -3,47 +3,51 @@
 #include "RigidBody.h"
 #include "EnemyShip.h"
 #include "PlayerShip.h"
+#include "Engine.h"
 
-laser::laser(int speed, Vector2* pos, Vector2* scale) : Component()
+Laser::Laser(int speed) : Component()
 {
-	laserSpeed = speed * Time::fixedDeltaTime;
-	//new RigidBody(this, 0, 1, false, new BoxCollider(sprite));
+	LaserSpeed = speed * Time::fixedDeltaTime;
 }
 
-laser::~laser()
+void Laser::Start()
+{
+    rigidBody = gameObject->GetComponent<RigidBody>();
+}
+
+
+
+Laser::~Laser()
 {
 	
 }
 
-void laser::Update()
+void Laser::Update()
 {
-	//rigidBody->velocity.y = laserSpeed;
+	rigidBody->velocity.y = LaserSpeed;
 
 	if (transform->position->y > 4)
 	{
-		delete this;
+        Engine::Destroy(gameObject);
 	}
 	else if (transform->position->y < -4)
 	{
-		delete this;
+        Engine::Destroy(gameObject);
 	}
 }
 
-void laser::OnTriggerEnter(GameObject* other)
+void Laser::OnTriggerEnter(GameObject* other)
 {
-    /*
-	if (this->name == "PlayerLaser" && other->name == "enemyShip")
+	if (gameObject->name == "PlayerLaser" && other->name == "EnemyShip")
 	{
-		other->getDerived<EnemyShip>()->Damage(1);
+		other->GetComponent<EnemyShip>()->Damage(1);
 
-		delete this;
+		Engine::Destroy(gameObject);
 	}
-	else if (this->name == "EnemyLaser" && other->name == "PlayerShip")
+	else if (gameObject->name == "EnemyLaser" && other->name == "PlayerShip")
 	{
-		other->getDerived<PlayerShip>()->Damage(1);
+		other->GetComponent<PlayerShip>()->Damage(1);
 
-		delete this;
+        Engine::Destroy(gameObject);
 	}
-     */
 }
-

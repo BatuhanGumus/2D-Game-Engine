@@ -1,16 +1,18 @@
 #pragma once
-#include "GameObject.h"
+#include "RigidBody.h"
 
 using namespace ArtemisEngine;
 
-class laser : public Component
+class Laser : public Component
 {
 public:
-	laser(int speed, Vector2* pos, Vector2* scale);
-	~laser();
+	Laser(int speed);
+	~Laser();
+    void Start() override;
 	void Update() override;
 	void OnTriggerEnter(GameObject* other) override;
 private:
-	double laserSpeed;
+	double LaserSpeed;
+    RigidBody* rigidBody;
 };
 

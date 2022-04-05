@@ -2,12 +2,14 @@
 #include <iostream>
 #include "SDL_image.h"
 #include "Input.h"
+#include <algorithm>
 
 using namespace ArtemisEngine;
 
 SDL_Renderer* Engine::renderer = nullptr;
-
 std::vector<GameObject*> Engine::gameObjects;
+std::queue<GameObject*> Engine::gameObjectsToAdd;
+std::queue<GameObject*> Engine::gameObjectsToRemove;
 std::vector<Text*> Engine::textsToRender;
 
 int Engine::pixW;
@@ -88,6 +90,7 @@ void Engine::HandleEvents()
 
 }
 
+
 void Engine::Update()
 {
 	for (int i = 0; i < gameObjects.size(); i++)
@@ -127,4 +130,41 @@ void Engine::Clean()
 bool Engine::IsGameRunning()
 {
 	return isRunning;
+}
+
+void Engine::GameObjectCreated(GameObject *gameObject)
+{
+    gameObjectsToAdd.push(gameObject);
+}
+
+void Engine::UpdateGameObjectList()
+{
+    while(!gameObjectsToRemove.empty())
+    {
+        auto found = std::find(gameObjects.begin(), gameObjects.end(), gameObjectsToRemove.front());
+        if (found != gameObjects.end())
+        {
+            gameObjects.erase(found);
+        }
+
+        RigidBody* rb = gameObjectsToRemove.front()->GetComponent<RigidBody>();
+        if (rb != nullptr)
+        {
+            Physics::RigidBodyDeleted(rb);
+        }
+
+        delete gameObjectsToRemove.front();
+        gameObjectsToRemove.pop();
+    }
+
+    while(!gameObjectsToAdd.empty())
+    {
+        gameObjects.push_back(gameObjectsToAdd.front());
+        gameObjectsToAdd.pop();
+    }
+}
+
+void Engine::Destroy(GameObject *gameObject)
+{
+    gameObjectsToRemove.push(gameObject);
 }

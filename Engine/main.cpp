@@ -31,10 +31,13 @@ int main(int args, char* argv[])
 	{
 		frameStart = SDL_GetTicks();
 
+
 		engine->HandleEvents();
 		engine->Update();
 		engine->physicsEngine->Update();
 		engine->Render();
+        engine->UpdateGameObjectList();
+        engine->physicsEngine->UpdateBodyList();
 
 		frameTime = SDL_GetTicks() - frameStart;
 

@@ -9,7 +9,7 @@ RigidBody::RigidBody(double drag, double maxSpeed, bool useGravity, BoxCollider*
 	this->maxSpeed = maxSpeed;
 	this->useGravity = useGravity;
 	this->collider = collider;
-	Physics::bodies.push_back(this);
+	Physics::RigidBodyCreated(this);
 }
 
 void RigidBody::CallCollision(GameObject* other)
@@ -34,14 +34,5 @@ void RigidBody::CallCollision(GameObject* other)
 
 RigidBody::~RigidBody()
 {
-	delete collider;
-
-	for (int i = 0; i < Physics::bodies.size(); i++)
-	{
-		if (this == Physics::bodies[i])
-		{
-			Physics::bodies.erase(Physics::bodies.begin() + i);
-			break;
-		}
-	}
+    Physics::RigidBodyDeleted(this);
 }

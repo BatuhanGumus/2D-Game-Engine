@@ -3,10 +3,13 @@
 #include <iostream>
 #include <cmath>
 #include "Time.h"
+#include <algorithm>
 
 using namespace ArtemisEngine;
 
 std::vector<RigidBody*> Physics::bodies;
+std::queue<RigidBody*> Physics::bodiesToAdd;
+std::queue<RigidBody*> Physics::bodiesToRemove;
 
 Physics::Physics()
 {
@@ -74,11 +77,10 @@ void Physics::CheckCollision(RigidBody* body)
 			continue;
 		}
 
-		
-		double Xpos = bodies[i]->gameObject->transform->position->x;
-		double Ypos = bodies[i]->gameObject->transform->position->y;
-		double ToRight = bodies[i]->collider->width * bodies[i]->gameObject->transform->scale->x / 2;
-		double ToUp = bodies[i]->collider->height * bodies[i]->gameObject->transform->scale->y / 2;
+		double Xpos = bodies[i]->transform->position->x;
+		double Ypos = bodies[i]->transform->position->y;
+		double ToRight = bodies[i]->collider->width * bodies[i]->transform->scale->x / 2;
+		double ToUp = bodies[i]->collider->height * bodies[i]->transform->scale->y / 2;
 
 		for (int j = 0; j < 4; j++)
 		{
@@ -197,5 +199,42 @@ void Physics::CheckCollision(RigidBody* body)
 		body->CallCollision(nullptr);
 	}
 
-} // end of colision detection
+}
+
+void Physics::RigidBodyCreated(RigidBody *rigidBody)
+{
+    bodiesToAdd.push(rigidBody);
+}
+
+
+void Physics::RigidBodyDeleted(RigidBody *rigidBody)
+{
+   // bodiesToRemove.push(rigidBody);
+
+    auto found = std::find(bodies.begin(), bodies.end(), rigidBody);
+    if (found != bodies.end())
+    {
+        bodies.erase(found);
+    }
+}
+
+void Physics::UpdateBodyList()
+{
+    /*
+    while(!bodiesToRemove.empty())
+    {
+        auto found = std::find(bodies.begin(), bodies.end(), bodies.front());
+        if (found != bodies.end())
+        {
+            bodies.erase(found);
+        }
+        bodiesToRemove.pop();
+    }
+*/
+    while(!bodiesToAdd.empty())
+    {
+        bodies.push_back(bodiesToAdd.front());
+        bodiesToAdd.pop();
+    }
+}
 

@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "RigidBody.h"
+#include <queue>
 
 namespace ArtemisEngine
 {
@@ -11,6 +12,13 @@ namespace ArtemisEngine
         ~Physics();
 
         static std::vector<RigidBody*> bodies;
+        static std::queue<RigidBody*> bodiesToAdd;
+        static std::queue<RigidBody*> bodiesToRemove;
+
+
+        static void RigidBodyCreated(RigidBody* rigidBody);
+        static void RigidBodyDeleted(RigidBody* rigidBody);
+        static void UpdateBodyList();
 
         void Update();
 

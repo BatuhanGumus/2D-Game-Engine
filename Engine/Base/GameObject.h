@@ -35,6 +35,21 @@ namespace ArtemisEngine
 
         Component* AddComponent(Component* component);
 
+        template<typename type>
+        type* GetComponent()
+        {
+            for (int i = 0; i < components.size(); i++)
+            {
+                type* comp = dynamic_cast<type*>(components[i]);
+                if (comp != nullptr)
+                {
+                    return comp;
+                }
+            }
+
+            return nullptr;
+        }
+
         Transform* transform;
     private:
 

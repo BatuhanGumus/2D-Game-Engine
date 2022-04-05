@@ -81,16 +81,17 @@ void GameManager::BeginGame()
 
 void GameManager::SpawnEnemyWave()
 {
-    /*
 	for (int i = 0; i < 5; i++)
 	{
-		enemyShips[i] = new EnemyShip("enemyShip", enemySprite,
-			new Vector2(-2 + i, 1.8 - pow(-1, i) * 0.4), new Vector2(0.5, 0.5));
-	}
+        GameObject* temp = new GameObject("EnemyShip", new Transform(new Vector2(-2 + i, 1.8 - pow(-1, i) * 0.4), new Vector2(0.5, 0.5)));
+        temp->AddComponent(new SpriteRenderer(enemySprite));
+        temp->AddComponent(new RigidBody(0.9, 0.3, false, new BoxCollider(temp->GetComponent<SpriteRenderer>()->sprite)));
+        temp->AddComponent(new EnemyShip(new Vector2(-2 + i, 1.8 - pow(-1, i) * 0.4)));
+        enemyShips[i] = temp->GetComponent<EnemyShip>();
+    }
 
 	waveCount++;
 	waveText->text = "Wave: " + std::to_string(waveCount);
-	*/
 }
 
 void GameManager::DeleteAllEnemies()
@@ -99,7 +100,7 @@ void GameManager::DeleteAllEnemies()
 	{
 		if (enemyShips[i] != nullptr)
 		{
-			delete enemyShips[i];
+            Engine::Destroy(enemyShips[i]->gameObject);
 			enemyShips[i] = nullptr;
 		}
 	}
@@ -110,17 +111,13 @@ void GameManager::DeleteAllEnemies()
 void GameManager::SpawnPlayer()
 {
     GameObject* temp = new GameObject("PlayerShip", new Transform(new Vector2(0, -2.3), new Vector2(0.6, 0.6)));
-
-    SpriteRenderer* spriteRenderer = new SpriteRenderer(Sprite::GetSprite("Player"));
-    temp->AddComponent(spriteRenderer);
-    PlayerShip* playerShip = new PlayerShip();
-    temp->AddComponent(playerShip);
-    playerShip->rigidBody = new RigidBody(0.9, 0.3, false, new BoxCollider(spriteRenderer->sprite));
-    temp->AddComponent( playerShip->rigidBody);
-
+    temp->AddComponent(new SpriteRenderer(Sprite::GetSprite("Player")));
+    temp->AddComponent(  new RigidBody(0.9, 0.3, false, new BoxCollider(temp->GetComponent<SpriteRenderer>()->sprite)));
+    temp->AddComponent(new PlayerShip());
 }
 
 void GameManager::CheckGameState()
+
 {
 	if (EnemyShip::EnemyShipCount <= 0)
 	{

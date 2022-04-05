@@ -11,6 +11,7 @@ public:
 	EnemyShip(Vector2* pos);
 	~EnemyShip();
 
+    void Start() override;
 	void Update() override;
 	void Damage(int dmg) override;
 

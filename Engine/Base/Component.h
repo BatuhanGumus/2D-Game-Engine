@@ -13,12 +13,14 @@ namespace ArtemisEngine
         GameObject* gameObject;
         Transform* transform;
 
-        void virtual Update();
-        void virtual Render();
+        virtual void Start();
+        virtual void  Update();
+        virtual void  Render();
 
         void virtual OnTrigger(GameObject* other);
-        void virtual OnTriggerEnter(GameObject* other);
-        void virtual OnTriggerExit(GameObject* other);
+
+        virtual void OnTriggerEnter(GameObject* other);
+        virtual void  OnTriggerExit(GameObject* other);
 
         template <typename DerivedType>
         DerivedType* GetDerived();

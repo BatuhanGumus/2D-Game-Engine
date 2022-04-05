@@ -3,6 +3,8 @@
 #include "Time.h"
 #include "Laser.h"
 #include "RigidBody.h"
+#include "SpriteRenderer.h"
+#include "Engine.h"
 
 PlayerShip::PlayerShip() : Ship()
 {
@@ -14,6 +16,12 @@ PlayerShip::PlayerShip() : Ship()
 	playerHpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 100,100,150,255 }, "Cut_Deep", 2.5, Vector2(-3.2, -2.5));
 
 }
+
+void PlayerShip::Start()
+{
+    rigidBody = gameObject->GetComponent<RigidBody>();
+}
+
 
 PlayerShip::~PlayerShip()
 {
@@ -46,15 +54,18 @@ void PlayerShip::Update()
 	{
 		if (canShot == true)
 		{
-            //todo: fix here
-			//new laser("PlayerLaser", laserSprite, 15, new Vector2(*holderObject->transform->position), new Vector2(1, 1));
+            GameObject* temp = new GameObject("PlayerLaser", new Transform( new Vector2(*transform->position), new Vector2(1, 1)));
+            temp->AddComponent(new SpriteRenderer(laserSprite));
+            temp->AddComponent(new RigidBody(0.2f, 1, false, new BoxCollider(laserSprite)));
+            temp->AddComponent(new Laser(15));
+
 			timeSince = 0;
 			canShot = false;
 		}
 		
 	}
 
-	rigidBody->velocity += acc;
+    rigidBody->velocity += acc;
 	acc.x = 0;
 }
 
@@ -68,7 +79,7 @@ void PlayerShip::Damage(int dmg)
 	{
 		GameManager::instance->PlayerDiedCall();
 		delete playerHpText;
-		delete this;
+		Engine::Destroy(gameObject);
 	}
 	
 }
