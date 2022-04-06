@@ -1,5 +1,6 @@
 #include "RigidBody.h"
 #include "Physics.h"
+#include <iostream>
 
 using namespace ArtemisEngine;
 

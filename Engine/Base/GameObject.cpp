@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "GameObject.h"
+#include <iostream>
 
 using namespace ArtemisEngine;
 

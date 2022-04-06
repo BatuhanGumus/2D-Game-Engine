@@ -2,6 +2,7 @@
 #include "SpriteRenderer.h"
 #include "GameObject.h"
 #include "Engine.h"
+#include <iostream>
 
 using namespace ArtemisEngine;
 
@@ -23,7 +24,6 @@ void SpriteRenderer::Render()
     }
     if (sprite != nullptr)
     {
-        //TextureManager::Draw(sprite->Texture, srcRect, destRect);
         SDL_RenderCopy(Engine::renderer, sprite->Texture, &srcRect, &destRect);
     }
 }
@@ -34,4 +34,9 @@ void SpriteRenderer::setDestRec()
     destRect.h = sprite->pixelH * transform->scale->y * Engine::pixH / 600.0;
     destRect.x = Vector2::cordToPixelX(gameObject->transform->position->x) - srcRect.w * gameObject->transform->scale->x * (Engine::pixW / 800.0) / 2;
     destRect.y = Vector2::cordToPixelY(gameObject->transform->position->y) - srcRect.h * gameObject->transform->scale->y * (Engine::pixH / 600.0) / 2;
+}
+
+SpriteRenderer::~SpriteRenderer()
+{
+
 }

@@ -12,7 +12,7 @@ namespace ArtemisEngine
     {
     public:
         RigidBody(double drag, double maxSpeed, bool useGravity, BoxCollider* collider);
-        ~RigidBody();
+        virtual ~RigidBody() override;
 
         void CallCollision(GameObject* other);
 

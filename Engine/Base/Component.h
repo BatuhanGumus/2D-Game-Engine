@@ -9,6 +9,7 @@ namespace ArtemisEngine
     {
     public:
         explicit Component();
+        virtual ~Component();
 
         GameObject* gameObject;
         Transform* transform;

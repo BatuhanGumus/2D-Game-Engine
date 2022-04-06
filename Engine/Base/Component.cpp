@@ -39,3 +39,8 @@ void Component::OnTriggerExit(GameObject* other)
 void Component::Start() {
 
 }
+
+Component::~Component()
+{
+
+}

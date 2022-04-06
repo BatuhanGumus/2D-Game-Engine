@@ -12,6 +12,7 @@ namespace ArtemisEngine
     {
     public:
         explicit SpriteRenderer(Sprite* sprite);
+        virtual ~SpriteRenderer() override;
         void Render() override;
 
         Sprite* sprite;
