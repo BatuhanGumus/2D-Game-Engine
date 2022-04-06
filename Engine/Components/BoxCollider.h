@@ -14,6 +14,7 @@ namespace ArtemisEngine
         virtual ~BoxCollider() override;
 
         virtual void Start() override;
+        virtual void Render() override;
 
         double width;
         double height;

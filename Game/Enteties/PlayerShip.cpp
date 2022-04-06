@@ -56,7 +56,8 @@ void PlayerShip::Update()
 		{
             GameObject* temp = new GameObject("PlayerLaser", new Transform( new Vector2(*transform->position), new Vector2(1, 1)));
             temp->AddComponent(new SpriteRenderer(laserSprite));
-            temp->AddComponent(new RigidBody(0.2f, 1, false, new BoxCollider(laserSprite)));
+            temp->AddComponent(new BoxCollider(laserSprite));
+            temp->AddComponent(new RigidBody(0.2f, 1, false, gameObject->GetComponent<BoxCollider>()));
             temp->AddComponent(new Laser(15));
 
 			timeSince = 0;
