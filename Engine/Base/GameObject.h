@@ -33,7 +33,7 @@ namespace ArtemisEngine
         void UpdateComponents();
         void RenderComponents();
 
-        Component* AddComponent(Component* component);
+        GameObject* AddComponent(Component* component);
 
         template<typename type>
         type* GetComponent()

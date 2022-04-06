@@ -64,7 +64,7 @@ void GameObject::RenderComponents()
     }
 }
 
-Component* GameObject::AddComponent(Component* component)
+GameObject* GameObject::AddComponent(Component* component)
 {
     component->gameObject = this;
     component->transform = transform;
@@ -72,6 +72,6 @@ Component* GameObject::AddComponent(Component* component)
 
     component->Start();
 
-    return component;
+    return this;
 }
 
