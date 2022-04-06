@@ -3,6 +3,7 @@
 #include "SDL_image.h"
 #include "Input.h"
 #include <algorithm>
+#include "Debug.h"
 
 using namespace ArtemisEngine;
 
@@ -20,7 +21,7 @@ Engine::Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX,
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
-		std::cout << "Subsystem Initialised!" << std::endl;
+        Debug::Log("Subsystem Initialised!");
 
 		int flags = 0;
 		if (fullScreen == true)
@@ -32,7 +33,7 @@ Engine::Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX,
 
 		if (window)
 		{
-			std::cout << "Window created!" << std::endl;
+            Debug::Log("Window created!");
 		}
 
 		renderer = SDL_CreateRenderer(window, -1, 0);
@@ -40,12 +41,12 @@ Engine::Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX,
 		if (renderer)
 		{
 			SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-			std::cout << "Renderer created!" << std::endl;
+            Debug::Log("Renderer created!");
 		}
 
 		if (TTF_Init() == -1)
 		{
-			std::cout << "Text Renderer Init Error" << std::endl;
+            Debug::Log("Text Renderer Init Error: " + std::string( SDL_GetError()), Debug::Warning);
 		}
 
 		isRunning = true;
@@ -113,8 +114,6 @@ void Engine::Render()
 		textsToRender[i]->Render();
 	}
 
-    //TODO: gizmos drawing
-
 	SDL_RenderPresent(renderer);
 }
 
@@ -124,7 +123,7 @@ void Engine::Clean()
 	SDL_DestroyRenderer(renderer);
 	TTF_Quit();
 	SDL_Quit();
-	std::cout << "Game cleaned!" << std::endl;
+    Debug::Log("Game cleaned!");
 }
 
 bool Engine::IsGameRunning()

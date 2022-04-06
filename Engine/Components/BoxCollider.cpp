@@ -2,6 +2,8 @@
 #include "BoxCollider.h"
 #include "Engine.h"
 #include "SpriteRenderer.h"
+#include "Color.h"
+#include "Debug.h"
 
 using namespace ArtemisEngine;
 
@@ -45,7 +47,7 @@ BoxCollider::~BoxCollider()
 
 void BoxCollider::Render()
 {
-    SDL_SetRenderDrawColor(Engine::renderer, 255, 0, 0, 255);
+    Color* red = new Color(255, 0, 0, 255);
 
     double Xpos = transform->position->x;
     double Ypos = transform->position->y;
@@ -60,15 +62,7 @@ void BoxCollider::Render()
 
     for (int i = 0; i < 4; ++i)
     {
-        int ret = SDL_RenderDrawLine(Engine::renderer,
-                                     Vector2::cordToPixelX(points[i%4]->x),
-                                    Vector2::cordToPixelY(points[i%4]->y),
-                                    Vector2::cordToPixelX(points[(i + 1)%4]->x),
-                                    Vector2::cordToPixelY(points[(i + 1)%4]->y));
-
-        if (ret < 0) std::cout << SDL_GetError();
+        Debug::DrawLine(points[i], points[(i + 1) % 4], red);
     }
-
-    SDL_SetRenderDrawColor(Engine::renderer, 0, 0, 0, 255);
 }
 

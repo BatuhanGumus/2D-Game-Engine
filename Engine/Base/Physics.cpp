@@ -148,7 +148,6 @@ void Physics::CheckCollision(RigidBody* body)
 				{
 					double x = (B2 * C1 - B1 * C2) / det;
 					double y = (A1 * C2 - A2 * C1) / det;
-					//std::cout << "(" << x << ", " << y << ")" << std::endl;
 
 					if (
 						( abs(x - mainPoints[0]->x) <= 0.05 && abs(x - mainPoints[1]->x) <= 0.05 && 

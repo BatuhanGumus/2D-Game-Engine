@@ -1,6 +1,6 @@
 #include "FontManager.h"
-#include "Engine.h"
 #include <iostream>
+#include "Debug.h"
 
 using namespace ArtemisEngine;
 
@@ -14,7 +14,7 @@ void FontManager::LoadFont(const char* fontName, const char* file, int fontSize)
 
 	if (add.file == NULL)
 	{
-		std::cout << "Error lading font: " << fontName << std::endl;
+        Debug::Log("Error lading font: " + std::string(fontName), Debug::Warning);
 	}
 	else
 	{

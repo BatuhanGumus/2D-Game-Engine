@@ -20,7 +20,6 @@ void Input::PassInFrameInput(SDL_KeyboardEvent keyEvent)
 			}
 		}
 
-		//std::cout << keyEvent.keysym.sym << " down" << std::endl;
 		heldButtons.push_back(keyEvent.keysym.sym);
 	}
 	else
