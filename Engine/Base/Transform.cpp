@@ -4,18 +4,17 @@ using namespace ArtemisEngine;
 
 Transform::Transform(Vector2* position, Vector2* scale)
 {
-	this->position = position;
-	this->scale = scale;
+	this->position = std::shared_ptr<Vector2>(position);
+	this->scale = std::shared_ptr<Vector2>(scale);
 }
 
 Transform::~Transform()
 {
-	delete position;
-	delete scale;
+
 }
 
 Transform::Transform()
 {
-    this->position = new Vector2();
-    this->scale =  new Vector2(1, 1);
+    this->position = std::shared_ptr<Vector2>(new Vector2());
+    this->scale =  std::shared_ptr<Vector2>(new Vector2(1, 1));
 }

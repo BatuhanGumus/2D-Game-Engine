@@ -1,5 +1,6 @@
 #pragma once
 #include "Vector2.h"
+#include <memory>
 
 namespace ArtemisEngine
 {
@@ -10,7 +11,7 @@ namespace ArtemisEngine
         Transform();
         ~Transform();
 
-        Vector2 *position, *scale;
+        std::shared_ptr<Vector2> position, scale;
     private:
 
     };
