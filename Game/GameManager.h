@@ -24,6 +24,7 @@ public:
 	bool getGameState();
 	void removeEnemyShip(EnemyShip* ship);
 
+    void Start() override;
 	void Update() override;
 
 	static GameManager* instance;

@@ -13,6 +13,9 @@
 #include "GameObject.h"
 #include "SpriteRenderer.h"
 
+#include "Event.h"
+#include "Debug.h"
+
 using namespace ArtemisEngine;
 
 GameManager* GameManager::instance = nullptr;
@@ -20,6 +23,11 @@ GameManager* GameManager::instance = nullptr;
 void Engine::Awake()
 {
     (new GameObject("GameManager", new Transform(), GameObjectType::Static))->AddComponent(new GameManager());
+}
+
+void GameManager::Start()
+{
+
 }
 
 
@@ -150,3 +158,4 @@ void GameManager::removeEnemyShip(EnemyShip* ship)
 		}
 	}
 }
+
