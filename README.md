@@ -1,4 +1,12 @@
-# 2D-Game-Engine
-A game engine and a game to go with it for class
+# Artemis 2D Game Engine
 
-I have programmed a 2D game engine with C++ and SDL. There is much room for this engine to improve however I made a "Space Invaders"  type game for a class project. 
+Artesmis is a game engine that is heavily inspired by Unity's naming conventions and architecture, written in modern C++ and with the SDL2 library
+
+## features
+
+## Documentation
+
+```cpp
+```
+
+## building instructions
