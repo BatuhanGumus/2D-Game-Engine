@@ -5,18 +5,28 @@ In this repo you can also find an example space invaders type game.
 
 ### Features
 
-- item1
-- item2
+- Uses the Game Loop pattern and component system for its architecture.
+- Contains several usefull classes like;
+  - Vector2
+  - Action (Observer Pattern)
+  - Text (SDL2_text for UI)
+- Contains essential components like;
+  - Sprite Renderer
+  - Box collider and RigidBody for collision detection
 
 ## Example Game Screenshots
 
 ## Documentation
 
-- ### Asset Loading
+### Asset Loading
 ```cpp
 ```
 
-- ### GameObject and Component Creation
+### GameObject and Component Creation
+```cpp
+```
+
+### Component Functions
 ```cpp
 ```
 
