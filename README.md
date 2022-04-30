@@ -8,6 +8,8 @@ In this repo you can also find an example space invaders type game.
 - item1
 - item2
 
+## Example Game Screenshots
+
 ## Documentation
 
 ```cpp
