@@ -15,4 +15,4 @@ In this repo you can also find an example space invaders type game.
 ```cpp
 ```
 
-## Bu1ilding Instructions
+## Building Instructions
