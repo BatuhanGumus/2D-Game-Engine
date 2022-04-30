@@ -5,8 +5,8 @@ In this repo you can also find an example space invaders type game.
 
 ### Features
 
--item1
--item2
+- item1
+- item2
 
 ## Documentation
 
