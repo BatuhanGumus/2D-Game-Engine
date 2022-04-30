@@ -12,6 +12,11 @@ In this repo you can also find an example space invaders type game.
 
 ## Documentation
 
+- ### Asset Loading
+```cpp
+```
+
+- ### GameObject and Component Creation
 ```cpp
 ```
 
