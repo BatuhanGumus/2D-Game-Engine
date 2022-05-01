@@ -4,7 +4,7 @@ Artesmis is a game engine that is heavily inspired by Unity's naming conventions
 In this repo you can also find an example space invaders type game.
 
 ### Features
-Please refer to the Documentation section below for more details on the classes mentioned.
+The features listed below are almost identical to their Unity counterparts. To see what is different please refer to the [Seting Up a Game and Differences to Unity](#seting-up-a-game-and-differences-to-unity) section.
 
 - Uses the Game Loop pattern and component system for its architecture.
 - Contains several usefull classes like;
@@ -18,7 +18,7 @@ Please refer to the Documentation section below for more details on the classes 
 
 ## Example Game Screenshots
 
-## Documentation
+## Seting Up a Game and Differences toUnity
 
 ### Asset Loading
 ```cpp
