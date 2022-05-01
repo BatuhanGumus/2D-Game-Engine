@@ -6,7 +6,7 @@ In this repo you can also find an example Space Invaders type game.
 ### Features
 The features listed below are almost identical to their Unity counterparts. To see what is different, please refer to the [Seting Up a Game and Differences to Unity](#seting-up-a-game-and-differences-to-unity) section.
 
-- Uses the **Game Loop** pattern and **component system** for its architecture.
+- Uses the **Game Loop** pattern and a **component system** for its architecture.
 - Contains several usefull classes like;
   - Vector2
   - Event (Observer Pattern)
