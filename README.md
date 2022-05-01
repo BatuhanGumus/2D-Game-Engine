@@ -24,8 +24,8 @@ The features listed below are almost identical to their Unity counterparts. To s
 
 ### Asset Loading
 ```cpp
-void Sprite::LoadSprite(const char* textureSheet, int pixelH, int pixelW, std::string _name)
-void FontManager::LoadFont(const char* fontName, const char* file, int fontSize)
+void Sprite::LoadSprite(const char* textureSheet, int pixelH, int pixelW, std::string _name);
+void FontManager::LoadFont(const char* fontName, const char* file, int fontSize);
 ```
 ```cpp
 #include "Engine.h"
@@ -35,7 +35,7 @@ using namespace ArtemisEngine;
 
 void Engine::LoadAssets()
 {
-  Sprite::LoadSprite("../Game/Assets/PNG/playerShip1_blue.png", 75, 99, "Player");
+	Sprite::LoadSprite("../Game/Assets/PNG/playerShip1_blue.png", 75, 99, "Player");
 	FontManager::LoadFont("Cut_Deep", "../Game/Assets/fonts/Cut_deep.otf", 20);
 }
 ```
