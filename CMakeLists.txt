@@ -43,8 +43,8 @@ add_executable(2D_Game_Engine
         Engine/Base/Sprite.h
         Engine/Base/Text.cpp
         Engine/Base/Text.h
-        Engine/Base/Time.cpp
-        Engine/Base/Time.h
+        Engine/Base/GameTime.cpp
+        Engine/Base/GameTime.h
         Engine/Base/Transform.cpp
         Engine/Base/Transform.h
         Engine/Base/Vector2.cpp
@@ -69,10 +69,25 @@ add_executable(2D_Game_Engine
         Engine/Components/SpriteRenderer.cpp
         Engine/Components/SpriteRenderer.h
         Engine/Base/Color.cpp
-        Engine/Base/Color.h 
+        Engine/Base/Color.h
         Engine/Base/Debug.cpp
         Engine/Base/Debug.h
         Engine/Base/Event.h
         Engine/Base/Event.cpp)
 
 target_link_libraries(${PROJECT_NAME} SDL2main SDL2 SDL2_image SDL2_ttf)
+
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_SOURCE_DIR}/libraries/SDL2/lib/x64"
+        $<TARGET_FILE_DIR:${PROJECT_NAME}>)
+
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_SOURCE_DIR}/Libraries/SDL2_image/lib/x64"
+        $<TARGET_FILE_DIR:${PROJECT_NAME}>)
+
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_SOURCE_DIR}/Libraries/SDL2_ttf/lib/x64"
+        $<TARGET_FILE_DIR:${PROJECT_NAME}>)

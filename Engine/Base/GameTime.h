@@ -2,7 +2,7 @@
 
 namespace ArtemisEngine
 {
-    class Time
+    class GameTime
     {
     public:
         static double fixedDeltaTime;

@@ -1,6 +1,6 @@
 #include "EnemyShip.h"
 #include "cstdlib"
-#include "Time.h"
+#include "GameTime.h"
 #include "Laser.h"
 #include "SpriteRenderer.h"
 #include "Engine.h"
@@ -42,7 +42,7 @@ void EnemyShip::Update()
 {
 	if (timeSinceShot < randTime)
 	{
-		timeSinceShot += Time::fixedDeltaTime;
+		timeSinceShot += GameTime::fixedDeltaTime;
 	}
 	else if (GameManager::instance->getGameState() == false)
 	{
@@ -59,7 +59,7 @@ void EnemyShip::Update()
 	double dist = Vector2::Distance(spawnedPos, *transform->position);
 	if (dist > 0.05)
 	{
-		Vector2 dir = Vector2::Normalize(*gameObject->transform->position - spawnedPos) * -dist * Time::fixedDeltaTime * 1.5;
+		Vector2 dir = Vector2::Normalize(*gameObject->transform->position - spawnedPos) * -dist * GameTime::fixedDeltaTime * 1.5;
 		rigidBody->velocity.y = dir.y;
 	}
 	else
@@ -76,7 +76,7 @@ void EnemyShip::Update()
 		sideSpeed = 2;
 	}
 
-	rigidBody->velocity.x = sideSpeed * Time::fixedDeltaTime;
+	rigidBody->velocity.x = sideSpeed * GameTime::fixedDeltaTime;
 
 	hpText->position = *transform->position + distToText;
 }

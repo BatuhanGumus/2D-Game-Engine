@@ -1,6 +1,6 @@
 #include "PlayerShip.h"
 #include "Input.h"
-#include "Time.h"
+#include "GameTime.h"
 #include "Laser.h"
 #include "RigidBody.h"
 #include "SpriteRenderer.h"
@@ -8,7 +8,7 @@
 
 PlayerShip::PlayerShip() : Ship()
 {
-	speed = 1.3 * Time::fixedDeltaTime;
+	speed = 1.3 * GameTime::fixedDeltaTime;
 	laserSprite = Sprite::GetSprite("PlayerLaser");
 	maxhp = 5;
 	hp = maxhp;
@@ -34,7 +34,7 @@ void PlayerShip::Update()
 {
 	if (timeSince < 0.2)
 	{
-		timeSince += Time::fixedDeltaTime;
+		timeSince += GameTime::fixedDeltaTime;
 	}
 	else
 	{

@@ -1,5 +1,5 @@
 #include "Laser.h"
-#include "Time.h"
+#include "GameTime.h"
 #include "RigidBody.h"
 #include "EnemyShip.h"
 #include "PlayerShip.h"
@@ -7,7 +7,7 @@
 
 Laser::Laser(int speed) : Component()
 {
-	LaserSpeed = speed * Time::fixedDeltaTime;
+	LaserSpeed = speed * GameTime::fixedDeltaTime;
 }
 
 void Laser::Start()

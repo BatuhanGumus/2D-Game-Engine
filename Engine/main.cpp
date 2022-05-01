@@ -1,6 +1,6 @@
 #include <SDL.h>
 #include "Engine.h"
-#include "Time.h"
+#include "GameTime.h"
 #include "Input.h"
 #include <iostream>
 
@@ -16,10 +16,11 @@ int main(int args, char* argv[])
 	const int FPS = 60;
 	const int frameDelay = 1000 / FPS;
 
-	Time::fixedDeltaTime = 1.0 / FPS;
+    GameTime::fixedDeltaTime = 1.0 / FPS;
 
 	Uint32 frameStart;
 	int frameTime;
+
 
 	Engine* engine = new Engine("Platformer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, pixelW, pixelH, false);
 	Engine::pixPerWorld = pixelPerWorldDist;

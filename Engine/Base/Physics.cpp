@@ -2,7 +2,7 @@
 #include "Engine.h"
 #include <iostream>
 #include <cmath>
-#include "Time.h"
+#include "GameTime.h"
 #include <algorithm>
 
 using namespace ArtemisEngine;
@@ -43,16 +43,16 @@ void Physics::ApplyRules(RigidBody* body)
 
 	if (body->useGravity == true)
 	{
-		body->velocity.y += gravity * Time::fixedDeltaTime;
+		body->velocity.y += gravity * GameTime::fixedDeltaTime;
 	}
 
-	if (Vector2::Magnitude(body->velocity) < body->drag  * Time::fixedDeltaTime)
+	if (Vector2::Magnitude(body->velocity) < body->drag  * GameTime::fixedDeltaTime)
 	{
 		body->velocity = 0;
 	}
 	else
 	{
-		body->velocity -= Vector2::Normalize(body->velocity) * body->drag  * Time::fixedDeltaTime;
+		body->velocity -= Vector2::Normalize(body->velocity) * body->drag  * GameTime::fixedDeltaTime;
 	}
 
 	if (body->maxSpeed != 0 && Vector2::Magnitude(body->velocity) > body->maxSpeed)
