@@ -61,7 +61,7 @@ void Engine::Awake()
 Do not forget to [load your fonts](#asset-loading)!
 
 ```cpp
-Text(std::string _text, SDL_Color _color, std::string _fontName, int _fontSize, Vector2 _position);
+Text(std::string text, SDL_Color color, std::string fontName, int fontSize, Vector2 position);
 ```
 ```cpp
 Text* beginInfo = new Text("Press \"Space\" to Begin!", { 255,255,255,255 }, "Cut_Deep", 2, Vector2(0, -0.5));
