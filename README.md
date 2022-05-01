@@ -42,7 +42,7 @@ void Engine::LoadAssets()
 ```
 
 ### GameObject and Component Creation
-Artemis Engine will call the `cpp void Engine::Awake()` function right after everything is initialize so that will be the starting point of the GameObjects you want to create.
+Artemis Engine will call the ``cpp void Engine::Awake()`` function right after everything is initialize so that will be the starting point of the GameObjects you want to create.
 
 ```cpp
 #include "Engine.h"
@@ -51,10 +51,10 @@ Artemis Engine will call the `cpp void Engine::Awake()` function right after eve
 
 void Engine::Awake()
 {
-    GameObject* temp = new GameObject("PlayerShip", new Transform(new Vector2(0, -2.3), new Vector2(0.6, 0.6)));
-    temp-> AddComponent(new SpriteRenderer(Sprite::GetSprite("Player")));
-    temp-> AddComponent(new BoxCollider(Sprite::GetSprite("Player")));
-    temp-> AddComponent(  new RigidBody(0.9, 0.3, false, temp->GetComponent<BoxCollider>()));
+    GameObject* playerShip = new GameObject("PlayerShip", new Transform(new Vector2(0, -2.3), new Vector2(0.6, 0.6)));
+    playerShip-> AddComponent(new SpriteRenderer(Sprite::GetSprite("Player")));
+    playerShip-> AddComponent(new BoxCollider(Sprite::GetSprite("Player")));
+    playerShip-> AddComponent(new RigidBody(0.9, 0.3, false, playerShip->GetComponent<BoxCollider>()));
 }
 ```
 
