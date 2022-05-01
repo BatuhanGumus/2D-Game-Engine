@@ -14,7 +14,6 @@ The features listed below are almost identical to their Unity counterparts. To s
   - Debug
   - Input
 - Contains essential components like;
-  - Tranform
   - Sprite Renderer
   - Box collider and RigidBody for collision detection
 
