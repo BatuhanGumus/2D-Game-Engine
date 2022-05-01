@@ -3,6 +3,10 @@
 Artesmis is a game engine that is heavily inspired by Unity's naming conventions and architecture, written in modern **C++** and with the SDL2 library.
 In this repo you can also find an example Space Invaders type game.
 
+----
+
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/emrsmsrli/gameboi/blob/master/LICENSE)
+
 ### Features
 The features listed below are almost identical to their Unity counterparts. To see what is different, please refer to the [Seting Up a Game and Differences to Unity](#seting-up-a-game-and-differences-to-unity) section.
 
