@@ -22,7 +22,7 @@ int main(int args, char* argv[])
 	int frameTime;
 
 
-	Engine* engine = new Engine("Platformer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, pixelW, pixelH, false);
+	Engine* engine = new Engine("Game Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, pixelW, pixelH, false);
 	Engine::pixPerWorld = pixelPerWorldDist;
 	
 	engine->LoadAssets();
