@@ -1,5 +1,4 @@
 #pragma once
-#include <memory>
 
 namespace ArtemisEngine
 {
@@ -13,7 +12,7 @@ namespace ArtemisEngine
         virtual ~Component();
 
         GameObject* gameObject;
-        std::shared_ptr<Transform> transform;
+        Transform* transform;
 
         virtual void Start();
         virtual void  Update();

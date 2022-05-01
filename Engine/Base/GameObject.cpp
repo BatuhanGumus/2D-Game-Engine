@@ -6,7 +6,7 @@ using namespace ArtemisEngine;
 
 GameObject::GameObject(std::string name, Transform* _transform, GameObjectType type)
 {
-    this->transform = std::shared_ptr<Transform>(_transform);
+    this->transform = _transform;
 
     this->name = name;
     this->type = type;
@@ -44,6 +44,8 @@ GameObject::~GameObject()
     {
         delete components[i];
     }
+
+	delete transform;
 }
 
 void GameObject::UpdateComponents()

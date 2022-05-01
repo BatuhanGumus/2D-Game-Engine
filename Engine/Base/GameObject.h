@@ -5,7 +5,6 @@
 #include "Sprite.h"
 #include <vector>
 #include "Component.h"
-#include <memory>
 
 namespace ArtemisEngine
 {
@@ -51,7 +50,7 @@ namespace ArtemisEngine
             return nullptr;
         }
 
-        std::shared_ptr<Transform> transform;
+        Transform* transform;
     private:
 
     };
