@@ -42,7 +42,7 @@ void Engine::LoadAssets()
 ```
 
 ### GameObject and Component Creation
-Artemis Engine will call the `void Engine::Awake()` function right after everything is initialize so that will be the starting point of the GameObjects you want to create.
+Artemis Engine will call the `void Engine::Awake()` function right after everything is initialize so that will be the starting point of the GameObjects you want to create. Do not forget to [load your sprites](#asset-loading)!
 
 ```cpp
 #include "Engine.h"
@@ -59,6 +59,7 @@ void Engine::Awake()
 ```
 
 ### Text Creation
+Do not forget to [load your fonts](#asset-loading)!
 
 ```cpp
 Text(std::string _text, SDL_Color _color, std::string _fontName, int _fontSize, Vector2 _position);
