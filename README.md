@@ -18,7 +18,7 @@ The features listed below are almost identical to their Unity counterparts. To s
 
 ## Example Game Screenshots
 
-## Seting Up a Game and Differences toUnity
+## Seting Up a Game and Differences to Unity
 
 ### Asset Loading
 ```cpp
