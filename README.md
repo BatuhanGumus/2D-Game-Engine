@@ -30,6 +30,7 @@ void FontManager::LoadFont(const char* fontName, const char* file, int fontSize)
 ```cpp
 #include "Engine.h"
 #include "FontManager.h"
+#include "Sprite.h"
 
 using namespace ArtemisEngine;
 
@@ -47,6 +48,8 @@ Artemis Engine will call the `void Engine::Awake()` function right after everyth
 #include "Engine.h"
 #include "GameObject.h"
 #include "SpriteRenderer.h"
+#include "BoxCollider.h"
+#include "RigidBody.h"
 
 void Engine::Awake()
 {
