@@ -21,6 +21,7 @@ The features listed below are almost identical to their Unity counterparts. To s
 ## Example Game Screenshots
 
 ## Seting Up a Game and Differences to Unity
+Artemis Engine does not have a GUI so you will need a couple of functions to Import (Load) assets and create GameObjects.
 
 ### Asset Loading
 ```cpp
@@ -41,7 +42,22 @@ void Engine::LoadAssets()
 ```
 
 ### GameObject and Component Creation
+Artemis Engine will call the `cpp void Engine::Awake()` function right after everything is initialize so that will be the starting point of the GameObjects you want to create.
+
 ```cpp
+#include "Engine.h"
+#include "GameObject.h"
+#include "SpriteRenderer.h"
+
+void Engine::Awake()
+{
+    GameObject* temp = new GameObject("PlayerShip", new Transform(new Vector2(0, -2.3), new Vector2(0.6, 0.6)));
+    temp-> AddComponent(new SpriteRenderer(Sprite::GetSprite("Player")));
+    temp-> AddComponent(new BoxCollider(Sprite::GetSprite("Player")));
+    temp-> AddComponent(  new RigidBody(0.9, 0.3, false, temp->GetComponent<BoxCollider>()));
+}
 ```
+
+### Text Creation
 
 ## Building Instructions
