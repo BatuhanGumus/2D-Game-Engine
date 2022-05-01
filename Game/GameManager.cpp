@@ -57,6 +57,10 @@ void GameManager::Update()
     {
         BeginGame();
     }
+    if (Input::GetKeyDown(SDLK_ESCAPE))
+    {
+        Debug::DrawColliders = !Debug::DrawColliders;
+    }
 }
 
 void GameManager::RestartGame()

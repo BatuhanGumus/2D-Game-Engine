@@ -3,6 +3,10 @@
 #include "Engine.h"
 #include "Transform.h"
 
+using namespace ArtemisEngine;
+
+bool Debug::DrawColliders;
+
 void Debug::Log(std::string text, LogType type)
 {
     std::string typeText = "";

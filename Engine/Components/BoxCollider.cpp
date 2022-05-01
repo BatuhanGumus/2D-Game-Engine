@@ -47,22 +47,25 @@ BoxCollider::~BoxCollider()
 
 void BoxCollider::Render()
 {
-    Color* red = new Color(255, 0, 0, 255);
-
-    double Xpos = transform->position->x;
-    double Ypos = transform->position->y;
-    double ToRight = width * transform->scale->x / 2;
-    double ToUp = height * transform->scale->y / 2;
-
-    Vector2** points = new Vector2*[4];
-    points[0] = new Vector2(Xpos + ToRight, Ypos + ToUp); // top right
-    points[1] = new Vector2(Xpos + ToRight, Ypos - ToUp); // bottom right
-    points[2] = new Vector2(Xpos - ToRight, Ypos - ToUp); // bottom left
-    points[3] = new Vector2(Xpos - ToRight, Ypos + ToUp); // top left
-
-    for (int i = 0; i < 4; ++i)
+    if (Debug::DrawColliders)
     {
-        Debug::DrawLine(points[i], points[(i + 1) % 4], red);
+        Color* red = new Color(255, 0, 0, 255);
+
+        double Xpos = transform->position->x;
+        double Ypos = transform->position->y;
+        double ToRight = width * transform->scale->x / 2;
+        double ToUp = height * transform->scale->y / 2;
+
+        Vector2** points = new Vector2*[4];
+        points[0] = new Vector2(Xpos + ToRight, Ypos + ToUp); // top right
+        points[1] = new Vector2(Xpos + ToRight, Ypos - ToUp); // bottom right
+        points[2] = new Vector2(Xpos - ToRight, Ypos - ToUp); // bottom left
+        points[3] = new Vector2(Xpos - ToRight, Ypos + ToUp); // top left
+
+        for (int i = 0; i < 4; ++i)
+        {
+            Debug::DrawLine(points[i], points[(i + 1) % 4], red);
+        }
     }
 }
 
