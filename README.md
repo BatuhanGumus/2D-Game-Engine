@@ -21,7 +21,7 @@ The features listed below are almost identical to their Unity counterparts. To s
 ## Example Game Screenshots
 
 ## Seting Up a Game and Differences to Unity
-Artemis Engine does not have a GUI so you will need a couple of functions to Import (Load) assets and create GameObjects.
+Artemis Engine does not have a GUI so you will need a couple of functions to [Load assets](#asset-loading) (Import) and [create GameObjects](#gameobject-and-component-creation).
 
 ### Asset Loading
 ```cpp
