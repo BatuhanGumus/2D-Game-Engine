@@ -42,7 +42,7 @@ void Engine::LoadAssets()
 ```
 
 ### GameObject and Component Creation
-Artemis Engine will call the ``cpp void Engine::Awake()`` function right after everything is initialize so that will be the starting point of the GameObjects you want to create.
+Artemis Engine will call the ```cpp void Engine::Awake()``` function right after everything is initialize so that will be the starting point of the GameObjects you want to create.
 
 ```cpp
 #include "Engine.h"
