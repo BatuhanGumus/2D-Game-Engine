@@ -76,18 +76,3 @@ add_executable(2D_Game_Engine
         Engine/Base/Event.cpp)
 
 target_link_libraries(${PROJECT_NAME} SDL2main SDL2 SDL2_image SDL2_ttf)
-
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory
-        "${CMAKE_SOURCE_DIR}/libraries/SDL2/lib/x64"
-        $<TARGET_FILE_DIR:${PROJECT_NAME}>)
-
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory
-        "${CMAKE_SOURCE_DIR}/Libraries/SDL2_image/lib/x64"
-        $<TARGET_FILE_DIR:${PROJECT_NAME}>)
-
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory
-        "${CMAKE_SOURCE_DIR}/Libraries/SDL2_ttf/lib/x64"
-        $<TARGET_FILE_DIR:${PROJECT_NAME}>)
