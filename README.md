@@ -1,12 +1,12 @@
 # Artemis 2D Game Engine
 
-Artesmis is a game engine that is heavily inspired by Unity's naming conventions and architecture, written in modern C++ and with the SDL2 library.
+Artesmis is a game engine that is heavily inspired by Unity's naming conventions and architecture, written in modern **C++** and with the SDL2 library.
 In this repo you can also find an example Space Invaders type game.
 
 ### Features
 The features listed below are almost identical to their Unity counterparts. To see what is different, please refer to the [Seting Up a Game and Differences to Unity](#seting-up-a-game-and-differences-to-unity) section.
 
-- Uses the Game Loop pattern and component system for its architecture.
+- Uses the **Game Loop** pattern and **component system** for its architecture.
 - Contains several usefull classes like;
   - Vector2
   - Event (Observer Pattern)
@@ -15,7 +15,7 @@ The features listed below are almost identical to their Unity counterparts. To s
   - Input
 - Contains essential components like;
   - Sprite Renderer
-  - Box collider and RigidBody for collision detection
+  - Box collider and RigidBody for **collision detection**
 
 ## Example Game Screenshots
 
@@ -71,7 +71,7 @@ Text* beginInfo = new Text("Press \"Space\" to Begin!", { 255,255,255,255 }, "Cu
 ```
 
 ## Building Instructions
-The necesarry libraries are included in this repo so the only thing you need is cmake.
+The necesarry libraries are included in this repo so the only thing you need is **cmake**.
 
 ```shell script
 $ mkdir build
