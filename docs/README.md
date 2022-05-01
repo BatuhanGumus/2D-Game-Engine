@@ -20,6 +20,7 @@ The features listed below are almost identical to their Unity counterparts. To s
 ## Example Game Screenshots
 
 | Gameplay | Colliders Drawn |
+:----------------------------------------------------------: |
 | ![normal gameplay](/docs/normalGameplay.gif) | ![debug gameplay](/docs/debugGameplay.gif) |
 
 
