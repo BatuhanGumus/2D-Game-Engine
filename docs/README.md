@@ -17,7 +17,7 @@ The features listed below are almost identical to their Unity counterparts. To s
   - Sprite Renderer
   - Box collider and RigidBody for **collision detection**
 
-## Example Space Invaders Game GIF's
+## Example Space Invaders Game Showcase
 
 | Gameplay | Colliders Drawn |
 | --- | --- |
