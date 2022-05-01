@@ -68,3 +68,11 @@ Text* beginInfo = new Text("Press \"Space\" to Begin!", { 255,255,255,255 }, "Cu
 ```
 
 ## Building Instructions
+The necesarry libraries are included in this repo so the only thing you need is cmake.
+
+```shell script
+$ mkdir build
+$ cd build
+$ cmake ..
+$ cmake --build .
+```
