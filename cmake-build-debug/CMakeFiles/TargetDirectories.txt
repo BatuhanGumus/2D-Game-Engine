@@ -1,3 +1,0 @@
-D:/Projects/2D-Game-Engine/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-D:/Projects/2D-Game-Engine/cmake-build-debug/CMakeFiles/2D_Game_Engine.dir
-D:/Projects/2D-Game-Engine/cmake-build-debug/CMakeFiles/edit_cache.dir
