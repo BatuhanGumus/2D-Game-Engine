@@ -18,7 +18,7 @@ namespace ArtemisEngine
         Sprite* sprite;
 
     private:
-        SDL_Rect srcRect, destRect;
+        SDL_Rect _srcRect, _destRect;
         void setDestRec();
     };
 }
