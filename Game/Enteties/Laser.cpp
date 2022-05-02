@@ -7,12 +7,12 @@
 
 Laser::Laser(int speed) : Component()
 {
-	LaserSpeed = speed * GameTime::fixedDeltaTime;
+    _laserSpeed = speed * GameTime::fixedDeltaTime;
 }
 
 void Laser::Start()
 {
-    rigidBody = gameObject->GetComponent<RigidBody>();
+    _rigidBody = gameObject->GetComponent<RigidBody>();
 }
 
 
@@ -24,7 +24,7 @@ Laser::~Laser()
 
 void Laser::Update()
 {
-	rigidBody->velocity.y = LaserSpeed;
+    _rigidBody->velocity.y = _laserSpeed;
 
 	if (transform->position->y > 4)
 	{

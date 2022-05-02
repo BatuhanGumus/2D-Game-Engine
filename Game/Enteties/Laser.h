@@ -12,7 +12,7 @@ public:
 	void Update() override;
 	void OnTriggerEnter(GameObject* other) override;
 private:
-	double LaserSpeed;
-    RigidBody* rigidBody;
+	double _laserSpeed;
+    RigidBody* _rigidBody;
 };
 
