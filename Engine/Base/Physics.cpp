@@ -43,7 +43,7 @@ void Physics::ApplyRules(RigidBody* body)
 
 	if (body->useGravity == true)
 	{
-		body->velocity.y += gravity * GameTime::fixedDeltaTime;
+		body->velocity.y += _gravity * GameTime::fixedDeltaTime;
 	}
 
 	if (Vector2::Magnitude(body->velocity) < body->drag  * GameTime::fixedDeltaTime)

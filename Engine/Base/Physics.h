@@ -26,7 +26,7 @@ namespace ArtemisEngine
         void ApplyPhysics(RigidBody* body);
         void ApplyRules(RigidBody* body);
         void CheckCollision(RigidBody* body);
-        double gravity = -9.81;
+        double _gravity = -9.81;
     };
 }
 

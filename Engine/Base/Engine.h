@@ -44,8 +44,8 @@ namespace ArtemisEngine
         Physics* physicsEngine;
 
     private:
-        bool isRunning;
-        SDL_Window* window;
+        bool _isRunning;
+        SDL_Window* _window;
     };
 
 }
