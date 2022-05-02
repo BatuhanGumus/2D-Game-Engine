@@ -9,11 +9,11 @@ int EnemyShip::EnemyShipCount = 0;
 
 EnemyShip::EnemyShip(Vector2* pos) : Ship()
 {
-	maxhp = 3;
-	hp = maxhp;
+	_maxhp = 3;
+	_hp = _maxhp;
 	
 	EnemyShipCount++;
-	laserSprite = Sprite::GetSprite("EnemyLaser");
+	_laserSprite = Sprite::GetSprite("EnemyLaser");
 	RandTimeForShot();
 
 	//spawnedPos = *transform->position;
@@ -21,7 +21,7 @@ EnemyShip::EnemyShip(Vector2* pos) : Ship()
     //transform->position->x = pos->x + 0.8;
 
 	_distToText = *new Vector2(0, 0.4);
-	_hpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp),
+	_hpText = new Text(std::to_string(_hp) + "/" + std::to_string(_maxhp),
                        { 255,255,255,255 },
                        "Cut_Deep", 1, *pos + _distToText);
 }
@@ -52,8 +52,8 @@ void EnemyShip::Update()
 		RandTimeForShot();
 
         GameObject* temp = new GameObject("EnemyLaser", new Transform( new Vector2(*transform->position), new Vector2(1, 1)));
-        temp->AddComponent(new SpriteRenderer(laserSprite));
-        temp->AddComponent(new BoxCollider(laserSprite));
+        temp->AddComponent(new SpriteRenderer(_laserSprite));
+        temp->AddComponent(new BoxCollider(_laserSprite));
         temp->AddComponent(new RigidBody(0.2f, 1, false, gameObject->GetComponent<BoxCollider>()));
         temp->AddComponent(new Laser(-7));
 	}
@@ -85,11 +85,11 @@ void EnemyShip::Update()
 
 void EnemyShip::Damage(int dmg)
 {
-	hp -= dmg;
+	_hp -= dmg;
 
-	_hpText->text = std::to_string(hp) + "/" + std::to_string(maxhp);
+	_hpText->text = std::to_string(_hp) + "/" + std::to_string(_maxhp);
 
-	if (hp <= 0)
+	if (_hp <= 0)
 	{
 		EnemyShipCount--;
 

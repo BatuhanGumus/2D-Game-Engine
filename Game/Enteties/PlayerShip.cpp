@@ -9,11 +9,11 @@
 PlayerShip::PlayerShip() : Ship()
 {
 	_speed = 1.3 * GameTime::fixedDeltaTime;
-	laserSprite = Sprite::GetSprite("PlayerLaser");
-	maxhp = 5;
-	hp = maxhp;
+	_laserSprite = Sprite::GetSprite("PlayerLaser");
+	_maxhp = 5;
+	_hp = _maxhp;
 
-	_playerHpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 100,100,150,255 }, "Cut_Deep", 2.5, Vector2(-3.2, -2.5));
+	_playerHpText = new Text(std::to_string(_hp) + "/" + std::to_string(_maxhp), { 100,100,150,255 }, "Cut_Deep", 2.5, Vector2(-3.2, -2.5));
 
 }
 
@@ -55,8 +55,8 @@ void PlayerShip::Update()
 		if (canShot == true)
 		{
             GameObject* temp = new GameObject("PlayerLaser", new Transform( new Vector2(*transform->position), new Vector2(1, 1)));
-            temp->AddComponent(new SpriteRenderer(laserSprite));
-            temp->AddComponent(new BoxCollider(laserSprite));
+            temp->AddComponent(new SpriteRenderer(_laserSprite));
+            temp->AddComponent(new BoxCollider(_laserSprite));
             temp->AddComponent(new RigidBody(0.2f, 1, false, gameObject->GetComponent<BoxCollider>()));
             temp->AddComponent(new Laser(15));
 
@@ -72,11 +72,11 @@ void PlayerShip::Update()
 
 void PlayerShip::Damage(int dmg)
 {
-	hp -= dmg;
+	_hp -= dmg;
 
-	_playerHpText->text = std::to_string(hp) + "/" + std::to_string(maxhp);
+	_playerHpText->text = std::to_string(_hp) + "/" + std::to_string(_maxhp);
 	
-	if (hp <= 0)
+	if (_hp <= 0)
 	{
 		GameManager::instance->PlayerDiedCall();
 		delete _playerHpText;
