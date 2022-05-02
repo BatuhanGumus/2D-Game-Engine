@@ -35,25 +35,25 @@ GameManager::GameManager() : MonoBehaviour()
 {
 	instance = this;
 
-	gameEnded = false;
-	gameBegun = false;
+	_gameEnded = false;
+	_gameBegun = false;
 
-	waveCount = 0;
+	_waveCount = 0;
 
 	enemySprite = Sprite::GetSprite("Enemy");
-	enemyShips = new EnemyShip*[5];
+	_enemyShips = new EnemyShip*[5];
 
-	titleText = new Text("SPACE SHOOTER!", { 200,200,255,255 }, "Cut_Deep", 6, Vector2(0, 0.3));
-	beginInfo = new Text("Press \"Space\" to Begin!", { 255,255,255,255 }, "Cut_Deep", 2, Vector2(0, -0.5));
+	_titleText = new Text("SPACE SHOOTER!", { 200,200,255,255 }, "Cut_Deep", 6, Vector2(0, 0.3));
+	_beginInfo = new Text("Press \"Space\" to Begin!", { 255,255,255,255 }, "Cut_Deep", 2, Vector2(0, -0.5));
 }
 
 void GameManager::Update()
 {
-    if (gameEnded == true && Input::GetKeyDown(SDLK_r))
+    if (_gameEnded == true && Input::GetKeyDown(SDLK_r))
     {
         RestartGame();
     }
-    if (gameBegun == false && Input::GetKeyDown(SDLK_SPACE))
+    if (_gameBegun == false && Input::GetKeyDown(SDLK_SPACE))
     {
         BeginGame();
     }
@@ -69,26 +69,26 @@ void GameManager::RestartGame()
 	DeleteAllEnemies();
 	SpawnEnemyWave();
 
-	waveCount = 1;
-	waveText->text = "Wave: " + std::to_string(waveCount);
+	_waveCount = 1;
+	_waveText->text = "Wave: " + std::to_string(_waveCount);
 
-	delete gameOverText;
-	delete restartInfo;
+	delete _gameOverText;
+	delete _restartInfo;
 
-	gameEnded = false;
+	_gameEnded = false;
 }
 
 void GameManager::BeginGame()
 {
-	delete titleText;
-	delete beginInfo;
+	delete _titleText;
+	delete _beginInfo;
 
-	waveText = new Text("Wave: " + std::to_string(waveCount),
+	_waveText = new Text("Wave: " + std::to_string(_waveCount),
 		{ 100,100,150,255 }, "Cut_Deep", 2.5, Vector2(3.2, -2.5));
 
 	SpawnPlayer();
 	SpawnEnemyWave();
-	gameBegun = true;
+	_gameBegun = true;
 }
 
 void GameManager::SpawnEnemyWave()
@@ -101,21 +101,21 @@ void GameManager::SpawnEnemyWave()
         temp->AddComponent(new RigidBody(0.9, 0.3, false, temp->GetComponent<BoxCollider>()));
         temp->AddComponent(new EnemyShip(new Vector2(-2 + i, 1.8 - pow(-1, i) * 0.4)));
 
-        enemyShips[i] = temp->GetComponent<EnemyShip>();
+        _enemyShips[i] = temp->GetComponent<EnemyShip>();
     }
 
-	waveCount++;
-	waveText->text = "Wave: " + std::to_string(waveCount);
+	_waveCount++;
+	_waveText->text = "Wave: " + std::to_string(_waveCount);
 }
 
 void GameManager::DeleteAllEnemies()
 {
 	for (int i = 0; i < 5; i++)
 	{
-		if (enemyShips[i] != nullptr)
+		if (_enemyShips[i] != nullptr)
 		{
-            Engine::Destroy(enemyShips[i]->gameObject);
-			enemyShips[i] = nullptr;
+            Engine::Destroy(_enemyShips[i]->gameObject);
+			_enemyShips[i] = nullptr;
 		}
 	}
 
@@ -142,23 +142,23 @@ void GameManager::CheckGameState()
 
 void GameManager::PlayerDiedCall()
 {
-	gameOverText = new Text("GameOver", { 200,100,100,255 }, "Cut_Deep", 8, Vector2(0, 0));
-	restartInfo = new Text("Press \"R\" to restart!", { 255,255,255,255 }, "Cut_Deep", 2, Vector2(0, -0.8));
-	gameEnded = true;
+	_gameOverText = new Text("GameOver", { 200,100,100,255 }, "Cut_Deep", 8, Vector2(0, 0));
+	_restartInfo = new Text("Press \"R\" to restart!", { 255,255,255,255 }, "Cut_Deep", 2, Vector2(0, -0.8));
+	_gameEnded = true;
 }
 
 bool GameManager::getGameState()
 {
-	return gameEnded;
+	return _gameEnded;
 }
 
 void GameManager::removeEnemyShip(EnemyShip* ship)
 {
 	for (int i = 0; i < 5; i++)
 	{
-		if (enemyShips[i] == ship)
+		if (_enemyShips[i] == ship)
 		{
-			enemyShips[i] = nullptr;
+			_enemyShips[i] = nullptr;
 		}
 	}
 }

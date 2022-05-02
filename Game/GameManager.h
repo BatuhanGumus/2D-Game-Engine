@@ -30,10 +30,9 @@ public:
 	static GameManager* instance;
 
 private:
-	int waveCount;
-	Text *gameOverText, *waveText, *restartInfo, *beginInfo, *titleText;
-	EnemyShip** enemyShips;
-	PlayerShip* playerShip;
+	int _waveCount;
+	Text *_gameOverText, *_waveText, *_restartInfo, *_beginInfo, *_titleText;
+	EnemyShip** _enemyShips;
 	Sprite* enemySprite;
-	bool gameEnded, gameBegun;
+	bool _gameEnded, _gameBegun;
 };
