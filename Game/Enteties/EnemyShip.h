@@ -18,13 +18,12 @@ public:
 	static int EnemyShipCount;
 	
 private:
-	
-	Vector2 distToText;
-	double timeSinceShot;
-	double randTime;
-	void RandTimeForShot();
-	Vector2 spawnedPos;
+    void RandTimeForShot();
 
-	Text* hpText;
+	Vector2 _distToText;
+	double _timeSinceShot;
+	double _randTime;
+	Vector2 _spawnedPos;
+	Text* _hpText;
 };
 
