@@ -8,12 +8,12 @@
 
 PlayerShip::PlayerShip() : Ship()
 {
-	speed = 1.3 * GameTime::fixedDeltaTime;
+	_speed = 1.3 * GameTime::fixedDeltaTime;
 	laserSprite = Sprite::GetSprite("PlayerLaser");
 	maxhp = 5;
 	hp = maxhp;
 
-	playerHpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 100,100,150,255 }, "Cut_Deep", 2.5, Vector2(-3.2, -2.5));
+	_playerHpText = new Text(std::to_string(hp) + "/" + std::to_string(maxhp), { 100,100,150,255 }, "Cut_Deep", 2.5, Vector2(-3.2, -2.5));
 
 }
 
@@ -43,11 +43,11 @@ void PlayerShip::Update()
 
 	if (Input::GetKey(SDLK_d))
 	{
-		acc.x += speed;
+        _acceleration.x += _speed;
 	}
 	if (Input::GetKey(SDLK_a))
 	{
-		acc.x -= speed;
+        _acceleration.x -= _speed;
 	}
 
 	if (Input::GetKey(SDLK_SPACE))
@@ -66,20 +66,20 @@ void PlayerShip::Update()
 		
 	}
 
-    rigidBody->velocity += acc;
-	acc.x = 0;
+    rigidBody->velocity += _acceleration;
+    _acceleration.x = 0;
 }
 
 void PlayerShip::Damage(int dmg)
 {
 	hp -= dmg;
 
-	playerHpText->text = std::to_string(hp) + "/" + std::to_string(maxhp);
+	_playerHpText->text = std::to_string(hp) + "/" + std::to_string(maxhp);
 	
 	if (hp <= 0)
 	{
 		GameManager::instance->PlayerDiedCall();
-		delete playerHpText;
+		delete _playerHpText;
 		Engine::Destroy(gameObject);
 	}
 	

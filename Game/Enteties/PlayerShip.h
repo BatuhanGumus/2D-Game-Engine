@@ -15,7 +15,7 @@ public:
 
 private:
 	
-	Vector2 acc;
-	double speed;
-	Text* playerHpText;
+	Vector2 _acceleration;
+	double _speed;
+	Text* _playerHpText;
 };
