@@ -9,7 +9,7 @@ using namespace ArtemisEngine;
 
 std::vector<RigidBody*> Physics::bodies;
 std::queue<RigidBody*> Physics::bodiesToAdd;
-std::queue<RigidBody*> Physics::bodiesToRemove;
+//std::queue<RigidBody*> Physics::bodiesToRemove;
 
 Physics::Physics()
 {
