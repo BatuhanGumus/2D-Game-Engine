@@ -4,9 +4,9 @@
 
 using namespace ArtemisEngine;
 
-GameObject::GameObject(std::string name, Transform* transform, GameObjectType type)
+GameObject::GameObject(std::string name, Transform* _transform, GameObjectType type)
 {
-    this->transform = transform;
+    this->transform = _transform;
 
     this->name = name;
     this->type = type;

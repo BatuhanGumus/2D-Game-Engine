@@ -3,7 +3,7 @@
 
 void ArtemisEngine::Event::AddListener(std::function<void()> listener)
 {
-    _listeners.push_back(listener);
+    listeners.push_back(listener);
 }
 
 void ArtemisEngine::Event::RemoveListener(std::function<void()> listener)
@@ -19,10 +19,10 @@ void ArtemisEngine::Event::RemoveListener(std::function<void()> listener)
 
 void ArtemisEngine::Event::Invoke()
 {
-    int len = _listeners.size();
+    int len = listeners.size();
     for (int i = 0; i < len; ++i)
     {
-        _listeners[i]();
+        listeners[i]();
     }
 }
 

@@ -29,14 +29,14 @@ Engine::Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX,
 			flags = SDL_WINDOW_FULLSCREEN;
 		}
 
-		_window = SDL_CreateWindow(title, xPos, yPos, widthPX, heightPX, flags);
+		window = SDL_CreateWindow(title, xPos, yPos, widthPX, heightPX, flags);
 
-		if (_window)
+		if (window)
 		{
             Debug::Log("Window created!");
 		}
 
-		renderer = SDL_CreateRenderer(_window, -1, 0);
+		renderer = SDL_CreateRenderer(window, -1, 0);
 
 		if (renderer)
 		{
@@ -49,11 +49,11 @@ Engine::Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX,
             Debug::Log("Text Renderer Init Error: " + std::string( SDL_GetError()), Debug::Warning);
 		}
 
-		_isRunning = true;
+		isRunning = true;
 	}
 	else
 	{
-		_isRunning = false;
+		isRunning = false;
 	}
 
 	pixW = widthPX;
@@ -76,7 +76,7 @@ void Engine::HandleEvents()
 		switch (event.type)
 		{
 		case SDL_QUIT:
-			_isRunning = false;
+			isRunning = false;
 			break;
 		case SDL_KEYDOWN:
 			Input::PassInFrameInput(event.key);
@@ -119,7 +119,7 @@ void Engine::Render()
 
 void Engine::Clean()
 {
-	SDL_DestroyWindow(_window);
+	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	TTF_Quit();
 	SDL_Quit();
@@ -128,7 +128,7 @@ void Engine::Clean()
 
 bool Engine::IsGameRunning()
 {
-	return _isRunning;
+	return isRunning;
 }
 
 void Engine::GameObjectCreated(GameObject *gameObject)

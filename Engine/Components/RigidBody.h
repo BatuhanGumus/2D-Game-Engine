@@ -24,6 +24,6 @@ namespace ArtemisEngine
 
         BoxCollider* collider;
     private:
-        GameObject* _lastHit;
+        GameObject* lastHit;
     };
 }

@@ -18,7 +18,7 @@ namespace ArtemisEngine
         void operator -= (std::function<void()> listener);
 
     private:
-        std::vector<std::function<void()>> _listeners;
+        std::vector<std::function<void()>> listeners;
     };
 
 }

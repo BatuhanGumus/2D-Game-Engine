@@ -11,14 +11,14 @@ BoxCollider::BoxCollider(double width, double height) : Component()
 {
 	this->width = width;
 	this->height = height;
-    _initialized = true;
+    initialized = true;
 }
 
 BoxCollider::BoxCollider(const Sprite* sprite) : Component()
 {
 	this->width = sprite->pixelW / Engine::pixPerWorld;
 	this->height = sprite->pixelH / Engine::pixPerWorld;
-    _initialized = true;
+    initialized = true;
 }
 
 BoxCollider::BoxCollider()
@@ -28,7 +28,7 @@ BoxCollider::BoxCollider()
 
 void BoxCollider::Start()
 {
-    if(_initialized == true) return;
+    if(initialized == true) return;
 
     SpriteRenderer* spriteRenderer = gameObject->GetComponent<SpriteRenderer>();
 
@@ -36,7 +36,7 @@ void BoxCollider::Start()
     {
         this->width = spriteRenderer->sprite->pixelW / Engine::pixPerWorld;
         this->height = spriteRenderer->sprite->pixelH / Engine::pixPerWorld;
-        _initialized = true;
+        initialized = true;
     }
 }
 
