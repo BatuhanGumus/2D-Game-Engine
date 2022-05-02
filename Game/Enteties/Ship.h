@@ -13,6 +13,6 @@ public:
 	virtual void Damage(int dmg) = 0;
     RigidBody* rigidBody;
 protected:
-	int _maxhp, _hp;
+	int _maxHp, _hp;
 	Sprite* _laserSprite;
 };

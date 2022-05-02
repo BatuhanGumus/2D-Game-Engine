@@ -10,10 +10,10 @@ PlayerShip::PlayerShip() : Ship()
 {
 	_speed = 1.3 * GameTime::fixedDeltaTime;
 	_laserSprite = Sprite::GetSprite("PlayerLaser");
-	_maxhp = 5;
-	_hp = _maxhp;
+	_maxHp = 5;
+	_hp = _maxHp;
 
-	_playerHpText = new Text(std::to_string(_hp) + "/" + std::to_string(_maxhp), { 100,100,150,255 }, "Cut_Deep", 2.5, Vector2(-3.2, -2.5));
+	_playerHpText = new Text(std::to_string(_hp) + "/" + std::to_string(_maxHp), { 100,100,150,255 }, "Cut_Deep", 2.5, Vector2(-3.2, -2.5));
 
 }
 
@@ -74,7 +74,7 @@ void PlayerShip::Damage(int dmg)
 {
 	_hp -= dmg;
 
-	_playerHpText->text = std::to_string(_hp) + "/" + std::to_string(_maxhp);
+	_playerHpText->text = std::to_string(_hp) + "/" + std::to_string(_maxHp);
 	
 	if (_hp <= 0)
 	{

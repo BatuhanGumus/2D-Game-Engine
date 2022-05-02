@@ -9,8 +9,8 @@ int EnemyShip::EnemyShipCount = 0;
 
 EnemyShip::EnemyShip(Vector2* pos) : Ship()
 {
-	_maxhp = 3;
-	_hp = _maxhp;
+	_maxHp = 3;
+	_hp = _maxHp;
 	
 	EnemyShipCount++;
 	_laserSprite = Sprite::GetSprite("EnemyLaser");
@@ -21,7 +21,7 @@ EnemyShip::EnemyShip(Vector2* pos) : Ship()
     //transform->position->x = pos->x + 0.8;
 
 	_distToText = *new Vector2(0, 0.4);
-	_hpText = new Text(std::to_string(_hp) + "/" + std::to_string(_maxhp),
+	_hpText = new Text(std::to_string(_hp) + "/" + std::to_string(_maxHp),
                        { 255,255,255,255 },
                        "Cut_Deep", 1, *pos + _distToText);
 }
@@ -87,7 +87,7 @@ void EnemyShip::Damage(int dmg)
 {
 	_hp -= dmg;
 
-	_hpText->text = std::to_string(_hp) + "/" + std::to_string(_maxhp);
+	_hpText->text = std::to_string(_hp) + "/" + std::to_string(_maxHp);
 
 	if (_hp <= 0)
 	{
