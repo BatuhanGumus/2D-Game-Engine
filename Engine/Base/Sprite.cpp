@@ -5,12 +5,12 @@
 
 using namespace ArtemisEngine;
 
-Sprite::Sprite(const char* textureSheet, int pixelH, int pixelW, std::string _name)
+Sprite::Sprite(const char* textureSheet, int pixelH, int pixelW, std::string name)
 {
 	this->Texture = LoadText(textureSheet);
 	this->pixelH = pixelH;
 	this->pixelW = pixelW;
-	this->name = _name;
+	this->name = name;
 }
 
 Sprite::~Sprite()
@@ -30,23 +30,23 @@ SDL_Texture* Sprite::LoadText(const char* fileName)
     return tex;
 }
 
-void Sprite::LoadSprite(const char* textureSheet, int pixelH, int pixelW, std::string _name)
+void Sprite::LoadSprite(const char* textureSheet, int pixelH, int pixelW, std::string name)
 {
-    Sprite* spriteAdd = new Sprite(textureSheet, pixelH, pixelW, _name);
+    Sprite* spriteAdd = new Sprite(textureSheet, pixelH, pixelW, name);
 
     sprites.push_back(spriteAdd);
 }
 
-Sprite* Sprite::GetSprite(std::string _name)
+Sprite* Sprite::GetSprite(std::string name)
 {
     for (int i = 0; i < sprites.size(); i++)
     {
-        if (sprites[i]->name == _name)
+        if (sprites[i]->name == name)
         {
             return sprites[i];
         }
     }
 
-    Debug::Log("Sprite couldn't be found! (" + _name + ")", Debug::Warning);
+    Debug::Log("Sprite couldn't be found! (" + name + ")", Debug::Warning);
     return nullptr;
 }

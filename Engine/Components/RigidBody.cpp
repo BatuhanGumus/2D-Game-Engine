@@ -15,21 +15,20 @@ RigidBody::RigidBody(double drag, double maxSpeed, bool useGravity, BoxCollider*
 
 void RigidBody::CallCollision(GameObject* other)
 {
-	if (other == lastHit)
+	if (other == _lastHit)
 	{
 		gameObject->OnTrigger(other);
 	}
-	else if (other == nullptr && lastHit != nullptr)
+	else if (other == nullptr && _lastHit != nullptr)
 	{
-		gameObject->OnTriggerExit(lastHit);
+		gameObject->OnTriggerExit(_lastHit);
 	}
-	else if (other != nullptr && lastHit == nullptr)
+	else if (other != nullptr && _lastHit == nullptr)
 	{
 		gameObject->OnTriggerEnter(other);
 	}
 
-	lastHit = other;
-
+	_lastHit = other;
 }
 
 

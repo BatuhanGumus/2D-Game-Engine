@@ -4,16 +4,16 @@
 
 using namespace ArtemisEngine;
 
-Text::Text(std::string _text, SDL_Color _color, std::string _fontName, int _fontSize, Vector2 _position)
+Text::Text(std::string text, SDL_Color color, std::string fontName, int _fontSize, Vector2 position)
 {
-	this->text = _text;
-	this->color = _color;
-	this->fontSize = _fontSize;
-	this->position = _position;
+	this->text = text;
+	this->color = color;
+	this->fontSize = fontSize;
+	this->position = position;
 
 	for (int i = 0; i < FontManager::fonts.size(); i++)
 	{
-		if (_fontName == FontManager::fonts[i].name)
+		if (fontName == FontManager::fonts[i].name)
 		{
 			font = FontManager::fonts[i].file;
 			break;;

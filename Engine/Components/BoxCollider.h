@@ -19,7 +19,7 @@ namespace ArtemisEngine
         double width;
         double height;
     private:
-        bool initialized;
+        bool _initialized;
     };
 
 }

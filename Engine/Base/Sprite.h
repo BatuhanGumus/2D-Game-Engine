@@ -8,7 +8,7 @@ namespace ArtemisEngine
     class Sprite
     {
     public:
-        Sprite(const char* textureSheet, int pixelH, int pixelW, std::string _name);
+        Sprite(const char* textureSheet, int pixelH, int pixelW, std::string name);
         ~Sprite();
 
         SDL_Texture* Texture;
@@ -18,7 +18,7 @@ namespace ArtemisEngine
         static std::vector<Sprite*> sprites;
 
         static SDL_Texture* LoadText(const char* fileName);
-        static void LoadSprite(const char* textureSheet, int pixelH, int pixelW, std::string _name);
+        static void LoadSprite(const char* textureSheet, int pixelH, int pixelW, std::string name);
         static Sprite* GetSprite(std::string _name);
     };
 }

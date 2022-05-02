@@ -13,7 +13,7 @@ namespace ArtemisEngine
 
         static std::vector<RigidBody*> bodies;
         static std::queue<RigidBody*> bodiesToAdd;
-        static std::queue<RigidBody*> bodiesToRemove;
+        //static std::queue<RigidBody*> bodiesToRemove;
 
 
         static void RigidBodyCreated(RigidBody* rigidBody);
