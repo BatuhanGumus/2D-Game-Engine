@@ -1,6 +1,4 @@
 #include "Physics.h"
-#include "Engine.h"
-#include <iostream>
 #include <cmath>
 #include "GameTime.h"
 #include <algorithm>
@@ -63,12 +61,12 @@ void Physics::ApplyRules(RigidBody* body)
 
 void Physics::CheckCollision(RigidBody* body)
 {
-	double mainXpos = body->gameObject->transform->position->x;
-	double mainYpos = body->gameObject->transform->position->y;
-	double mainToRight = body->collider->width * body->gameObject->transform->scale->x / 2;
-	double mainToUp = body->collider->height * body->gameObject->transform->scale->y / 2;
+	auto mainPosX = body->gameObject->transform->position->x;
+    auto mainPosY = body->gameObject->transform->position->y;
+    auto mainToRight = body->collider->width * body->gameObject->transform->scale->x / 2;
+    auto mainToUp = body->collider->height * body->gameObject->transform->scale->y / 2;
 
-	bool collided = false;
+    auto collided = false;
 
 	for (int i = 0; i < bodies.size(); i++)
 	{
@@ -77,10 +75,10 @@ void Physics::CheckCollision(RigidBody* body)
 			continue;
 		}
 
-		double Xpos = bodies[i]->transform->position->x;
-		double Ypos = bodies[i]->transform->position->y;
-		double ToRight = bodies[i]->collider->width * bodies[i]->transform->scale->x / 2;
-		double ToUp = bodies[i]->collider->height * bodies[i]->transform->scale->y / 2;
+        auto posX = bodies[i]->transform->position->x;
+        auto posY = bodies[i]->transform->position->y;
+        auto ToRight = bodies[i]->collider->width * bodies[i]->transform->scale->x / 2;
+        auto ToUp = bodies[i]->collider->height * bodies[i]->transform->scale->y / 2;
 
 		for (int j = 0; j < 4; j++)
 		{
@@ -89,26 +87,26 @@ void Physics::CheckCollision(RigidBody* body)
 			switch (j)
 			{
 			case 0:
-				mainPoints[0] = new Vector2(mainXpos + mainToRight, mainYpos + mainToUp); // top right
-				mainPoints[1] = new Vector2(mainXpos + mainToRight, mainYpos - mainToUp); // bottom right
+				mainPoints[0] = new Vector2(mainPosX + mainToRight, mainPosY + mainToUp); // top right
+				mainPoints[1] = new Vector2(mainPosX + mainToRight, mainPosY - mainToUp); // bottom right
 				break;
 			case 1:
-				mainPoints[0] = new Vector2(mainXpos + mainToRight, mainYpos - mainToUp); // bottom right
-				mainPoints[1] = new Vector2(mainXpos - mainToRight, mainYpos - mainToUp); // bottom left
+				mainPoints[0] = new Vector2(mainPosX + mainToRight, mainPosY - mainToUp); // bottom right
+				mainPoints[1] = new Vector2(mainPosX - mainToRight, mainPosY - mainToUp); // bottom left
 				break;
 			case 2:
-				mainPoints[0] = new Vector2(mainXpos - mainToRight, mainYpos - mainToUp); // bottom left
-				mainPoints[1] = new Vector2(mainXpos - mainToRight, mainYpos + mainToUp); // top left
+				mainPoints[0] = new Vector2(mainPosX - mainToRight, mainPosY - mainToUp); // bottom left
+				mainPoints[1] = new Vector2(mainPosX - mainToRight, mainPosY + mainToUp); // top left
 				break;
 			case 3:
-				mainPoints[0] = new Vector2(mainXpos - mainToRight, mainYpos + mainToUp); // top left
-				mainPoints[1] = new Vector2(mainXpos + mainToRight, mainYpos + mainToUp); // top right
+				mainPoints[0] = new Vector2(mainPosX - mainToRight, mainPosY + mainToUp); // top left
+				mainPoints[1] = new Vector2(mainPosX + mainToRight, mainPosY + mainToUp); // top right
 				break;
 			}
 
-			double A1 = mainPoints[1]->y - mainPoints[0]->y;
-			double B1 = mainPoints[0]->x - mainPoints[1]->x;
-			double C1 = A1 * mainPoints[0]->x + B1 * mainPoints[0]->y;
+            auto A1 = mainPoints[1]->y - mainPoints[0]->y;
+            auto B1 = mainPoints[0]->x - mainPoints[1]->x;
+            auto C1 = A1 * mainPoints[0]->x + B1 * mainPoints[0]->y;
 
 			for (int k = 0; k < 4; k++)
 			{
@@ -117,28 +115,28 @@ void Physics::CheckCollision(RigidBody* body)
 				switch (k)
 				{
 				case 0:
-					points[0] = new Vector2(Xpos + ToRight, Ypos + ToUp); // top right
-					points[1] = new Vector2(Xpos + ToRight, Ypos - ToUp); // bottom right
+					points[0] = new Vector2(posX + ToRight, posY + ToUp); // top right
+					points[1] = new Vector2(posX + ToRight, posY - ToUp); // bottom right
 					break;
 				case 1:
-					points[0] = new Vector2(Xpos + ToRight, Ypos - ToUp); // bottom right
-					points[1] = new Vector2(Xpos - ToRight, Ypos - ToUp); // bottom left
+					points[0] = new Vector2(posX + ToRight, posY - ToUp); // bottom right
+					points[1] = new Vector2(posX - ToRight, posY - ToUp); // bottom left
 					break;
 				case 2:
-					points[0] = new Vector2(Xpos - ToRight, Ypos - ToUp); // bottom left
-					points[1] = new Vector2(Xpos - ToRight, Ypos + ToUp); // top left
+					points[0] = new Vector2(posX - ToRight, posY - ToUp); // bottom left
+					points[1] = new Vector2(posX - ToRight, posY + ToUp); // top left
 					break;
 				case 3:
-					points[0] = new Vector2(Xpos - ToRight, Ypos + ToUp); // top left
-					points[1] = new Vector2(Xpos + ToRight, Ypos + ToUp); // top right
+					points[0] = new Vector2(posX - ToRight, posY + ToUp); // top left
+					points[1] = new Vector2(posX + ToRight, posY + ToUp); // top right
 					break;
 				}
 
-				double A2 = points[1]->y - points[0]->y;
-				double B2 = points[0]->x - points[1]->x;
-				double C2 = A2 * points[0]->x + B2 * points[0]->y;
+                auto A2 = points[1]->y - points[0]->y;
+                auto B2 = points[0]->x - points[1]->x;
+                auto C2 = A2 * points[0]->x + B2 * points[0]->y;
 
-				double det = A1 * B2 - A2 * B1;
+                auto det = A1 * B2 - A2 * B1;
 
 				if (det == 0)
 				{
@@ -146,8 +144,8 @@ void Physics::CheckCollision(RigidBody* body)
 				}
 				else
 				{
-					double x = (B2 * C1 - B1 * C2) / det;
-					double y = (A1 * C2 - A2 * C1) / det;
+                    auto x = (B2 * C1 - B1 * C2) / det;
+                    auto y = (A1 * C2 - A2 * C1) / det;
 
 					if (
 						( abs(x - mainPoints[0]->x) <= 0.05 && abs(x - mainPoints[1]->x) <= 0.05 && 
@@ -208,10 +206,7 @@ void Physics::RigidBodyCreated(RigidBody *rigidBody)
 
 void Physics::RigidBodyDeleted(RigidBody *rigidBody)
 {
-   // bodiesToRemove.push(rigidBody);
-
-    auto found = std::find(bodies.begin(), bodies.end(), rigidBody);
-    if (found != bodies.end())
+    if (auto found = std::find(bodies.begin(), bodies.end(), rigidBody); found != bodies.end())
     {
         bodies.erase(found);
     }
@@ -219,17 +214,6 @@ void Physics::RigidBodyDeleted(RigidBody *rigidBody)
 
 void Physics::UpdateBodyList()
 {
-    /*
-    while(!bodiesToRemove.empty())
-    {
-        auto found = std::find(bodies.begin(), bodies.end(), bodies.front());
-        if (found != bodies.end())
-        {
-            bodies.erase(found);
-        }
-        bodiesToRemove.pop();
-    }
-*/
     while(!bodiesToAdd.empty())
     {
         bodies.push_back(bodiesToAdd.front());

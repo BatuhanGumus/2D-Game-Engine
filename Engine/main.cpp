@@ -1,8 +1,8 @@
 #include <SDL.h>
 #include "Engine.h"
 #include "GameTime.h"
-#include "Input.h"
 #include <iostream>
+#include <memory>
 
 using namespace ArtemisEngine;
 
@@ -10,19 +10,18 @@ int main(int args, char* argv[])
 {
 	std::srand(834793);
 
-	const int pixelW = 1200, pixelH = 900;
-	const double pixelPerWorldDist = 100.0;
+	const auto pixelW = 1200, pixelH = 900;
+	const auto pixelPerWorldDist = 100.0;
 
-	const int FPS = 60;
-	const int frameDelay = 1000 / FPS;
+	const auto FPS = 60;
+	const auto frameDelay = 1000 / FPS;
 
     GameTime::fixedDeltaTime = 1.0 / FPS;
 
 	Uint32 frameStart;
 	int frameTime;
 
-
-	Engine* engine = new Engine("Game Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, pixelW, pixelH, false);
+    std::unique_ptr<Engine> engine {new Engine("Game Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, pixelW, pixelH, false)};
 	Engine::pixPerWorld = pixelPerWorldDist;
 	
 	engine->LoadAssets();

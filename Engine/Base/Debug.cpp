@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Engine.h"
 #include "Transform.h"
+#include <memory>
 
 using namespace ArtemisEngine;
 
@@ -9,7 +10,7 @@ bool Debug::DrawColliders;
 
 void Debug::Log(std::string text, LogType type)
 {
-    std::string typeText = "";
+    auto typeText = "";
 
     if (type == Message)  typeText = "Message";
     else if(type == Warning) typeText = "!Warning";
@@ -21,7 +22,7 @@ void Debug::Log(std::string text, LogType type)
 
 void Debug::DrawLine(const Vector2* p1, const Vector2* p2, const Color* color)
 {
-    Color* prevColor = new Color();
+    std::unique_ptr<Color> prevColor {new Color()};
 
     SDL_GetRenderDrawColor(Engine::renderer, &prevColor->r, &prevColor->g, &prevColor->b, &prevColor->a);
 

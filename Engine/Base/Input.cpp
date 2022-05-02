@@ -1,85 +1,68 @@
+#include <algorithm>
 #include "Input.h"
 
 using namespace ArtemisEngine;
 
-std::vector<SDL_KeyboardEvent> Input::frameInput;
-std::vector<SDL_Keycode> Input::heldButtons;
-std::vector<SDL_Keycode> Input::lastFrame;
+std::vector<SDL_KeyboardEvent> Input::_frameInput;
+std::vector<SDL_Keycode> Input::_heldButtons;
+std::vector<SDL_Keycode> Input::_lastFrame;
 
 void Input::PassInFrameInput(SDL_KeyboardEvent keyEvent)
 {
-	frameInput.push_back(keyEvent);
+	_frameInput.push_back(keyEvent);
 
 	if (keyEvent.type == SDL_KEYDOWN)
 	{
-		for (int i = 0; i < heldButtons.size(); i++)
-		{
-			if (keyEvent.keysym.sym == heldButtons[i])
-			{
-				return;
-			}
-		}
-
-		heldButtons.push_back(keyEvent.keysym.sym);
+        if (!(std::find(_heldButtons.begin(), _heldButtons.end(), keyEvent.keysym.sym) != _heldButtons.end()))
+        {
+            _heldButtons.push_back(keyEvent.keysym.sym);
+        }
 	}
 	else
 	{
-		for (int i = 0; i < heldButtons.size(); i++)
-		{
-			if (keyEvent.keysym.sym == heldButtons[i])
-			{
-				heldButtons.erase(heldButtons.begin() + i);
-				break;
-			}
-		}
+        if (auto found = std::find(_heldButtons.begin(), _heldButtons.end(), keyEvent.keysym.sym); found != _heldButtons.end())
+        {
+            _heldButtons.erase(found);
+        }
 	}
 }
 
 void Input::ClearInputBuffer()
 {
-	lastFrame = heldButtons;
-	frameInput.clear();
+	_lastFrame = _heldButtons;
+	_frameInput.clear();
 }
 
 bool Input::GetKeyDown(SDL_Keycode key)
 {
-	for (int i = 0; i < heldButtons.size(); i++)
-	{
-		if (key == heldButtons[i])
-		{
-			for (int j = 0; j < lastFrame.size(); j++)
-			{
-				if (key == lastFrame[j])
-				{
-					return false;
-				}
-			}
+    if (std::find(_heldButtons.begin(), _heldButtons.end(), key) != _heldButtons.end())
+    {
+        if (std::find(_lastFrame.begin(), _lastFrame.end(), key) != _lastFrame.end())
+        {
+            return false;
+        }
 
-			return true;
-		}
-	}
+        return true;
+    }
 
 	return false;
 }
 
 bool Input::GetKey(SDL_Keycode key)
 {
-	for (int i = 0; i < heldButtons.size(); i++)
-	{
-		if (key == heldButtons[i])
-		{
-			return true;
-		}
-	}
+    if (std::find(_heldButtons.begin(), _heldButtons.end(), key) != _heldButtons.end())
+    {
+        return true;
+    }
 
 	return false;
 }
 
 bool Input::GetKeyUp(SDL_Keycode key)
 {
-	for (int i = 0; i < frameInput.size(); i++)
+	for (int i = 0; i < _frameInput.size(); i++)
 	{
-		if (frameInput[i].type == SDL_KEYUP && key == frameInput[i].keysym.sym)
+		if (_frameInput[i].type == SDL_KEYUP && key == _frameInput[i].keysym.sym)
 		{
 			return true;
 		}

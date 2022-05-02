@@ -22,7 +22,7 @@ namespace ArtemisEngine
 
         std::vector<Component*> components;
 
-        GameObject(std::string name = "GameObject", Transform* _transform = new Transform(), GameObjectType type = GameObjectType::Default);
+        GameObject(std::string name = "GameObject", Transform* transform = new Transform(), GameObjectType type = GameObjectType::Default);
         ~GameObject();
 
 

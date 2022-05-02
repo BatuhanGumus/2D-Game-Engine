@@ -33,6 +33,6 @@ private:
 	int _waveCount;
 	Text *_gameOverText, *_waveText, *_restartInfo, *_beginInfo, *_titleText;
 	EnemyShip** _enemyShips;
-	Sprite* enemySprite;
+	Sprite* _enemySprite;
 	bool _gameEnded, _gameBegun;
 };

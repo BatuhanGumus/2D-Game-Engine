@@ -40,7 +40,7 @@ GameManager::GameManager() : MonoBehaviour()
 
 	_waveCount = 0;
 
-	enemySprite = Sprite::GetSprite("Enemy");
+	_enemySprite = Sprite::GetSprite("Enemy");
 	_enemyShips = new EnemyShip*[5];
 
 	_titleText = new Text("SPACE SHOOTER!", { 200,200,255,255 }, "Cut_Deep", 6, Vector2(0, 0.3));
@@ -96,8 +96,8 @@ void GameManager::SpawnEnemyWave()
 	for (int i = 0; i < 5; i++)
 	{
         GameObject* temp = new GameObject("EnemyShip", new Transform(new Vector2(-2 + i, 1.8 - pow(-1, i) * 0.4), new Vector2(0.5, 0.5)));
-        temp->AddComponent(new SpriteRenderer(enemySprite));
-        temp->AddComponent(new BoxCollider(enemySprite));
+        temp->AddComponent(new SpriteRenderer(_enemySprite));
+        temp->AddComponent(new BoxCollider(_enemySprite));
         temp->AddComponent(new RigidBody(0.9, 0.3, false, temp->GetComponent<BoxCollider>()));
         temp->AddComponent(new EnemyShip(new Vector2(-2 + i, 1.8 - pow(-1, i) * 0.4)));
 
@@ -124,15 +124,14 @@ void GameManager::DeleteAllEnemies()
 
 void GameManager::SpawnPlayer()
 {
-    GameObject* temp = new GameObject("PlayerShip", new Transform(new Vector2(0, -2.3), new Vector2(0.6, 0.6)));
-    temp-> AddComponent(new SpriteRenderer(Sprite::GetSprite("Player")));
-    temp-> AddComponent(new BoxCollider(Sprite::GetSprite("Player")));
-    temp-> AddComponent(  new RigidBody(0.9, 0.3, false, temp->GetComponent<BoxCollider>()));
-    temp-> AddComponent(new PlayerShip());
+    auto *playerShip = new GameObject("PlayerShip", new Transform(new Vector2(0, -2.3), new Vector2(0.6, 0.6)));
+    playerShip-> AddComponent(new SpriteRenderer(Sprite::GetSprite("Player")));
+    playerShip-> AddComponent(new BoxCollider(Sprite::GetSprite("Player")));
+    playerShip-> AddComponent(  new RigidBody(0.9, 0.3, false, playerShip->GetComponent<BoxCollider>()));
+    playerShip-> AddComponent(new PlayerShip());
 }
 
 void GameManager::CheckGameState()
-
 {
 	if (EnemyShip::EnemyShipCount <= 0)
 	{
