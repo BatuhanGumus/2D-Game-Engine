@@ -31,14 +31,14 @@ int Vector2::cordToPixelY(double cord)
 
 double Vector2::Distance(const Vector2& p1, const Vector2& p2)
 {
-	double xLen = p1.x - p2.x;
-	double yLen = p1.y - p2.y;
+	auto xLen = p1.x - p2.x;
+    auto yLen = p1.y - p2.y;
 	return sqrt(xLen * xLen + yLen * yLen);
 }
 
 Vector2& Vector2::Normalize(Vector2& vec)
 {
-	double len = sqrt(vec.x * vec.x + vec.y * vec.y);
+    auto len = sqrt(vec.x * vec.x + vec.y * vec.y);
 	return vec / len;
 }
 
