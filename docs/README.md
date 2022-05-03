@@ -62,7 +62,7 @@ Artemis Engine will call the `void Engine::Awake()` function right after everyth
 
 void Engine::Awake()
 {
-    GameObject* playerShip = new GameObject("PlayerShip", new Transform(new Vector2(0, -2.3), new Vector2(0.6, 0.6)));
+    auto playerShip = new GameObject("PlayerShip", new Transform(new Vector2(0, -2.3), new Vector2(0.6, 0.6)));
     playerShip->AddComponent(new SpriteRenderer(Sprite::GetSprite("Player")));
     playerShip->AddComponent(new BoxCollider(Sprite::GetSprite("Player")));
     playerShip->AddComponent(new RigidBody(0.9, 0.3, false, playerShip->GetComponent<BoxCollider>()));
