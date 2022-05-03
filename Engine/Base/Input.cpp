@@ -35,34 +35,21 @@ void Input::ClearInputBuffer()
 
 bool Input::GetKeyDown(SDL_Keycode key)
 {
-    if (std::find(_heldButtons.begin(), _heldButtons.end(), key) != _heldButtons.end())
-    {
-        if (std::find(_lastFrame.begin(), _lastFrame.end(), key) != _lastFrame.end())
-        {
-            return false;
-        }
-
-        return true;
-    }
-
-	return false;
+    auto isHeld = std::find(_heldButtons.begin(), _heldButtons.end(), key) != _heldButtons.end();
+    auto wasHeld = std::find(_lastFrame.begin(), _lastFrame.end(), key) != _lastFrame.end();
+    return isHeld && !wasHeld;
 }
 
 bool Input::GetKey(SDL_Keycode key)
 {
-    if (std::find(_heldButtons.begin(), _heldButtons.end(), key) != _heldButtons.end())
-    {
-        return true;
-    }
-
-	return false;
+	return std::find(_heldButtons.begin(), _heldButtons.end(), key) != _heldButtons.end();
 }
 
 bool Input::GetKeyUp(SDL_Keycode key)
 {
-	for (int i = 0; i < _frameInput.size(); i++)
+	for (auto input : _frameInput)
 	{
-		if (_frameInput[i].type == SDL_KEYUP && key == _frameInput[i].keysym.sym)
+		if (input.type == SDL_KEYUP && key == input.keysym.sym)
 		{
 			return true;
 		}
