@@ -22,9 +22,9 @@ std::vector<Sprite*> Sprite::sprites;
 
 SDL_Texture* Sprite::LoadText(const char* fileName)
 {
-    SDL_Surface* tmpSurf = IMG_Load(fileName);
+    auto tmpSurf = IMG_Load(fileName);
     if(tmpSurf == nullptr) Debug::Log("Texture Load Error: " + std::string (IMG_GetError()), Debug::Error);
-    SDL_Texture* tex = SDL_CreateTextureFromSurface(Engine::renderer, tmpSurf);
+    auto tex = SDL_CreateTextureFromSurface(Engine::renderer, tmpSurf);
     SDL_FreeSurface(tmpSurf);
 
     return tex;
@@ -32,18 +32,18 @@ SDL_Texture* Sprite::LoadText(const char* fileName)
 
 void Sprite::LoadSprite(const char* textureSheet, int pixelH, int pixelW, std::string name)
 {
-    Sprite* spriteAdd = new Sprite(textureSheet, pixelH, pixelW, name);
+    auto spriteAdd = new Sprite(textureSheet, pixelH, pixelW, name);
 
     sprites.push_back(spriteAdd);
 }
 
 Sprite* Sprite::GetSprite(std::string name)
 {
-    for (int i = 0; i < sprites.size(); i++)
+    for (auto sprite : sprites)
     {
-        if (sprites[i]->name == name)
+        if (sprite->name == name)
         {
-            return sprites[i];
+            return sprite;
         }
     }
 
