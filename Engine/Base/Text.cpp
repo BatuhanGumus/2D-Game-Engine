@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "Text.h"
 #include "Engine.h"
 #include "FontManager.h"
@@ -11,11 +12,11 @@ Text::Text(std::string text, SDL_Color color, std::string fontName, int fontSize
 	this->fontSize = fontSize;
 	this->position = position;
 
-	for (int i = 0; i < FontManager::fonts.size(); i++)
+	for (auto font : FontManager::fonts)
 	{
-		if (fontName == FontManager::fonts[i].name)
+		if (fontName == font.name)
 		{
-			font = FontManager::fonts[i].file;
+			this->font = font.file;
 			break;
 		}
 	}
@@ -25,23 +26,19 @@ Text::Text(std::string text, SDL_Color color, std::string fontName, int fontSize
 
 Text::~Text()
 {
-	for (int i = 0; i < Engine::textsToRender.size(); i++)
-	{
-		if (this == Engine::textsToRender[i])
-		{
-			Engine::textsToRender.erase(Engine::textsToRender.begin() + i);
-			break;
-		}
-	}
+    if (auto find = std::find(Engine::textsToRender.begin(), Engine::textsToRender.end(), this); find != Engine::textsToRender.end())
+    {
+        Engine::textsToRender.erase(find);
+    }
 }
 
 
 void Text::Render()
 {
-	SDL_Surface* surf = TTF_RenderText_Blended (font, text.c_str(), color);
-	SDL_Texture* tex = SDL_CreateTextureFromSurface(Engine::renderer, surf);
+	auto surf = TTF_RenderText_Blended (font, text.c_str(), color);
+    auto tex = SDL_CreateTextureFromSurface(Engine::renderer, surf);
 	SDL_FreeSurface(surf);
-	int textW = 0, textH = 0;
+    auto textW = 0, textH = 0;
 
 	SDL_QueryTexture(tex, NULL, NULL, &textW, &textH);
 	SDL_Rect dstrect = {Vector2::cordToPixelX(position.x) - textW * fontSize / 2, Vector2::cordToPixelY(position.y) - textH * fontSize / 2, textW * fontSize, textH * fontSize };
