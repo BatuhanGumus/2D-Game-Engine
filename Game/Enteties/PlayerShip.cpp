@@ -54,7 +54,7 @@ void PlayerShip::Update()
 	{
 		if (canShot == true)
 		{
-            GameObject* temp = new GameObject("PlayerLaser", new Transform( new Vector2(*transform->position), new Vector2(1, 1)));
+            auto temp = new GameObject("PlayerLaser", new Transform( new Vector2(*transform->position), new Vector2(1, 1)));
             temp->AddComponent(new SpriteRenderer(_laserSprite));
             temp->AddComponent(new BoxCollider(_laserSprite));
             temp->AddComponent(new RigidBody(0.2f, 1, false, gameObject->GetComponent<BoxCollider>()));

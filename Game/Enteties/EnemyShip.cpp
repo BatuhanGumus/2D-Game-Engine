@@ -51,14 +51,14 @@ void EnemyShip::Update()
 		_timeSinceShot = 0;
 		RandTimeForShot();
 
-        GameObject* temp = new GameObject("EnemyLaser", new Transform( new Vector2(*transform->position), new Vector2(1, 1)));
+        auto temp = new GameObject("EnemyLaser", new Transform( new Vector2(*transform->position), new Vector2(1, 1)));
         temp->AddComponent(new SpriteRenderer(_laserSprite));
         temp->AddComponent(new BoxCollider(_laserSprite));
         temp->AddComponent(new RigidBody(0.2f, 1, false, gameObject->GetComponent<BoxCollider>()));
         temp->AddComponent(new Laser(-7));
 	}
 	
-	double dist = Vector2::Distance(_spawnedPos, *transform->position);
+	auto dist = Vector2::Distance(_spawnedPos, *transform->position);
 	if (dist > 0.05)
 	{
 		Vector2 dir = Vector2::Normalize(*gameObject->transform->position - _spawnedPos) * -dist * GameTime::fixedDeltaTime * 1.5;
