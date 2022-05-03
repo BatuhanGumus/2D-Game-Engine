@@ -51,10 +51,10 @@ void BoxCollider::Render()
     {
         Color* red = new Color(255, 0, 0, 255);
 
-        double Xpos = transform->position->x;
-        double Ypos = transform->position->y;
-        double ToRight = width * transform->scale->x / 2;
-        double ToUp = height * transform->scale->y / 2;
+        auto Xpos = transform->position->x;
+        auto Ypos = transform->position->y;
+        auto ToRight = width * transform->scale->x / 2;
+        auto ToUp = height * transform->scale->y / 2;
 
         Vector2** points = new Vector2*[4];
         points[0] = new Vector2(Xpos + ToRight, Ypos + ToUp); // top right
