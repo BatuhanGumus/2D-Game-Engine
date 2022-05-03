@@ -94,24 +94,24 @@ void Engine::HandleEvents()
 
 void Engine::Update()
 {
-	for (int i = 0; i < gameObjects.size(); i++)
-	{
-        gameObjects[i]->UpdateComponents();
-	}
+    for(auto gameObject : gameObjects)
+    {
+        gameObject->UpdateComponents();
+    }
 }
 
 void Engine::Render()
 {
 	SDL_RenderClear(renderer);
 
-	for (int i = 0; i < gameObjects.size(); i++)
-	{
-        gameObjects[i]->RenderComponents();
-	}
+    for(auto gameObject : gameObjects)
+    {
+        gameObject->RenderComponents();
+    }
 
-	for (int i = 0; i < textsToRender.size(); i++)
+	for (auto text : textsToRender)
 	{
-		textsToRender[i]->Render();
+        text->Render();
 	}
 
 	SDL_RenderPresent(renderer);
@@ -146,7 +146,7 @@ void Engine::UpdateGameObjectList()
             gameObjects.erase(found);
         }
 
-        RigidBody* rb = gameObjectsToRemove.front()->GetComponent<RigidBody>();
+        auto rb = gameObjectsToRemove.front()->GetComponent<RigidBody>();
         if (rb != nullptr)
         {
             Physics::RigidBodyDeleted(rb);

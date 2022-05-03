@@ -8,13 +8,13 @@ void ArtemisEngine::Event::AddListener(std::function<void()> listener)
 
 void ArtemisEngine::Event::RemoveListener(std::function<void()> listener)
 {
-/*
-    auto found = std::find(listeners.begin(), listeners.end(), listener);
-    if (found != listeners.end())
+    /*
+    auto found = std::find(_listeners.begin(), _listeners.end(), listener);
+    if (found != _listeners.end())
     {
-        listeners.erase(found);
+        _listeners.erase(found);
     }
-*/
+     */
 }
 
 void ArtemisEngine::Event::Invoke()
