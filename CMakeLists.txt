@@ -73,7 +73,7 @@ add_executable(2D_Game_Engine
         Engine/Base/Debug.cpp
         Engine/Base/Debug.h
         Engine/Base/Event.h
-        Engine/Base/Event.cpp)
+        )
 
 target_link_libraries(${PROJECT_NAME} SDL2main SDL2 SDL2_image SDL2_ttf)
 

@@ -5,20 +5,40 @@
 
 namespace ArtemisEngine
 {
+    template<class Sig>
     class Event
     {
     public:
 
-        void AddListener(std::function<void()> listener);
-        void RemoveListener(std::function<void()> listener);
+        template<typename Functor>
+        void AddListener(Functor&& listener)
+        {
+            _listeners.template emplace_back(listener);
+        }
 
-        void Invoke();
+        //void RemoveListener(std::function<void()> listener);
 
-        void operator += (std::function<void()> listener);
-        void operator -= (std::function<void()> listener);
+        void Clear()
+        {
+            _listeners.clear();
+        }
+
+        template<class... Args>
+        void Invoke(Args&&... args)
+        {
+            for(auto& f : _listeners)
+                f(args...);
+        }
+
+        template<typename Functor>
+        void operator += (Functor&& listener)
+        {
+            AddListener(listener);
+        }
+       // void operator -= (std::function<void()> listener);
 
     private:
-        std::vector<std::function<void()>> _listeners;
+        std::vector<std::function<Sig>> _listeners;
     };
 
 }
