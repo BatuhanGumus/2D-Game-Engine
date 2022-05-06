@@ -19,7 +19,7 @@ namespace ArtemisEngine
 
         static SDL_Texture* LoadText(const char* fileName);
         static void LoadSprite(const char* textureSheet, int pixelH, int pixelW, std::string name);
-        static Sprite* GetSprite(std::string _name);
+        static Sprite* GetSprite(const std::string& _name);
     };
 }
 

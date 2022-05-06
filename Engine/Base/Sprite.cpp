@@ -1,5 +1,6 @@
 #include "Sprite.h"
 #include <iostream>
+#include <utility>
 #include "Engine.h"
 #include "Debug.h"
 
@@ -10,7 +11,7 @@ Sprite::Sprite(const char* textureSheet, int pixelH, int pixelW, std::string nam
 	this->Texture = LoadText(textureSheet);
 	this->pixelH = pixelH;
 	this->pixelW = pixelW;
-	this->name = name;
+	this->name = std::move(name);
 }
 
 Sprite::~Sprite()
@@ -32,12 +33,12 @@ SDL_Texture* Sprite::LoadText(const char* fileName)
 
 void Sprite::LoadSprite(const char* textureSheet, int pixelH, int pixelW, std::string name)
 {
-    auto spriteAdd = new Sprite(textureSheet, pixelH, pixelW, name);
+    auto spriteAdd = new Sprite(textureSheet, pixelH, pixelW, std::move(name));
 
     sprites.push_back(spriteAdd);
 }
 
-Sprite* Sprite::GetSprite(std::string name)
+Sprite* Sprite::GetSprite(const std::string& name)
 {
     for (auto sprite : sprites)
     {
