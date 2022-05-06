@@ -47,13 +47,6 @@ bool Input::GetKey(SDL_Keycode key)
 
 bool Input::GetKeyUp(SDL_Keycode key)
 {
-	for (auto input : _frameInput)
-	{
-		if (input.type == SDL_KEYUP && key == input.keysym.sym)
-		{
-			return true;
-		}
-	}
-
-	return false;
+    return std::any_of(_frameInput.begin(), _frameInput.end(),
+                       [key](auto & input){return (input.type == SDL_KEYUP && key == input.keysym.sym);});
 }
