@@ -57,7 +57,7 @@ void GameManager::Update()
     {
         RestartGame();
     }
-    if (!_gameBegun && Input::GetKeyDown(SDLK_SPACE))
+    if (!_gameBegun && Input::GetKeyUp(SDLK_SPACE))
     {
         BeginGame();
     }
