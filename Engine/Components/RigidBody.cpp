@@ -1,6 +1,5 @@
 #include "RigidBody.h"
 #include "Physics.h"
-#include <iostream>
 
 using namespace ArtemisEngine;
 
@@ -10,6 +9,7 @@ RigidBody::RigidBody(double drag, double maxSpeed, bool useGravity, BoxCollider*
 	this->maxSpeed = maxSpeed;
 	this->useGravity = useGravity;
 	this->collider = collider;
+    this->_lastHit = nullptr;
 	Physics::RigidBodyCreated(this);
 }
 
