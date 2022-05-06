@@ -11,7 +11,7 @@ namespace ArtemisEngine
     class Engine
     {
     public:
-        Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX, int pixelPerUnit, bool fullScreen);
+        Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX, double pixelPerUnit, bool fullScreen);
         ~Engine();
 
         void UpdateGameObjectList();

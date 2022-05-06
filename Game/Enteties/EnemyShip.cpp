@@ -4,6 +4,8 @@
 #include "Laser.h"
 #include "SpriteRenderer.h"
 #include "Engine.h"
+#include "Random.h"
+#include "Debug.h"
 
 int EnemyShip::EnemyShipCount = 0;
 
@@ -102,5 +104,5 @@ void EnemyShip::Damage(int dmg)
 
 void EnemyShip::RandTimeForShot()
 {
-	_randTime = (rand() * 1.0 / RAND_MAX) * 1.5 + 1;
+	_randTime = Random::Range(1, 2.5);
 }

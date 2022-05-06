@@ -17,7 +17,7 @@ int Engine::pixW;
 int Engine::pixH;
 double Engine::pixelPerUnit;
 
-Engine::Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX, int pixelPerUnit, bool fullScreen)
+Engine::Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX, double pixelPerUnit, bool fullScreen)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
