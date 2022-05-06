@@ -13,7 +13,8 @@ PlayerShip::PlayerShip() : Ship()
 	_maxHp = 5;
 	_hp = _maxHp;
 
-	_playerHpText = new Text(std::to_string(_hp) + "/" + std::to_string(_maxHp), { 100,100,150,255 }, "Cut_Deep", 2.5, Vector2(-3.2, -2.5));
+	_playerHpText = new Text(std::to_string(_hp) + "/" + std::to_string(_maxHp),
+                             { 100,100,150,255 }, "Cut_Deep", 2, Vector2(-3.2, -2.5));
 
 }
 
@@ -24,9 +25,7 @@ void PlayerShip::Start()
 
 
 PlayerShip::~PlayerShip()
-{
-
-}
+= default;
 
 double timeSince = 1;
 bool canShot = true;
@@ -52,7 +51,7 @@ void PlayerShip::Update()
 
 	if (Input::GetKey(SDLK_SPACE))
 	{
-		if (canShot == true)
+		if (canShot)
 		{
             auto temp = new GameObject("PlayerLaser", new Transform( new Vector2(*transform->position), new Vector2(1, 1)));
             temp->AddComponent(new SpriteRenderer(_laserSprite));

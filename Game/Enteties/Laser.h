@@ -6,8 +6,8 @@ using namespace ArtemisEngine;
 class Laser : public Component
 {
 public:
-	Laser(int speed);
-	~Laser();
+	explicit Laser(int speed);
+	~Laser() override;
     void Start() override;
 	void Update() override;
 	void OnTriggerEnter(GameObject* other) override;

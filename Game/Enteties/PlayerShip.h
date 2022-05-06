@@ -7,7 +7,7 @@ class PlayerShip : public Ship
 {
 public:
 	PlayerShip();
-	~PlayerShip();
+	~PlayerShip() override;
 
     void Start() override;
 	void Update() override;

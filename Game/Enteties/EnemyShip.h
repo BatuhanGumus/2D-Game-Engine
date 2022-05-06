@@ -8,8 +8,8 @@ using namespace ArtemisEngine;
 class EnemyShip : public Ship
 {
 public:
-	EnemyShip(Vector2* pos);
-	~EnemyShip();
+	explicit EnemyShip(Vector2* pos);
+	~EnemyShip() override;
 
     void Start() override;
 	void Update() override;

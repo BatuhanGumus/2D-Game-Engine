@@ -105,5 +105,5 @@ void EnemyShip::Damage(int dmg)
 
 void EnemyShip::RandTimeForShot()
 {
-	_randTime = Random::Range(1, 2.5);
+	_randTime = Random::Range(1.5, 3.5);
 }
