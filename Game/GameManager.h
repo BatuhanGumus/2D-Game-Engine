@@ -21,7 +21,7 @@ public:
 	void SpawnPlayer();
 	void CheckGameState();
 	void PlayerDiedCall();
-	bool getGameState();
+	[[nodiscard]] bool getGameState() const;
 	void removeEnemyShip(EnemyShip* ship);
 
     void Start() override;

@@ -7,7 +7,7 @@
 #include <iostream>
 #include "Input.h"
 
-#include <math.h>
+#include <cmath>
 
 #include "SDL_image.h"
 #include "GameObject.h"
@@ -40,6 +40,10 @@ GameManager::GameManager() : MonoBehaviour()
 
 	_waveCount = 0;
 
+    _gameOverText = nullptr;
+    _waveText = nullptr;
+    _restartInfo = nullptr;
+
 	_enemySprite = Sprite::GetSprite("Enemy");
 	_enemyShips = new EnemyShip*[5];
 
@@ -49,11 +53,11 @@ GameManager::GameManager() : MonoBehaviour()
 
 void GameManager::Update()
 {
-    if (_gameEnded == true && Input::GetKeyDown(SDLK_r))
+    if (_gameEnded && Input::GetKeyDown(SDLK_r))
     {
         RestartGame();
     }
-    if (_gameBegun == false && Input::GetKeyDown(SDLK_SPACE))
+    if (!_gameBegun && Input::GetKeyDown(SDLK_SPACE))
     {
         BeginGame();
     }
@@ -84,7 +88,7 @@ void GameManager::BeginGame()
 	delete _beginInfo;
 
 	_waveText = new Text("Wave: " + std::to_string(_waveCount),
-		{ 100,100,150,255 }, "Cut_Deep", 2.5, Vector2(3.2, -2.5));
+		{ 100,100,150,255 }, "Cut_Deep", 2, Vector2(3.2, -2.5));
 
 	SpawnPlayer();
 	SpawnEnemyWave();
@@ -95,7 +99,7 @@ void GameManager::SpawnEnemyWave()
 {
 	for (int i = 0; i < 5; i++)
 	{
-        GameObject* temp = new GameObject("EnemyShip", new Transform(new Vector2(-2 + i, 1.8 - pow(-1, i) * 0.4), new Vector2(0.5, 0.5)));
+        auto temp = new GameObject("EnemyShip", new Transform(new Vector2(-2 + i, 1.8 - pow(-1, i) * 0.4), new Vector2(0.5, 0.5)));
         temp->AddComponent(new SpriteRenderer(_enemySprite));
         temp->AddComponent(new BoxCollider(_enemySprite));
         temp->AddComponent(new RigidBody(0.9, 0.3, false, temp->GetComponent<BoxCollider>()));
@@ -146,7 +150,7 @@ void GameManager::PlayerDiedCall()
 	_gameEnded = true;
 }
 
-bool GameManager::getGameState()
+bool GameManager::getGameState() const
 {
 	return _gameEnded;
 }
