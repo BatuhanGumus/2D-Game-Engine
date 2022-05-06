@@ -9,9 +9,7 @@ MonoBehaviour::MonoBehaviour() : Component()
 }
 
 MonoBehaviour::~MonoBehaviour()
-{
-
-}
+= default;
 
 void MonoBehaviour::Update()
 {

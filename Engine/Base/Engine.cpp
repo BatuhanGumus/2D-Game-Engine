@@ -63,8 +63,7 @@ Engine::Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX,
 
 
 Engine::~Engine()
-{
-}
+= default;
 
 void Engine::HandleEvents()
 {

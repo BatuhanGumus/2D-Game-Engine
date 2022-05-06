@@ -3,9 +3,7 @@
 using namespace ArtemisEngine;
 
 Component::Component()
-{
-
-}
+= default;
 
 template <typename DerivedType>
 DerivedType* Component::GetDerived()
@@ -41,6 +39,4 @@ void Component::Start() {
 }
 
 Component::~Component()
-{
-
-}
+= default;

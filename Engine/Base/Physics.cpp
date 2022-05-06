@@ -11,18 +11,16 @@ std::queue<RigidBody*> Physics::bodiesToAdd;
 //std::queue<RigidBody*> Physics::bodiesToRemove;
 
 Physics::Physics()
-{
-}
+= default;
 
 Physics::~Physics()
-{
-}
+= default;
 
 void Physics::Update()
 {
-	for (int i = 0; i < bodies.size(); i++)
+	for (auto & body : bodies)
 	{
-		ApplyPhysics(bodies[i]);
+		ApplyPhysics(body);
 	}
 }
 
@@ -33,14 +31,14 @@ void Physics::ApplyPhysics(RigidBody* body)
 	CheckCollision(body);
 }
 
-void Physics::ApplyRules(RigidBody* body)
+void Physics::ApplyRules(RigidBody* body) const
 {
 	if (body->gameObject->type == Static)
 	{
 		return;
 	}
 
-	if (body->useGravity == true)
+	if (body->useGravity)
 	{
 		body->velocity.y += _gravity * GameTime::fixedDeltaTime;
 	}
@@ -69,21 +67,21 @@ void Physics::CheckCollision(RigidBody* body)
 
     auto collided = false;
 
-	for (int i = 0; i < bodies.size(); i++)
+	for (auto & otherBody : bodies)
 	{
-		if (&bodies[i]->gameObject == &body->gameObject)
+		if (&otherBody->gameObject == &body->gameObject)
 		{
 			continue;
 		}
 
-        const auto posX = bodies[i]->transform->position->x;
-        const auto posY = bodies[i]->transform->position->y;
-        const auto ToRight = bodies[i]->collider->width * bodies[i]->transform->scale->x / 2;
-        const auto ToUp = bodies[i]->collider->height * bodies[i]->transform->scale->y / 2;
+        const auto posX = otherBody->transform->position->x;
+        const auto posY = otherBody->transform->position->y;
+        const auto ToRight = otherBody->collider->width * otherBody->transform->scale->x / 2;
+        const auto ToUp = otherBody->collider->height * otherBody->transform->scale->y / 2;
 
 		for (int j = 0; j < 4; j++)
 		{
-			Vector2** mainPoints = new Vector2*[2];
+			auto** mainPoints = new Vector2*[2];
 
 			switch (j)
 			{
@@ -111,7 +109,7 @@ void Physics::CheckCollision(RigidBody* body)
 
 			for (int k = 0; k < 4; k++)
 			{
-				Vector2** points = new Vector2*[2];
+				auto** points = new Vector2*[2];
 
 				switch (k)
 				{
@@ -149,7 +147,7 @@ void Physics::CheckCollision(RigidBody* body)
                     const auto y = (A1 * C2 - A2 * C1) / det;
 
 					if (
-						( abs(x - mainPoints[0]->x) <= 0.05 && abs(x - mainPoints[1]->x) <= 0.05 && 
+						( abs(x - mainPoints[0]->x) <= 0.05 && abs(x - mainPoints[1]->x) <= 0.05 &&
 						((mainPoints[0]->y <= y && y <= mainPoints[1]->y) || (mainPoints[1]->y <= y && y <= mainPoints[0]->y)))
 						&&
 						(abs(y - points[0]->y) <= 0.05 && abs(y - points[1]->y) <= 0.05 &&
@@ -162,11 +160,11 @@ void Physics::CheckCollision(RigidBody* body)
 						((points[0]->y <= y && y <= points[1]->y) || (points[1]->y <= y && y <= points[0]->y)))
 						)
 					{
-						if (collided == false)
+						if (!collided)
 						{
-							body->CallCollision(bodies[i]->gameObject);
+							body->CallCollision(otherBody->gameObject);
 						}
-						
+
 						collided = true;
 					}
 				}
@@ -176,7 +174,7 @@ void Physics::CheckCollision(RigidBody* body)
 					delete points[v];
 				}
 
-				if (collided == true)
+				if (collided)
 				{
 					break;
 				}
@@ -192,7 +190,7 @@ void Physics::CheckCollision(RigidBody* body)
 
 	} // end of other bodies
 
-	if (collided == false)
+	if (!collided)
 	{
 		body->CallCollision(nullptr);
 	}

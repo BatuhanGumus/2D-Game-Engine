@@ -8,7 +8,7 @@ namespace ArtemisEngine
     {
     public:
         explicit MonoBehaviour();
-        ~MonoBehaviour();
+        ~MonoBehaviour() override;
 
         void Update() override;
 
