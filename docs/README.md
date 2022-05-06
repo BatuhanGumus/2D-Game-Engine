@@ -5,7 +5,7 @@ In this repo you can also find an example Space Invaders type game.
 
 ----
 
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/BatuhanGumus/2D-Game-Engine/blob/master/LICENSEE)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](/LICENSEE)
 
 ### Features
 The features listed below are almost identical to their Unity counterparts. To see what is different, please refer to the [Seting Up a Game and Differences to Unity](#seting-up-a-game-and-differences-to-unity) section.
@@ -17,6 +17,7 @@ The features listed below are almost identical to their Unity counterparts. To s
   - Text (SDL2_text for UI)
   - Debug
   - Input
+  - Random
 - Contains essential components like;
   - Sprite Renderer
   - Box collider and RigidBody for **collision detection**
@@ -50,6 +51,7 @@ void Engine::LoadAssets()
 }
 ```
 
+
 ### GameObject and Component Creation
 Artemis Engine will call the `void Engine::Awake()` function right after everything is initialized so that will be the starting point of the GameObjects you want to create. Do not forget to [load your sprites](#asset-loading)!
 
@@ -68,6 +70,24 @@ void Engine::Awake()
     playerShip->AddComponent(new RigidBody(0.9, 0.3, false, playerShip->GetComponent<BoxCollider>()));
 }
 ```
+```cpp
+SpriteRenderer(Sprite* sprite);
+BoxCollider(double width, double height);
+BoxCollider(const Sprite* sprite);
+RigidBody(double drag, double maxSpeed, bool useGravity, BoxCollider* collider);
+```
+
+### Some Monobehaviour Overridable Functions
+
+```cpp
+virtual void Start();
+virtual void Update();
+virtual void Render();
+
+virtual void OnTrigger(GameObject* other);
+virtual void OnTriggerEnter(GameObject* other);
+virtual void OnTriggerExit(GameObject* other);
+```
 
 ### Text Creation
 Do not forget to [load your fonts](#asset-loading)!
@@ -83,8 +103,8 @@ Text* beginInfo = new Text("Press \"Space\" to Begin!", { 255,255,255,255 }, "Cu
 The necesarry libraries are included in this repo so the only thing you need is **cmake**.
 
 ```shell script
-$ mkdir build
-$ cd build
-$ cmake ..
+$ cmake .
 $ cmake --build .
 ```
+
+You can run and play the game inside the `Debug` folder.
