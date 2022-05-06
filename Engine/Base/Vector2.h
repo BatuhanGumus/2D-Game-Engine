@@ -21,16 +21,16 @@ namespace ArtemisEngine
         Vector2& Add(const Vector2& vec);
         Vector2& Subtract(const Vector2& vec);
 
-        Vector2& operator + (const Vector2  &v2);
+        Vector2& operator + (const Vector2  &v2) const;
         Vector2& operator += (const Vector2  &v2);
         Vector2& operator += (double val);
 
-        Vector2& operator - (const Vector2 &v2);
+        Vector2& operator - (const Vector2 &v2) const;
         Vector2& operator -= (const Vector2 &v2);
         Vector2& operator -= (double val);
 
-        Vector2& operator / (double divider);
-        Vector2& operator * (double multiplier);
+        Vector2& operator / (double divider) const;
+        Vector2& operator * (double multiplier) const;
 
         Vector2& operator = (const Vector2 &v2);
         Vector2& operator = (double value);

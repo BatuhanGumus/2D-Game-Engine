@@ -1,7 +1,7 @@
 #include "Vector2.h"
 #include "Engine.h"
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 using namespace ArtemisEngine;
 
@@ -21,12 +21,12 @@ Vector2::Vector2(const Vector2& copyVec)
 
 int Vector2::cordToPixelX(double cord)
 {
-	return  cord * Engine::pixW / 8 + Engine::pixW / 2;
+	return  std::floor(cord * Engine::pixW / 8.0 + Engine::pixW / 2.0);
 }
 
 int Vector2::cordToPixelY(double cord)
 {
-	return  Engine::pixH / 2 - cord * Engine::pixH / 6;
+	return  std::floor(Engine::pixH / 2.0 - cord * Engine::pixH / 6.0);
 }
 
 double Vector2::Distance(const Vector2& p1, const Vector2& p2)
@@ -61,7 +61,7 @@ Vector2& Vector2::Subtract(const Vector2& vec)
 	return *this;
 }
 
-Vector2& Vector2::operator + (const Vector2 &v2)
+Vector2& Vector2::operator + (const Vector2 &v2) const
 {
 	return *new Vector2(this->x + v2.x, this->y + v2.y);
 }
@@ -78,7 +78,7 @@ Vector2& Vector2::operator+=(double val)
 	return *this;
 }
 
-Vector2& Vector2::operator - (const Vector2 &v2)
+Vector2& Vector2::operator - (const Vector2 &v2) const
 {
 	return *new Vector2(this->x - v2.x, this->y - v2.y);
 }
@@ -95,22 +95,18 @@ Vector2& Vector2::operator-=(double val)
 	return *this;
 }
 
-Vector2& Vector2::operator / (const double divider)
+Vector2& Vector2::operator / (const double divider) const
 {
 	return *new Vector2(this->x / divider, this->y / divider);
 }
 
-Vector2& Vector2::operator * (const double multiplier)
+Vector2& Vector2::operator * (const double multiplier) const
 {
 	return *new Vector2(this->x * multiplier, this->y * multiplier);
 }
 
 Vector2& Vector2::operator = (const Vector2& v2)
-{
-	this->x = v2.x;
-	this->y = v2.y;
-	return *this;
-}
+= default;
 
 Vector2& Vector2::operator=(double value)
 {
