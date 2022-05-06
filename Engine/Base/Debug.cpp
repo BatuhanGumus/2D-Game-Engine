@@ -8,9 +8,9 @@ using namespace ArtemisEngine;
 
 bool Debug::DrawColliders;
 
-void Debug::Log(std::string text, LogType type)
+void Debug::Log(const std::string &text, LogType type)
 {
-    auto typeText = "";
+    std::string typeText;
 
     if (type == Message)  typeText = "Message";
     else if(type == Warning) typeText = "!Warning";

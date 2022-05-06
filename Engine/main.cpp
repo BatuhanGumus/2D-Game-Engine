@@ -23,6 +23,8 @@ int main(int args, char* argv[])
 
     std::unique_ptr<Engine> engine {new Engine("Game Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, pixelW, pixelH, false)};
 	Engine::pixPerWorld = pixelPerWorldDist;
+
+    std::unique_ptr<Physics> physicsEngine{new Physics()};
 	
 	engine->LoadAssets();
 	engine->Awake();
@@ -34,10 +36,10 @@ int main(int args, char* argv[])
 
 		engine->HandleEvents();
 		engine->Update();
-		engine->physicsEngine->Update();
+		physicsEngine->Update();
 		engine->Render();
         engine->UpdateGameObjectList();
-        engine->physicsEngine->UpdateBodyList();
+        physicsEngine->UpdateBodyList();
 
 		frameTime = SDL_GetTicks() - frameStart;
 

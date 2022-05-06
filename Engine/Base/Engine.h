@@ -20,7 +20,7 @@ namespace ArtemisEngine
         void Render();
         void Clean();
 
-        bool IsGameRunning();
+        [[nodiscard]] bool IsGameRunning() const;
 
         void Awake();
         void LoadAssets();
@@ -40,8 +40,6 @@ namespace ArtemisEngine
         static int pixW;
         static int pixH;
         static double pixPerWorld;
-
-        Physics* physicsEngine;
 
     private:
         bool _isRunning;

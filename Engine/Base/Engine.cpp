@@ -24,7 +24,7 @@ Engine::Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX,
         Debug::Log("Subsystem Initialised!");
 
 		int flags = 0;
-		if (fullScreen == true)
+		if (fullScreen)
 		{
 			flags = SDL_WINDOW_FULLSCREEN;
 		}
@@ -58,8 +58,6 @@ Engine::Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX,
 
 	pixW = widthPX;
 	pixH = heightPX;
-
-	physicsEngine = new Physics();
 }
 
 
@@ -126,7 +124,7 @@ void Engine::Clean()
     Debug::Log("Game cleaned!");
 }
 
-bool Engine::IsGameRunning()
+bool Engine::IsGameRunning() const
 {
 	return _isRunning;
 }
