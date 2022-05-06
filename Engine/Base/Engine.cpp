@@ -8,16 +8,16 @@
 using namespace ArtemisEngine;
 
 SDL_Renderer* Engine::renderer = nullptr;
-std::vector<GameObject*> Engine::gameObjects;
-std::queue<GameObject*> Engine::gameObjectsToAdd;
-std::queue<GameObject*> Engine::gameObjectsToRemove;
+std::vector<GameObject*> Engine::_gameObjects;
+std::queue<GameObject*> Engine::_gameObjectsToAdd;
+std::queue<GameObject*> Engine::_gameObjectsToRemove;
 std::vector<Text*> Engine::textsToRender;
 
 int Engine::pixW;
 int Engine::pixH;
-double Engine::pixPerWorld;
+double Engine::pixelPerUnit;
 
-Engine::Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX, bool fullScreen)
+Engine::Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX, int pixelPerUnit, bool fullScreen)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
@@ -58,6 +58,7 @@ Engine::Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX,
 
 	pixW = widthPX;
 	pixH = heightPX;
+    this->pixelPerUnit = pixelPerUnit;
 }
 
 
@@ -92,7 +93,7 @@ void Engine::HandleEvents()
 
 void Engine::Update()
 {
-    for(auto gameObject : gameObjects)
+    for(auto gameObject : _gameObjects)
     {
         gameObject->UpdateComponents();
     }
@@ -102,7 +103,7 @@ void Engine::Render()
 {
 	SDL_RenderClear(renderer);
 
-    for(auto gameObject : gameObjects)
+    for(auto gameObject : _gameObjects)
     {
         gameObject->RenderComponents();
     }
@@ -131,37 +132,37 @@ bool Engine::IsGameRunning() const
 
 void Engine::GameObjectCreated(GameObject *gameObject)
 {
-    gameObjectsToAdd.push(gameObject);
+    _gameObjectsToAdd.push(gameObject);
 }
 
 void Engine::UpdateGameObjectList()
 {
-    while(!gameObjectsToRemove.empty())
+    while(!_gameObjectsToRemove.empty())
     {
-        auto found = std::find(gameObjects.begin(), gameObjects.end(), gameObjectsToRemove.front());
-        if (found != gameObjects.end())
+        auto found = std::find(_gameObjects.begin(), _gameObjects.end(), _gameObjectsToRemove.front());
+        if (found != _gameObjects.end())
         {
-            gameObjects.erase(found);
+            _gameObjects.erase(found);
         }
 
-        auto rb = gameObjectsToRemove.front()->GetComponent<RigidBody>();
+        auto rb = _gameObjectsToRemove.front()->GetComponent<RigidBody>();
         if (rb != nullptr)
         {
             Physics::RigidBodyDeleted(rb);
         }
 
-        delete gameObjectsToRemove.front();
-        gameObjectsToRemove.pop();
+        delete _gameObjectsToRemove.front();
+        _gameObjectsToRemove.pop();
     }
 
-    while(!gameObjectsToAdd.empty())
+    while(!_gameObjectsToAdd.empty())
     {
-        gameObjects.push_back(gameObjectsToAdd.front());
-        gameObjectsToAdd.pop();
+        _gameObjects.push_back(_gameObjectsToAdd.front());
+        _gameObjectsToAdd.pop();
     }
 }
 
 void Engine::Destroy(GameObject *gameObject)
 {
-    gameObjectsToRemove.push(gameObject);
+    _gameObjectsToRemove.push(gameObject);
 }

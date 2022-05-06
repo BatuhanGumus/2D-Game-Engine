@@ -11,7 +11,7 @@ namespace ArtemisEngine
     class Engine
     {
     public:
-        Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX, bool fullScreen);
+        Engine(const char* title, int xPos, int yPos, int widthPX, int heightPX, int pixelPerUnit, bool fullScreen);
         ~Engine();
 
         void UpdateGameObjectList();
@@ -31,19 +31,19 @@ namespace ArtemisEngine
         static SDL_Renderer* renderer;
         SDL_Event event;
 
-        static std::vector<GameObject*> gameObjects;
-        static std::queue<GameObject*> gameObjectsToAdd;
-        static std::queue<GameObject*> gameObjectsToRemove;
-
         static std::vector<Text*> textsToRender;
 
         static int pixW;
         static int pixH;
-        static double pixPerWorld;
+        static double pixelPerUnit;
 
     private:
         bool _isRunning;
         SDL_Window* _window;
+
+        static std::vector<GameObject*> _gameObjects;
+        static std::queue<GameObject*> _gameObjectsToAdd;
+        static std::queue<GameObject*> _gameObjectsToRemove;
     };
 
 }

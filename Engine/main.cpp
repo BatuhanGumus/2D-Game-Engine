@@ -21,8 +21,8 @@ int main(int args, char* argv[])
 	Uint32 frameStart;
 	int frameTime;
 
-    std::unique_ptr<Engine> engine {new Engine("Game Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, pixelW, pixelH, false)};
-	Engine::pixPerWorld = pixelPerWorldDist;
+    std::unique_ptr<Engine> engine {new Engine("Game Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+                                               pixelW, pixelH, pixelPerWorldDist, false)};
 
     std::unique_ptr<Physics> physicsEngine{new Physics()};
 	
