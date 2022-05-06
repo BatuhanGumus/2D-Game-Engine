@@ -104,8 +104,8 @@ Text* beginInfo = new Text("Press \"Space\" to Begin!", { 255,255,255,255 }, "Cu
 The necesarry libraries are included in this repo so the only thing you need is **cmake**.
 
 ```shell script
-$ mkdir build
-$ cd build
-$ cmake ..
+$ cmake .
 $ cmake --build .
 ```
+
+You can run and play the game inside the `Debug` folder.
