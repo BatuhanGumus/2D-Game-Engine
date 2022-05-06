@@ -51,13 +51,6 @@ void Engine::LoadAssets()
 }
 ```
 
-### Component Constructors
-```cpp
-SpriteRenderer(Sprite* sprite);
-BoxCollider(double width, double height);
-BoxCollider(const Sprite* sprite);
-RigidBody(double drag, double maxSpeed, bool useGravity, BoxCollider* collider);
-```
 
 ### GameObject and Component Creation
 Artemis Engine will call the `void Engine::Awake()` function right after everything is initialized so that will be the starting point of the GameObjects you want to create. Do not forget to [load your sprites](#asset-loading)!
@@ -76,6 +69,12 @@ void Engine::Awake()
     playerShip->AddComponent(new BoxCollider(Sprite::GetSprite("Player")));
     playerShip->AddComponent(new RigidBody(0.9, 0.3, false, playerShip->GetComponent<BoxCollider>()));
 }
+```
+```cpp
+SpriteRenderer(Sprite* sprite);
+BoxCollider(double width, double height);
+BoxCollider(const Sprite* sprite);
+RigidBody(double drag, double maxSpeed, bool useGravity, BoxCollider* collider);
 ```
 
 ### Some Monobehaviour Overridable Functions
