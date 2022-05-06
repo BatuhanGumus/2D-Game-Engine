@@ -8,13 +8,13 @@ namespace ArtemisEngine
     class Text
     {
     public:
-        Text(std::string text, SDL_Color color, std::string fontName, int fontSize, Vector2 position);
+        Text(std::string text, SDL_Color color, const std::string& fontName, int fontSize, const Vector2& position);
         ~Text();
 
-        void Render();
+        void Render() const;
 
         std::string text;
-        SDL_Color color;
+        SDL_Color color{};
         TTF_Font* font;
         int fontSize;
         Vector2 position;

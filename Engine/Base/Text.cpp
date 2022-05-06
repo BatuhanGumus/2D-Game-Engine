@@ -1,13 +1,14 @@
 #include <algorithm>
+#include <utility>
 #include "Text.h"
 #include "Engine.h"
 #include "FontManager.h"
 
 using namespace ArtemisEngine;
 
-Text::Text(std::string text, SDL_Color color, std::string fontName, int fontSize, Vector2 position)
+Text::Text(std::string text, SDL_Color color, const std::string& fontName, int fontSize, const Vector2& position)
 {
-	this->text = text;
+	this->text = std::move(text);
 	this->color = color;
 	this->fontSize = fontSize;
 	this->position = position;
@@ -26,17 +27,17 @@ Text::~Text()
 }
 
 
-void Text::Render()
+void Text::Render() const
 {
 	auto surf = TTF_RenderText_Blended (font, text.c_str(), color);
     auto tex = SDL_CreateTextureFromSurface(Engine::renderer, surf);
 	SDL_FreeSurface(surf);
     auto textW = 0, textH = 0;
 
-	SDL_QueryTexture(tex, NULL, NULL, &textW, &textH);
-	SDL_Rect dstrect = {Vector2::cordToPixelX(position.x) - textW * fontSize / 2, Vector2::cordToPixelY(position.y) - textH * fontSize / 2, textW * fontSize, textH * fontSize };
+	SDL_QueryTexture(tex, nullptr, nullptr, &textW, &textH);
+	SDL_Rect dstRect = {Vector2::cordToPixelX(position.x) - textW * fontSize / 2, Vector2::cordToPixelY(position.y) - textH * fontSize / 2, textW * fontSize, textH * fontSize };
 
-	SDL_RenderCopy(Engine::renderer, tex, NULL, &dstrect);
+	SDL_RenderCopy(Engine::renderer, tex, nullptr, &dstRect);
 
 	SDL_DestroyTexture(tex);
 }
