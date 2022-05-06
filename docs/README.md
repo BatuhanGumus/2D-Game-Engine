@@ -17,6 +17,7 @@ The features listed below are almost identical to their Unity counterparts. To s
   - Text (SDL2_text for UI)
   - Debug
   - Input
+  - Random
 - Contains essential components like;
   - Sprite Renderer
   - Box collider and RigidBody for **collision detection**
