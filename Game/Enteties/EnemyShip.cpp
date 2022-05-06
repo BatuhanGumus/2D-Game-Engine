@@ -1,5 +1,4 @@
 #include "EnemyShip.h"
-#include "cstdlib"
 #include "GameTime.h"
 #include "Laser.h"
 #include "SpriteRenderer.h"
@@ -13,7 +12,9 @@ EnemyShip::EnemyShip(Vector2* pos) : Ship()
 {
 	_maxHp = 3;
 	_hp = _maxHp;
-	
+	_timeSinceShot = 0;
+    _randTime = 0;
+
 	EnemyShipCount++;
 	_laserSprite = Sprite::GetSprite("EnemyLaser");
 	RandTimeForShot();
@@ -48,7 +49,7 @@ void EnemyShip::Update()
 	{
 		_timeSinceShot += GameTime::fixedDeltaTime;
 	}
-	else if (GameManager::instance->getGameState() == false)
+	else if (!GameManager::instance->getGameState())
 	{
 		_timeSinceShot = 0;
 		RandTimeForShot();
