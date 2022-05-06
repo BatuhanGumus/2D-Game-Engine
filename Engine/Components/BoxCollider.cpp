@@ -23,14 +23,16 @@ BoxCollider::BoxCollider(const Sprite* sprite) : Component()
 
 BoxCollider::BoxCollider()
 {
-
+    this->width = 0;
+    this->height = 0;
+    _initialized = true;
 }
 
 void BoxCollider::Start()
 {
-    if(_initialized == true) return;
+    if(_initialized) return;
 
-    SpriteRenderer* spriteRenderer = gameObject->GetComponent<SpriteRenderer>();
+    auto spriteRenderer = gameObject->GetComponent<SpriteRenderer>();
 
     if (spriteRenderer != nullptr)
     {
@@ -42,25 +44,24 @@ void BoxCollider::Start()
 
 
 BoxCollider::~BoxCollider()
-{
-}
+= default;
 
 void BoxCollider::Render()
 {
     if (Debug::DrawColliders)
     {
-        Color* red = new Color(255, 0, 0, 255);
+        auto red = new Color(255, 0, 0, 255);
 
-        auto Xpos = transform->position->x;
-        auto Ypos = transform->position->y;
+        auto posX = transform->position->x;
+        auto posY = transform->position->y;
         auto ToRight = width * transform->scale->x / 2;
         auto ToUp = height * transform->scale->y / 2;
 
-        Vector2** points = new Vector2*[4];
-        points[0] = new Vector2(Xpos + ToRight, Ypos + ToUp); // top right
-        points[1] = new Vector2(Xpos + ToRight, Ypos - ToUp); // bottom right
-        points[2] = new Vector2(Xpos - ToRight, Ypos - ToUp); // bottom left
-        points[3] = new Vector2(Xpos - ToRight, Ypos + ToUp); // top left
+        auto** points = new Vector2*[4];
+        points[0] = new Vector2(posX + ToRight, posY + ToUp); // top right
+        points[1] = new Vector2(posX + ToRight, posY - ToUp); // bottom right
+        points[2] = new Vector2(posX - ToRight, posY - ToUp); // bottom left
+        points[3] = new Vector2(posX - ToRight, posY + ToUp); // top left
 
         for (int i = 0; i < 4; ++i)
         {

@@ -9,12 +9,12 @@ namespace ArtemisEngine
     {
     public:
         BoxCollider(double width, double height);
-        BoxCollider(const Sprite* sprite);
+        explicit BoxCollider(const Sprite* sprite);
         BoxCollider();
-        virtual ~BoxCollider() override;
+        ~BoxCollider() override;
 
-        virtual void Start() override;
-        virtual void Render() override;
+        void Start() override;
+        void Render() override;
 
         double width;
         double height;
