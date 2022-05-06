@@ -22,7 +22,7 @@ namespace ArtemisEngine
 
         std::vector<Component*> components;
 
-        GameObject(std::string name = "GameObject", Transform* transform = new Transform(), GameObjectType type = GameObjectType::Default);
+        explicit GameObject(std::string name = "GameObject", Transform* transform = new Transform(), GameObjectType type = GameObjectType::Default);
         ~GameObject();
 
 
@@ -38,9 +38,9 @@ namespace ArtemisEngine
         template<typename type>
         type* GetComponent()
         {
-            for (int i = 0; i < components.size(); i++)
+            for (auto & component : components)
             {
-                type* comp = dynamic_cast<type*>(components[i]);
+                type* comp = dynamic_cast<type*>(component);
                 if (comp != nullptr)
                 {
                     return comp;
