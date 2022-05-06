@@ -2,6 +2,7 @@
 #include <cmath>
 #include "GameTime.h"
 #include <algorithm>
+#include <memory>
 
 using namespace ArtemisEngine;
 
@@ -61,10 +62,10 @@ void Physics::ApplyRules(RigidBody* body)
 
 void Physics::CheckCollision(RigidBody* body)
 {
-	auto mainPosX = body->gameObject->transform->position->x;
-    auto mainPosY = body->gameObject->transform->position->y;
-    auto mainToRight = body->collider->width * body->gameObject->transform->scale->x / 2;
-    auto mainToUp = body->collider->height * body->gameObject->transform->scale->y / 2;
+	const auto mainPosX = body->gameObject->transform->position->x;
+    const auto mainPosY = body->gameObject->transform->position->y;
+    const auto mainToRight = body->collider->width * body->gameObject->transform->scale->x / 2;
+    const auto mainToUp = body->collider->height * body->gameObject->transform->scale->y / 2;
 
     auto collided = false;
 
@@ -75,10 +76,10 @@ void Physics::CheckCollision(RigidBody* body)
 			continue;
 		}
 
-        auto posX = bodies[i]->transform->position->x;
-        auto posY = bodies[i]->transform->position->y;
-        auto ToRight = bodies[i]->collider->width * bodies[i]->transform->scale->x / 2;
-        auto ToUp = bodies[i]->collider->height * bodies[i]->transform->scale->y / 2;
+        const auto posX = bodies[i]->transform->position->x;
+        const auto posY = bodies[i]->transform->position->y;
+        const auto ToRight = bodies[i]->collider->width * bodies[i]->transform->scale->x / 2;
+        const auto ToUp = bodies[i]->collider->height * bodies[i]->transform->scale->y / 2;
 
 		for (int j = 0; j < 4; j++)
 		{
@@ -104,9 +105,9 @@ void Physics::CheckCollision(RigidBody* body)
 				break;
 			}
 
-            auto A1 = mainPoints[1]->y - mainPoints[0]->y;
-            auto B1 = mainPoints[0]->x - mainPoints[1]->x;
-            auto C1 = A1 * mainPoints[0]->x + B1 * mainPoints[0]->y;
+            const auto A1 = mainPoints[1]->y - mainPoints[0]->y;
+            const auto B1 = mainPoints[0]->x - mainPoints[1]->x;
+            const auto C1 = A1 * mainPoints[0]->x + B1 * mainPoints[0]->y;
 
 			for (int k = 0; k < 4; k++)
 			{
@@ -132,11 +133,11 @@ void Physics::CheckCollision(RigidBody* body)
 					break;
 				}
 
-                auto A2 = points[1]->y - points[0]->y;
-                auto B2 = points[0]->x - points[1]->x;
-                auto C2 = A2 * points[0]->x + B2 * points[0]->y;
+                const auto A2 = points[1]->y - points[0]->y;
+                const auto B2 = points[0]->x - points[1]->x;
+                const auto C2 = A2 * points[0]->x + B2 * points[0]->y;
 
-                auto det = A1 * B2 - A2 * B1;
+                const auto det = A1 * B2 - A2 * B1;
 
 				if (det == 0)
 				{
@@ -144,8 +145,8 @@ void Physics::CheckCollision(RigidBody* body)
 				}
 				else
 				{
-                    auto x = (B2 * C1 - B1 * C2) / det;
-                    auto y = (A1 * C2 - A2 * C1) / det;
+                    const auto x = (B2 * C1 - B1 * C2) / det;
+                    const auto y = (A1 * C2 - A2 * C1) / det;
 
 					if (
 						( abs(x - mainPoints[0]->x) <= 0.05 && abs(x - mainPoints[1]->x) <= 0.05 && 
