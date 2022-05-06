@@ -5,7 +5,7 @@ In this repo you can also find an example Space Invaders type game.
 
 ----
 
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](/LICENSEE)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](/LICENSE)
 
 ### Features
 The features listed below are almost identical to their Unity counterparts. To see what is different, please refer to the [Seting Up a Game and Differences to Unity](#seting-up-a-game-and-differences-to-unity) section.
