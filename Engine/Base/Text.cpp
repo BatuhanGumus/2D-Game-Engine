@@ -12,14 +12,7 @@ Text::Text(std::string text, SDL_Color color, std::string fontName, int fontSize
 	this->fontSize = fontSize;
 	this->position = position;
 
-	for (auto font : FontManager::fonts)
-	{
-		if (fontName == font.name)
-		{
-			this->font = font.file;
-			break;
-		}
-	}
+    this->font = FontManager::GetFont(fontName);
 
 	Engine::textsToRender.push_back(this);
 }

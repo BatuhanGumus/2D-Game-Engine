@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include "GameObject.h"
 #include <iostream>
+#include <utility>
 
 using namespace ArtemisEngine;
 
@@ -8,7 +9,7 @@ GameObject::GameObject(std::string name, Transform* transform, GameObjectType ty
 {
     this->transform = transform;
 
-    this->name = name;
+    this->name = std::move(name);
     this->type = type;
 
     Engine::GameObjectCreated(this);
@@ -16,33 +17,33 @@ GameObject::GameObject(std::string name, Transform* transform, GameObjectType ty
 
 void GameObject::OnTrigger(GameObject* other)
 {
-    for (int i = 0; i < components.size(); ++i) {
-        components[i]->OnTrigger(other);
+    for (auto & component : components) {
+        component->OnTrigger(other);
     }
 }
 
 void GameObject::OnTriggerEnter(GameObject* other)
 {
-    for (int i = 0; i < components.size(); i++)
+    for (auto & component : components)
     {
-       components[i]->OnTriggerEnter(other);
+       component->OnTriggerEnter(other);
     }
 }
 
 void GameObject::OnTriggerExit(GameObject* other)
 {
-    for (int i = 0; i < components.size(); i++)
+    for (auto & component : components)
     {
-        components[i]->OnTriggerExit(other);
+        component->OnTriggerExit(other);
     }
 }
 
 
 GameObject::~GameObject()
 {
-    for (int i = 0; i < components.size(); i++)
+    for (auto & component : components)
     {
-        delete components[i];
+        delete component;
     }
 
 	delete transform;
@@ -50,17 +51,17 @@ GameObject::~GameObject()
 
 void GameObject::UpdateComponents()
 {
-    for (int i = 0; i < components.size(); i++)
+    for (auto & component : components)
     {
-        components[i]->Update();
+        component->Update();
     }
 }
 
 void GameObject::RenderComponents()
 {
-    for (int i = 0; i < components.size(); i++)
+    for (auto & component : components)
     {
-        components[i]->Render();
+        component->Render();
     }
 }
 

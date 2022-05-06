@@ -4,7 +4,7 @@
 
 using namespace ArtemisEngine;
 
-std::vector<Font> FontManager::fonts;
+std::vector<Font> FontManager::_fonts;
 
 void FontManager::LoadFont(const char* fontName, const char* file, int fontSize)
 {
@@ -12,14 +12,27 @@ void FontManager::LoadFont(const char* fontName, const char* file, int fontSize)
 	add.name = fontName;
 	add.file = TTF_OpenFont(file, fontSize);
 
-	if (add.file == NULL)
+	if (add.file == nullptr)
 	{
         Debug::Log("Error lading font: " + std::string(fontName), Debug::Warning);
 	}
 	else
 	{
-		fonts.push_back(add);
+		_fonts.push_back(add);
 	}
 	
+}
+
+TTF_Font *FontManager::GetFont(const std::string& name)
+{
+    for (const auto &font : FontManager::_fonts)
+    {
+        if (name == font.name)
+        {
+            return font.file;
+        }
+    }
+
+    return nullptr;
 }
 
