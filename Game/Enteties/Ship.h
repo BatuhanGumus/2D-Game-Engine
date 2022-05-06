@@ -9,7 +9,7 @@ class Ship : public Component
 {
 public:
 	Ship();
-	~Ship();
+	~Ship() override;
 	virtual void Damage(int dmg) = 0;
     RigidBody* rigidBody;
 protected:
