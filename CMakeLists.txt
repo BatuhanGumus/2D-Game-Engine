@@ -7,7 +7,7 @@ include_directories(Engine)
 include_directories(Engine/Base)
 include_directories(Engine/Components)
 include_directories(Game)
-include_directories(Game/Enteties)
+include_directories(Game/Entities)
 
 set(SDL2_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/Libraries/SDL2/include)
 set(SDL2_LIB_DIR ${CMAKE_SOURCE_DIR}/Libraries/SDL2/lib/x64)
@@ -53,14 +53,14 @@ add_executable(2D_Game_Engine
         Engine/Components/BoxCollider.h
         Engine/Components/RigidBody.cpp
         Engine/Components/RigidBody.h
-        Game/Enteties/EnemyShip.cpp
-        Game/Enteties/EnemyShip.h
-        Game/Enteties/Laser.cpp
-        Game/Enteties/Laser.h
-        Game/Enteties/PlayerShip.cpp
-        Game/Enteties/PlayerShip.h
-        Game/Enteties/Ship.cpp
-        Game/Enteties/Ship.h
+        Game/Entities/EnemyShip.cpp
+        Game/Entities/EnemyShip.h
+        Game/Entities/Laser.cpp
+        Game/Entities/Laser.h
+        Game/Entities/PlayerShip.cpp
+        Game/Entities/PlayerShip.h
+        Game/Entities/Ship.cpp
+        Game/Entities/Ship.h
         Game/AssetLoader.cpp
         Game/GameManager.cpp
         Game/GameManager.h
@@ -73,7 +73,8 @@ add_executable(2D_Game_Engine
         Engine/Base/Debug.cpp
         Engine/Base/Debug.h
         Engine/Base/Event.h
-        Engine/Base/Random.cpp Engine/Base/Random.h)
+        Engine/Base/Random.cpp
+        Engine/Base/Random.h)
 
 target_link_libraries(${PROJECT_NAME} SDL2main SDL2 SDL2_image SDL2_ttf)
 

@@ -1,8 +1,8 @@
 #include "Engine.h"
 #include "GameManager.h"
 
-#include "Enteties/EnemyShip.h"
-#include "Enteties/PlayerShip.h"
+#include "EnemyShip.h"
+#include "PlayerShip.h"
 
 #include <iostream>
 #include "Input.h"
