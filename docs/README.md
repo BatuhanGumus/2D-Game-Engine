@@ -82,12 +82,12 @@ void Engine::Awake()
 
 ```cpp
 virtual void Start();
-virtual void  Update();
-virtual void  Render();
+virtual void Update();
+virtual void Render();
 
 virtual void OnTrigger(GameObject* other);
 virtual void OnTriggerEnter(GameObject* other);
-virtual void  OnTriggerExit(GameObject* other);
+virtual void OnTriggerExit(GameObject* other);
 ```
 
 ### Text Creation
