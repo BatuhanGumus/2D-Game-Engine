@@ -2,6 +2,8 @@
 #include <vector>
 #include "RigidBody.h"
 #include <queue>
+#include <memory>
+
 
 namespace ArtemisEngine
 {
@@ -13,8 +15,6 @@ namespace ArtemisEngine
 
         static std::vector<RigidBody*> bodies;
         static std::queue<RigidBody*> bodiesToAdd;
-        //static std::queue<RigidBody*> bodiesToRemove;
-
 
         static void RigidBodyCreated(RigidBody* rigidBody);
         static void RigidBodyDeleted(RigidBody* rigidBody);
@@ -25,8 +25,9 @@ namespace ArtemisEngine
     private:
         void ApplyPhysics(RigidBody* body);
         void ApplyRules(RigidBody* body) const;
-        void CheckCollision(RigidBody* body);
-        double _gravity = -9.81;
+        void CheckCollision();
+        void CheckCollisionOld(RigidBody* body1);
+        Vector2 _gravity = Vector2(0, -9.81);
     };
 }
 
