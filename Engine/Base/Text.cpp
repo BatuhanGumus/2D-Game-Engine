@@ -35,7 +35,7 @@ void Text::Render() const
     auto textW = 0, textH = 0;
 
 	SDL_QueryTexture(tex, nullptr, nullptr, &textW, &textH);
-	SDL_Rect dstRect = {Vector2::cordToPixelX(position.x) - textW * fontSize / 2, Vector2::cordToPixelY(position.y) - textH * fontSize / 2, textW * fontSize, textH * fontSize };
+	SDL_Rect dstRect = {Vector2::CordToPixelX(position.x) - textW * fontSize / 2, Vector2::CordToPixelY(position.y) - textH * fontSize / 2, textW * fontSize, textH * fontSize };
 
 	SDL_RenderCopy(Engine::renderer, tex, nullptr, &dstRect);
 

@@ -19,12 +19,12 @@ Vector2::Vector2(const Vector2& copyVec)
 	this->y = copyVec.y;
 }
 
-int Vector2::cordToPixelX(double cord)
+int Vector2::CordToPixelX(double cord)
 {
 	return  std::floor(cord * Engine::pixW / 8.0 + Engine::pixW / 2.0);
 }
 
-int Vector2::cordToPixelY(double cord)
+int Vector2::CordToPixelY(double cord)
 {
 	return  std::floor(Engine::pixH / 2.0 - cord * Engine::pixH / 6.0);
 }

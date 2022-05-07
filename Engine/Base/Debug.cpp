@@ -29,10 +29,10 @@ void Debug::DrawLine(const Vector2* p1, const Vector2* p2, const Color* color)
     SDL_SetRenderDrawColor(Engine::renderer, color->r, color->g, color->b, color->a);
 
     int ret = SDL_RenderDrawLine(Engine::renderer,
-                                 Vector2::cordToPixelX(p1->x),
-                                 Vector2::cordToPixelY(p1->y),
-                                 Vector2::cordToPixelX(p2->x),
-                                 Vector2::cordToPixelY(p2->y));
+                                 Vector2::CordToPixelX(p1->x),
+                                 Vector2::CordToPixelY(p1->y),
+                                 Vector2::CordToPixelX(p2->x),
+                                 Vector2::CordToPixelY(p2->y));
 
     if (ret < 0) Log(SDL_GetError(), Warning);
 

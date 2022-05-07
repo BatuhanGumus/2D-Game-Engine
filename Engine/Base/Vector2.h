@@ -11,8 +11,8 @@ namespace ArtemisEngine
 
         double x, y;
 
-        static int cordToPixelX(double cord);
-        static int cordToPixelY(double cord);
+        static int CordToPixelX(double cord);
+        static int CordToPixelY(double cord);
 
         static double Distance(const Vector2& p1, const Vector2& p2);
         static Vector2& Normalize(Vector2& vec);

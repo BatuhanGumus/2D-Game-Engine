@@ -33,10 +33,10 @@ void SpriteRenderer::setDestRec()
     _destRect.w = std::floor(sprite->pixelW * transform->scale->x * Engine::pixW / 800.0);
     _destRect.h = std::floor(sprite->pixelH * transform->scale->y * Engine::pixH / 600.0);
 
-    _destRect.x = std::floor( Vector2::cordToPixelX(gameObject->transform->position->x)
+    _destRect.x = std::floor( Vector2::CordToPixelX(gameObject->transform->position->x)
             - _srcRect.w * gameObject->transform->scale->x * (Engine::pixW / 800.0) / 2);
 
-    _destRect.y = std::floor( Vector2::cordToPixelY(gameObject->transform->position->y)
+    _destRect.y = std::floor( Vector2::CordToPixelY(gameObject->transform->position->y)
             - _srcRect.h * gameObject->transform->scale->y * (Engine::pixH / 600.0) / 2);
 }
 
