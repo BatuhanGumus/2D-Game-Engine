@@ -163,10 +163,18 @@ void Physics::CheckCollision()
 
 void Physics::CheckCollisionOld(RigidBody* body1)
 {
-	const auto mainPosX = body1->gameObject->transform->position->x;
-    const auto mainPosY = body1->gameObject->transform->position->y;
-    const auto mainToRight = body1->collider->width * body1->gameObject->transform->scale->x / 2;
-    const auto mainToUp = body1->collider->height * body1->gameObject->transform->scale->y / 2;
+	const auto body1PosX = body1->gameObject->transform->position->x;
+    const auto body1PosY = body1->gameObject->transform->position->y;
+    const auto body1ToRight = body1->collider->width * body1->gameObject->transform->scale->x / 2;
+    const auto body1ToUp = body1->collider->height * body1->gameObject->transform->scale->y / 2;
+
+    std::unique_ptr<const Vector2> body1Points[] =
+            {
+                    std::make_unique<const Vector2>(body1PosX + body1ToRight, body1PosY + body1ToUp), // top right
+                    std::make_unique<const Vector2>(body1PosX + body1ToRight, body1PosY - body1ToUp), // bottom right
+                    std::make_unique<const Vector2>(body1PosX - body1ToRight, body1PosY - body1ToUp), // bottom left
+                    std::make_unique<const Vector2>(body1PosX - body1ToRight, body1PosY + body1ToUp), // top left
+            };
 
     auto collided = false;
 
@@ -177,66 +185,32 @@ void Physics::CheckCollisionOld(RigidBody* body1)
 			continue;
 		}
 
-        const auto posX = otherBody->transform->position->x;
-        const auto posY = otherBody->transform->position->y;
-        const auto ToRight = otherBody->collider->width * otherBody->transform->scale->x / 2;
-        const auto ToUp = otherBody->collider->height * otherBody->transform->scale->y / 2;
+        const auto body2PosX = otherBody->transform->position->x;
+        const auto body2PosY = otherBody->transform->position->y;
+        const auto body2ToRight = otherBody->collider->width * otherBody->transform->scale->x / 2;
+        const auto body2ToUp = otherBody->collider->height * otherBody->transform->scale->y / 2;
+
+        std::unique_ptr<const Vector2> body2Points[] =
+                {
+                        std::make_unique<const Vector2>(body2PosX + body2ToRight, body2PosY + body2ToUp), // top right
+                        std::make_unique<const Vector2>(body2PosX + body2ToRight, body2PosY - body2ToUp), // bottom right
+                        std::make_unique<const Vector2>(body2PosX - body2ToRight, body2PosY - body2ToUp), // bottom left
+                        std::make_unique<const Vector2>(body2PosX - body2ToRight, body2PosY + body2ToUp), // top left
+                };
 
 		for (int j = 0; j < 4; j++)
 		{
-			auto** mainPoints = new Vector2*[2];
-
-			switch (j)
-			{
-			case 0:
-				mainPoints[0] = new Vector2(mainPosX + mainToRight, mainPosY + mainToUp); // top right
-				mainPoints[1] = new Vector2(mainPosX + mainToRight, mainPosY - mainToUp); // bottom right
-				break;
-			case 1:
-				mainPoints[0] = new Vector2(mainPosX + mainToRight, mainPosY - mainToUp); // bottom right
-				mainPoints[1] = new Vector2(mainPosX - mainToRight, mainPosY - mainToUp); // bottom left
-				break;
-			case 2:
-				mainPoints[0] = new Vector2(mainPosX - mainToRight, mainPosY - mainToUp); // bottom left
-				mainPoints[1] = new Vector2(mainPosX - mainToRight, mainPosY + mainToUp); // top left
-				break;
-			case 3:
-				mainPoints[0] = new Vector2(mainPosX - mainToRight, mainPosY + mainToUp); // top left
-				mainPoints[1] = new Vector2(mainPosX + mainToRight, mainPosY + mainToUp); // top right
-				break;
-			}
-
-            const auto A1 = mainPoints[1]->y - mainPoints[0]->y;
-            const auto B1 = mainPoints[0]->x - mainPoints[1]->x;
-            const auto C1 = A1 * mainPoints[0]->x + B1 * mainPoints[0]->y;
+            const auto jNext = (j + 1) % 4;
+            const auto A1 = body1Points[jNext]->y - body1Points[j]->y;
+            const auto B1 = body1Points[j]->x - body1Points[jNext]->x;
+            const auto C1 = A1 * body1Points[j]->x + B1 * body1Points[j]->y;
 
 			for (int k = 0; k < 4; k++)
 			{
-				auto** points = new Vector2*[2];
-
-				switch (k)
-				{
-				case 0:
-					points[0] = new Vector2(posX + ToRight, posY + ToUp); // top right
-					points[1] = new Vector2(posX + ToRight, posY - ToUp); // bottom right
-					break;
-				case 1:
-					points[0] = new Vector2(posX + ToRight, posY - ToUp); // bottom right
-					points[1] = new Vector2(posX - ToRight, posY - ToUp); // bottom left
-					break;
-				case 2:
-					points[0] = new Vector2(posX - ToRight, posY - ToUp); // bottom left
-					points[1] = new Vector2(posX - ToRight, posY + ToUp); // top left
-					break;
-				case 3:
-					points[0] = new Vector2(posX - ToRight, posY + ToUp); // top left
-					points[1] = new Vector2(posX + ToRight, posY + ToUp); // top right
-					break;
-				}
-
-                const auto A2 = points[1]->y - points[0]->y;
-                const auto B2 = points[0]->x - points[1]->x;
-                const auto C2 = A2 * points[0]->x + B2 * points[0]->y;
+                const auto kNext = (k + 1) % 4;
+                const auto A2 = body2Points[kNext]->y - body2Points[k]->y;
+                const auto B2 = body2Points[k]->x - body2Points[kNext]->x;
+                const auto C2 = A2 * body2Points[k]->x + B2 * body2Points[k]->y;
 
                 const auto det = A1 * B2 - A2 * B1;
 
@@ -250,17 +224,17 @@ void Physics::CheckCollisionOld(RigidBody* body1)
                     const auto y = (A1 * C2 - A2 * C1) / det;
 
 					if (
-						( abs(x - mainPoints[0]->x) <= 0.05 && abs(x - mainPoints[1]->x) <= 0.05 &&
-						((mainPoints[0]->y <= y && y <= mainPoints[1]->y) || (mainPoints[1]->y <= y && y <= mainPoints[0]->y)))
+						( abs(x - body1Points[j]->x) <= 0.05 && abs(x - body1Points[jNext]->x) <= 0.05 &&
+						((body1Points[j]->y <= y && y <= body1Points[jNext]->y) || (body1Points[jNext]->y <= y && y <= body1Points[j]->y)))
 						&&
-						(abs(y - points[0]->y) <= 0.05 && abs(y - points[1]->y) <= 0.05 &&
-						((points[0]->x <= x && x <= points[1]->x) || (points[1]->x <= x && x <= points[0]->x)))
+						(abs(y - body2Points[k]->y) <= 0.05 && abs(y - body2Points[kNext]->y) <= 0.05 &&
+						((body2Points[k]->x <= x && x <= body2Points[kNext]->x) || (body2Points[kNext]->x <= x && x <= body2Points[k]->x)))
 						||
-						(abs(y - mainPoints[0]->y) <= 0.05 && abs(y - mainPoints[1]->y) <= 0.05 &&
-						((mainPoints[0]->x <= x && x <= mainPoints[1]->x) || (mainPoints[1]->x <= x && x <= mainPoints[0]->x)))
+						(abs(y - body1Points[j]->y) <= 0.05 && abs(y - body1Points[jNext]->y) <= 0.05 &&
+						((body1Points[j]->x <= x && x <= body1Points[jNext]->x) || (body1Points[jNext]->x <= x && x <= body1Points[j]->x)))
 						&&
-						(abs(x - points[0]->x) <= 0.05 && abs(x - points[1]->x) <= 0.05 &&
-						((points[0]->y <= y && y <= points[1]->y) || (points[1]->y <= y && y <= points[0]->y)))
+						(abs(x - body2Points[k]->x) <= 0.05 && abs(x - body2Points[kNext]->x) <= 0.05 &&
+						((body2Points[k]->y <= y && y <= body2Points[kNext]->y) || (body2Points[kNext]->y <= y && y <= body2Points[k]->y)))
 						)
 					{
 						if (!collided)
@@ -272,22 +246,12 @@ void Physics::CheckCollisionOld(RigidBody* body1)
 					}
 				}
 
-				for (int v = 0; v < 2; v++)
-				{
-					delete points[v];
-				}
-
 				if (collided)
 				{
 					break;
 				}
 
 			} // end of other objects corners
-
-			for (int c = 0; c < 2; c++)
-			{
-				delete mainPoints[c];
-			}
 
 		} // end of main objects corners
 
