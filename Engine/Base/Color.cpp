@@ -16,6 +16,11 @@ Color::Color()
     this->a = 1;
 }
 
+Color::Color(Uint8 r, Uint8 g, Uint8 b) : Color(r, g, b, 1)
+{
+
+}
+
 /*
 
 Color::Color(float r, float g, float b, float a)

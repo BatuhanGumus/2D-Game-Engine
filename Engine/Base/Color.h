@@ -11,6 +11,7 @@ public:
     Uint8 a;
 
     Color(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
+    Color(Uint8 r, Uint8 g, Uint8 b);
     Color();
     //Color(float r, float g, float b, float a);
 };
